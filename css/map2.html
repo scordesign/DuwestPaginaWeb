@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo de Colombia</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-Qj8t8VIUStq/IiZIjW2v5lB7v59eUD4rV1oB0pTs8+Q7V2y0k26l3TltQvQshlxSW1cI5kUqU7F0e7C3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-y1Ct68dN3f0qGFj/2y03i4o13i8jZ5gV8A5uEA0+b6k67D9tU6V4r22U3v5A2r4h573066z9u/i" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-cA7zJat2tQS2qd8zUH7sAviT113zKCnJ3fnyer53qAMjlf94cQvZH6CWNSO6fI/p" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="mapid" style="width: 100%; height: 500px"></div>
+
+    <script>
+        // ... Tu código JavaScript personalizado ...
+        // Definir el mapa
+var map = L.map('mapid').setView([4.570868, -74.297502], 6);
+
+// Cargar datos geográficos de Colombia (en formato GeoJSON)
+L.geoJSON("https://raw.githubusercontent.com/scordesign/DuwestPage/main/colombia.geo.json").addTo(map);
+
+// Estilo predeterminado para las regiones
+var defaultStyle = {
+    color: '#ccc',
+    fillOpacity: 0.5,
+    weight: 1
+};
+
+// Función para resaltar la región al pasar el mouse
+function highlightRegion(feature) {
+    feature.setStyle({
+        color: '#007bff',
+        fillOpacity: 0.8,
+        weight: 2
+    });
+}
+
+// Función para restablecer el estilo de la región al salir del mouse
+function resetRegionStyle(feature) {
+    feature.setStyle(defaultStyle);
+}
+
+// Agregar eventos de mouse a las regiones
+L.geoJSON(dataColombia).eachLayer(function(layer) {
+    layer.on('mouseover', function(e) {
+        highlightRegion(e.target);
+
+        // Mostrar información de la región (opcional)
+        var regionName = e.target.feature.properties.nombre;
+        var regionInfo = '<div class="tooltip">' + regionName + '</div>';
+        $(layer._leaflet_id).tooltip({
+            content: regionInfo,
+            position: 'right'
+        });
+    });
+
+    layer.on('mouseout', function(e) {
+        resetRegionStyle(e.target);
+        $(layer._leaflet_id).tooltip('hide');
+    });
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "@john-guerra/geojson-colombia",
+  "main": "62ea0a3b121a366c@40.js",
+  "version": "40.0.0",
+  "homepage": "https://observablehq.com/@john-guerra/geojson-colombia",
+  "author": {
+    "name": "John Alexis Guerra Gómez",
+    "url": "https://observablehq.com/@john-guerra"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}

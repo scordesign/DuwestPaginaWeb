@@ -1,0 +1,30 @@
+<!DOCTYPE html >
+<meta charset="utf-8">
+<title>GeoJson Colombia</title>
+<!-- <link rel="stylesheet" type="text/css" href="./inspector.css"> -->
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+
+<body style="overflow: hidden;">
+    <script type="module">
+
+        import define from "./index.js";
+        import { Runtime, Library, Inspector } from "./runtime.js";
+
+        const runtime = new Runtime();
+        const main = runtime.module(define, Inspector.into(document.body));
+
+    </script>
+ <div class="department-info" id="department-info">
+    
+ </div>
+ <div class="department-info-title" id="department-info-title">
+    <h2>RED NACIONAL COMERCIAL</h2>
+ </div>
+
+    <style>
+        .observablehq--inspect{
+    display: none!important;
+}
+    </style>
