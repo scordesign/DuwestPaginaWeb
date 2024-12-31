@@ -3113,8 +3113,20 @@ height: 24%;
 
     .politica {
 
-        top: 17%;
-        font-size: 17px;
+        top: 15%;
+        font-size: 15px;
+
+    }
+    .politica1 {
+
+        top: 22%;
+        font-size: 15px;
+
+    }
+    .politica2 {
+
+        top: 29%;
+        font-size: 15px;
 
     }
 
@@ -3151,6 +3163,9 @@ height: 24%;
     }
     .mision1{
         top: -5%;
+    }
+    .mision h3{
+        font-size: 24px;
     }
     .parrafo-mision{
         top: 0%;
