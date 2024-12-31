@@ -3105,8 +3105,8 @@ height: 24%;
 
     .title-vision {
 
-        top: 17%;
-        font-size: 27px;
+        top: 12%;
+        font-size: 24px;
         font-family: 'Lemon Milk';
 
     }
@@ -3120,12 +3120,19 @@ height: 24%;
 
     .vision {
 
-        top: 20%;
+        top: -3%;
         background-color: rgba(0, 139, 58, 0.6);
-        font-size: 27px;
+        font-size: 24px;
 
     }
+    .vision h3{
+        font-size: 24px;
+    }
 
+    .parrafo-vision{
+        top: 2%;
+        padding-top: 1%;
+    }
     .parrafo-vision p {
 
         font-size: 1.1rem;
@@ -3139,7 +3146,17 @@ height: 24%;
         text-align: center;
         margin-bottom: 0;
     }
-
+    .foto-mision{
+        width: 43%;
+    }
+    .mision1{
+        top: -5%;
+    }
+    .parrafo-mision{
+        top: 0%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
     .popup-content {
 
         top: 45%;
