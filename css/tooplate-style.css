@@ -1170,7 +1170,7 @@ footer a {
 
 .title-vision {
     position: relative;
-    top: 15%;
+    top: 12%;
     background-color: rgba(0, 139, 58, 0.6);
     color: white;
     text-transform: uppercase;
@@ -1216,7 +1216,7 @@ footer a {
 .vision {
     backdrop-filter: blur(10px);
     position: relative;
-    top: 20%;
+    top: 5%;
     background-color: rgba(0, 139, 58, 0.6);
     color: white;
     text-transform: uppercase;
@@ -1233,10 +1233,18 @@ footer a {
 
 
 }
+.foto-mision{
+    position: absolute;
+    top: 55%;
+    width: 45%;
+}
 
+.foto-mision img{
+    width: 100%;
+}
 .parrafo-vision {
     position: relative;
-    top: 22%;
+    top: 8%;
     background-color: rgba(73, 71, 69, 0.6);
     color: white;
     height: auto;
