@@ -405,7 +405,8 @@ p:last-child {
 }
 
 .productCarrusel{
-        margin-top: 1.5vh;
+    margin-top: -1vh;
+    right: -40%;
 }
 
 .imagenProducto img{
@@ -1189,7 +1190,7 @@ footer a {
 
 .mision1 {
     position: relative;
-    top: 20%;
+    top: 18%;
     background-color: rgba(0, 139, 58, 0.52);
     color: white;
     text-transform: uppercase;
@@ -1305,9 +1306,9 @@ footer a {
     position: fixed;
     left: 70%;
     /* position: relative; */
-    top: 20%;
+    top: 12%;
     /* right: 10%; */
-    background-color: rgba(0, 139, 58, 0.6);
+    background-color: #68AF59;
     color: white;
     height: auto;
     border-radius: 10px;
@@ -1326,9 +1327,9 @@ footer a {
     position: fixed;
     left: 70%;
     /* position: relative; */
-    top: 25%;
+    top: 18%;
     /* right: 10%; */
-    background-color: rgba(0, 139, 58, 0.6);
+    background-color: #68AF59;
     color: white;
     height: auto;
     border-radius: 10px;
@@ -1347,9 +1348,9 @@ footer a {
     position: fixed;
     left: 70%;
     /* position: relative; */
-    top: 30%;
+    top: 24%;
     /* right: 10%; */
-    background-color: rgba(0, 139, 58, 0.6);
+    background-color: #68AF59;
     color: white;
     height: auto;
     border-radius: 10px;
@@ -1408,9 +1409,11 @@ footer a {
 
 .close-btn {
     position: absolute;
-    top: 10px;
+    top: -20px;
     right: 10px;
     cursor: pointer;
+    font-size: 70px;
+    color:#006838;
 }
 
 .popup-content p {
@@ -1610,7 +1613,7 @@ footer a {
 
 #fatherProductModal #whatsmobile{
     bottom: 27%;
-    right: 26%;
+    left: 26%;
 }
 
 .popup-content1 p {
@@ -2570,17 +2573,20 @@ button {
     max-width: 100%;
 }
 
+
 .divProduct p {
     margin: 0px;
     /* font-size: 15px; */
     color: rgba(107, 107, 106, 1);
-    line-height: calc(0.8 + 0.8);
+    line-height: calc(0 + 0.8);
 }
 
 .titleProduct{
     font-weight: bold;
     font-family: 'Lemon Milk';
     font-size: calc(0.8vh + 0.7vw) ;
+    padding-bottom: 1%;
+    padding-top: 1%;
 }
 
 .ProveedorImg {
@@ -2594,16 +2600,18 @@ button {
     margin-bottom: 1.5vh;
 }
 
-.textProduct{
-    font-size: calc(0.7vh + 0.6vw) ;
+.textProduct {
+    font-size: calc(0.5vh + 0.6vw);
     overflow: hidden;
-    height: 7vh;
+    height: 12vh;
 }
 
+
 .divProduct a {
-    font-size: calc(0.7vh + 0.6vw) ;
-    color: rgba(107, 107, 106, 1) !important;
+    font-size: calc(0.9vh + 0.6vw);
+    color: rgba(104, 175, 89, 1) !important;
     text-decoration: underline !important;
+    font-weight: bold;
 }
 
 
@@ -2676,14 +2684,15 @@ button {
 
 #infoProductAmount{
     color: rgba(55, 130, 82, 1);
-    font-size: calc(0.8vh + 0.8vw);
+    font-size: calc(0.63vh + 0.63vw);
     line-height: calc(0.8vh + 0.8vw);
     font-weight: bold;
+    margin-bottom: 0%;
 }
 
 #infoProduct .filtersProduct {
     color: rgba(55, 130, 82, 1);
-    font-size: calc(0.8vh + 0.8vw);
+    font-size: calc(0.63vh + 0.63vw);
     line-height: calc(0.8vh + 0.8vw);
     font-weight: bold;
 }
@@ -2932,6 +2941,7 @@ height: 24%;
 
     .tm-main-nav a {
         padding-right: 10px;
+        text-decoration: underline;
     }
 
     .tm-content {
@@ -3142,7 +3152,7 @@ height: 24%;
     }
 
     .parrafo-vision{
-        top: 2%;
+        top: -1%;
         padding-top: 1%;
     }
     .parrafo-vision p {
