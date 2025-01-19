@@ -148,7 +148,7 @@ function getNews( search, page) {
 
                 if ($(window).width() <= 600) {
                     // Cambiar la fuente de la imagen para pantallas más pequeñas
-                    divTwo.attr("style","background: linear-gradient(0deg,  rgba(1, 1, 1, 0.8) 0% , rgba(255, 255, 255, 0) 100%),url(\""+(element.images == null ? "" : element.images.length == 0 ? "" : element.images[0])+"\");");
+                    divTwo.attr("style","background: linear-gradient(0deg,  rgba(1, 1, 1, 0.8) 0% , rgba(255, 255, 255, 0) 50% , rgba(255, 255, 255, 0) 100%),url(\""+(element.images == null ? "" : element.images.length == 0 ? "" : element.images[0])+"\");");
                 } 
                 
                 divOne.append($("<img>").attr("src", element.images == null ? "" : element.images.length == 0 ? "" : element.images[0]));

@@ -9,65 +9,65 @@ $(function () {
 
 let imagesProducts = [];
 
-function closeImgProd ( idProd  ) {
+function closeImgProd(idProd) {
     $("#modalBackgroundImgProd").toggleClass("hide");
     $("#formModalImgProd").html("");
     getProduct(idProd);
 }
 
-function imgProduct(idImg , idProd  ) {
+function imgProduct(idImg, idProd) {
     $("#modalBackground").toggleClass("hide");
     $("#formModal").html("");
-    
+
     $("#formModalImgProd").html("");
-    $("#closeModalImgProd").attr("onclick","closeImgProd("+idProd+")");
+    $("#closeModalImgProd").attr("onclick", "closeImgProd(" + idProd + ")");
     if ($("#modalBackgroundImgProd").hasClass("hide")) {
         $("#modalBackgroundImgProd").toggleClass("hide");
     }
 
     var div = $("<div>").attr("id", "fatherImgProdModal").addClass("noClose");
-    
-            var divCarrusel = $("<div>").attr("id", "myCarouselNew").attr("class", "carousel carouselImgProduct").attr("data-ride", "carousel").addClass("noClose");
+
+    var divCarrusel = $("<div>").attr("id", "myCarouselNew").attr("class", "carousel carouselImgProduct").attr("data-ride", "carousel").addClass("noClose");
 
 
-            var divCarruselinner = $("<div>").attr("class", "carousel-inner").addClass("noClose");
-            
-    
-            var i = 0;
-            imagesProducts.forEach(element => {
-                var divCarruselinnerItem = $("<div>").attr("class", "carousel-item imgDivProduct " + (i == idImg ? "active" : "")).attr("id", "carousel-item" + i).addClass("noClose");
-                divCarruselinnerItem.append($("<img>").attr("class", "d-block imgProduct ").attr("src", element).attr("alt", "imagen " + i).addClass("noClose"));
-                divCarruselinner.append(divCarruselinnerItem);
-                i++;
-            });
-            divCarrusel.append(divCarruselinner);
-            
-            // carrusel de direccion 
-
-            var divCarruselDirection = $("<div>").attr("id", "CarruselDirection").addClass("noClose");
-
-            var aCarruselPrev = $("<a>").attr("id", "carousel-prev").attr("onclick", "prevNewIMg(0)").addClass("noClose");
-            aCarruselPrev.html("<");
+    var divCarruselinner = $("<div>").attr("class", "carousel-inner").addClass("noClose");
 
 
+    var i = 0;
+    imagesProducts.forEach(element => {
+        var divCarruselinnerItem = $("<div>").attr("class", "carousel-item imgDivProduct " + (i == idImg ? "active" : "")).attr("id", "carousel-item" + i).addClass("noClose");
+        divCarruselinnerItem.append($("<img>").attr("class", "d-block imgProduct ").attr("src", element).attr("alt", "imagen " + i).addClass("noClose"));
+        divCarruselinner.append(divCarruselinnerItem);
+        i++;
+    });
+    divCarrusel.append(divCarruselinner);
 
-            var aCarruselNext = $("<a>").attr("id", "carousel-next").attr("onclick", "nextNewIMg(0)").addClass("noClose");
-            aCarruselNext.html(">");
+    // carrusel de direccion 
 
-            divCarruselDirection.append(aCarruselPrev);
+    var divCarruselDirection = $("<div>").attr("id", "CarruselDirection").addClass("noClose");
 
-            divCarruselDirection.append($("<img>").attr("id", "img-carrusel").attr("src","img/61-camera-outline.gif"));
+    var aCarruselPrev = $("<a>").attr("id", "carousel-prev").attr("onclick", "prevNewIMg(0)").addClass("noClose");
+    aCarruselPrev.html("<");
 
-            divCarruselDirection.append(aCarruselNext);
-    
+
+
+    var aCarruselNext = $("<a>").attr("id", "carousel-next").attr("onclick", "nextNewIMg(0)").addClass("noClose");
+    aCarruselNext.html(">");
+
+    divCarruselDirection.append(aCarruselPrev);
+
+    divCarruselDirection.append($("<img>").attr("id", "img-carrusel").attr("src", "img/61-camera-outline.gif"));
+
+    divCarruselDirection.append(aCarruselNext);
+
     div.append(divCarrusel);
     div.append(divCarruselDirection);
-    
-    
-    $("#formModalImgProd").append(div);
-    
 
-    
+
+    $("#formModalImgProd").append(div);
+
+
+
 }
 
 function searchCell(param) {
@@ -155,7 +155,7 @@ function addProduct() {
 
         form.append($("<label>").text("Logo del producto: "));
         form.append($("<input>").attr("type", "file").attr("name", "logo").attr("style", "color:black;"));
-        
+
         form.append($("<label>").text("Logo del proveedor del producto: "));
         form.append($("<input>").attr("type", "file").attr("name", "proveedor").attr("style", "color:black;"));
 
@@ -190,11 +190,11 @@ function addProduct() {
                             divFirst.append(divData);
                             i++;
                         });
-                        
+
                         //if((i % 2) == 1 ){
                         //    divFirst.append($("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:50%;float: left;"));
                         //}
-                        
+
                         div.append(divFirst);
                     }
                 }
@@ -207,9 +207,9 @@ function addProduct() {
             }
         });
 
-         if (!(sessionStorage.getItem("currentPageID").trim().endsWith("14") ||sessionStorage.getItem("currentPageID").trim().endsWith("15"))) {
-        form.append(div);
-         }
+        if (!(sessionStorage.getItem("currentPageID").trim().endsWith("14") || sessionStorage.getItem("currentPageID").trim().endsWith("15"))) {
+            form.append(div);
+        }
 
 
 
@@ -229,7 +229,7 @@ function addProduct() {
         // Manejar el envío del formulario
         $("#miFormulario").submit(function (event) {
             $('body').toggleClass('loaded');
-            
+
             event.preventDefault(); // Prevenir el envío del formulario normal
             formData = new FormData(this);
             // Hacer una llamada AJAX al archivo PHP
@@ -289,7 +289,7 @@ function pagination() {
 
 
 
-    if (((  el.height() + el.offset().top) - 200 <= $(window).height()) && (pageCurrent * 10) < total) {
+    if (((el.height() + el.offset().top) - 200 <= $(window).height()) && (pageCurrent * 10) < total) {
         localStorage.setItem("PageRegs", (pageCurrent.valueOf() - 1) + 2);
         getProducts(pageId, ($("#searchMenu").val() == "" ? undefined : $("#searchMenu").val()), ($("#filtersInput-" + pageId).val() == "" ? undefined : $("#filtersInput-" + pageId).val()), (pageCurrent.valueOf() - 1) + 2)
         return;
@@ -436,9 +436,9 @@ function getProduct(id) {
             //console.log(response.replace(/\\/g, ''));
             response = JSON.parse(JSON.parse(response));
             console.log(response);
-            
+
             $(".outWhats").toggleClass("hide");
-            
+
             $("#formModal").html("");
             if ($("#modalBackground").hasClass("hide")) {
                 $("#modalBackground").toggleClass("hide");
@@ -446,7 +446,7 @@ function getProduct(id) {
 
 
             var div = $("<div>").attr("id", "fatherProductModal").addClass("noClose");
-            
+
             var divlogo = $("<div>").attr("id", "myCarouselProduct").attr("class", "carousel ").attr("data-ride", "carousel").addClass("noClose");
             var divAmount = $("<div>").attr("id", "amount").attr("class", "amount").addClass("noClose");
 
@@ -476,12 +476,12 @@ function getProduct(id) {
 
 
 
-            
+
 
 
 
             var divInfo = $("<div>").attr("id", "infoProduct").addClass("noClose");
-            
+
             var divLogoinnerItem = $("<img>").attr("class", "d-block logoImg").attr("src", (response.data.logo == "" || response.data.logo == null) ? "" : response.data.logo.substring(1, response.data.logo.length)).addClass("noClose");
             divlogo.append(divLogoinnerItem);
 
@@ -491,20 +491,20 @@ function getProduct(id) {
                     divAmount.append(amountElement);
                 });
             }
-            
-            
-            
+
+
+
             divInfo.append($("<h5>").addClass("noClose").html((response.data.name).toUpperCase()).addClass("fuente-leomn-milk").addClass("bold"));
-            
-            
+
+
 
             divInfo.append($("<p>").addClass("noClose").html(response.data.description).attr("id", "infoProductDesc").addClass("noClose").addClass("fuente-century-gothic"));
-            
+
             var divlogoProveedor = $("<div>").attr("class", "carousel proveedor").attr("data-ride", "carousel").addClass("noClose");
             var divLogoProveedorinnerItem = $("<img>").attr("class", "d-block ProveedorImg").attr("src", (response.data.proveedor == "" || response.data.proveedor == null) ? "" : response.data.proveedor.substring(1, response.data.proveedor.length)).addClass("noClose");
             divlogoProveedor.append(divLogoProveedorinnerItem);
             divInfo.append(divlogoProveedor);
-            
+
             divInfo.append($("<p>").html("Presentaciones: " + response.data.amountName).attr("id", "infoProductAmount").addClass("noClose").addClass("fuente-century-gothic"));
 
 
@@ -513,16 +513,16 @@ function getProduct(id) {
                 i = 0;
                 (response.data.filters.replaceAll("{", "").replaceAll("}", "").split(",")).forEach(element => {
                     var filtersProductElement = $("#CheckboxFilter" + section + "-" + element);
-                    if(filtersProductElement.attr("data") != "Proveedores"){
+                    if (filtersProductElement.attr("data") != "Proveedores") {
 
-                    if (filtersProduct.includes(filtersProductElement.attr("data"))) {
-                        filtersProduct = filtersProduct.substring(0, (filtersProduct.indexOf(filtersProductElement.attr("data")) + filtersProductElement.attr("data").length + 1)) + " " + filtersProductElement.attr("name") + "," + filtersProduct.substring((filtersProduct.indexOf(filtersProductElement.attr("data")) + filtersProductElement.attr("data").length + 1 /*+ filtersProductElement.attr("name").length + 2*/), filtersProduct.length) + ", ";
-                    } else {
-                        filtersProduct += "  " + filtersProductElement.attr("data") + ": " + filtersProductElement.attr("name") + ", ";
+                        if (filtersProduct.includes(filtersProductElement.attr("data"))) {
+                            filtersProduct = filtersProduct.substring(0, (filtersProduct.indexOf(filtersProductElement.attr("data")) + filtersProductElement.attr("data").length + 1)) + " " + filtersProductElement.attr("name") + "," + filtersProduct.substring((filtersProduct.indexOf(filtersProductElement.attr("data")) + filtersProductElement.attr("data").length + 1 /*+ filtersProductElement.attr("name").length + 2*/), filtersProduct.length) + ", ";
+                        } else {
+                            filtersProduct += "  " + filtersProductElement.attr("data") + ": " + filtersProductElement.attr("name") + ", ";
+                        }
+
                     }
-                        
-                    }
-                    
+
                 });
 
                 filtersProduct = filtersProduct.replaceAll(", 0", " ");
@@ -541,20 +541,20 @@ function getProduct(id) {
             // var divImg = $("<div>").attr("class","noClose imagenProducto");
             // divImg.append($("<img>").attr("src",response.data.listImg == null?"": response.data.listImg[0]).addClass("noClose"));
             // divInfo.append(divImg);
-            
+
             // --------------------------------------------------------------------------------------------------------------------------
 
             var divCarrusel = $("<div>").attr("id", "myCarouselNew").attr("class", "carousel productCarrusel").attr("data-ride", "carousel").addClass("noClose");
 
 
             var divCarruselinner = $("<div>").attr("class", "carousel-inner innerProduct").attr("id", "carousel-product").addClass("noClose");
-    
+
             imagesProducts = response.data.listImg;
-    
+
             var i = 0;
             response.data.listImg.forEach(element => {
                 var divCarruselinnerItem = $("<div>").attr("class", "imagenProducto ").attr("id", "carousel-item" + i).addClass("noClose ");
-                divCarruselinnerItem.append($("<img>").attr("onclick","imgProduct("+i+","+id+")").attr("class", "d-block ").attr("src", element).attr("alt", "imagen " + i).addClass("noClose"));
+                divCarruselinnerItem.append($("<img>").attr("onclick", "imgProduct(" + i + "," + id + ")").attr("class", "d-block ").attr("src", element).attr("alt", "imagen " + i).addClass("noClose"));
 
                 divCarruselinner.append(divCarruselinnerItem);
                 i++;
@@ -562,7 +562,7 @@ function getProduct(id) {
             divCarrusel.append(divCarruselinner);
 
 
-            
+
             // carrusel de direccion 
 
             var divCarruselDirection = $("<div>").attr("id", "CarruselDirection").addClass("noClose").addClass("CarruselDirectionProduct");
@@ -577,7 +577,7 @@ function getProduct(id) {
 
             divCarruselDirection.append(aCarruselPrev);
 
-            divCarruselDirection.append($("<img>").attr("id", "img-carrusel").attr("src","img/61-camera-outline.gif").addClass("noClose").addClass("gifProduct"));
+            divCarruselDirection.append($("<img>").attr("id", "img-carrusel").attr("src", "img/61-camera-outline.gif").addClass("noClose").addClass("gifProduct"));
 
             divCarruselDirection.append(aCarruselNext);
 
@@ -593,9 +593,9 @@ function getProduct(id) {
                 divInfo.append($("<br>"));
                 divInfo.append($("<button>").attr("type", "button").attr("class", "btn btn-danger ").html("eliminar").attr("style", "margin-top:2%;").attr("onclick", "getProductForDelete(" + id + ")"));
             }
-            var href="https://api.whatsapp.com/send/?phone=573213139743&text=Hola estoy interesado en el producto "+response.data.name+".&type=phone_number&app_absent=0";
+            var href = "https://api.whatsapp.com/send/?phone=573213139743&text=Hola estoy interesado en el producto " + response.data.name + ".&type=phone_number&app_absent=0";
 
-            var whatsapp =$("<a>").attr("href",href).attr("target", "_blank");
+            var whatsapp = $("<a>").attr("href", href).attr("target", "_blank");
             whatsapp.append($("<img>").attr("src", "img/Whatsappgif.gif").attr("id", "whatsmobile").addClass("noClose"));
 
             div.append(divlogo);
@@ -617,28 +617,28 @@ function getProduct(id) {
 let scrollAmount = 0;
 
 function nextProdIMg() {
-            const $miDiv = $('#carousel-product');
-            const maxScroll = $miDiv[0].scrollWidth - $miDiv.width();
-            
-            scrollAmount += 100; // Incrementar el desplazamiento
-            if (scrollAmount > maxScroll) {
-                scrollAmount = 0; // Resetear al principio si se supera el máximo
-            }
+    const $miDiv = $('#carousel-product');
+    const maxScroll = $miDiv[0].scrollWidth - $miDiv.width();
 
-            $miDiv.animate({ scrollLeft: scrollAmount }, 500); // Animar el scroll horizontal
+    scrollAmount += 100; // Incrementar el desplazamiento
+    if (scrollAmount > maxScroll) {
+        scrollAmount = 0; // Resetear al principio si se supera el máximo
+    }
+
+    $miDiv.animate({ scrollLeft: scrollAmount }, 500); // Animar el scroll horizontal
 
 }
 
 function prevProdIMg() {
-            const $miDiv = $('#carousel-product');
-            const maxScroll = $miDiv[0].scrollWidth - $miDiv.width();
+    const $miDiv = $('#carousel-product');
+    const maxScroll = $miDiv[0].scrollWidth - $miDiv.width();
 
-            scrollAmount -= 100; // Disminuir el desplazamiento
-            if (scrollAmount < 0) {
-                scrollAmount = maxScroll; // Resetear al final si se pasa del inicio
-            }
+    scrollAmount -= 100; // Disminuir el desplazamiento
+    if (scrollAmount < 0) {
+        scrollAmount = maxScroll; // Resetear al final si se pasa del inicio
+    }
 
-            $miDiv.animate({ scrollLeft: scrollAmount }, 500); // Animar el scroll horizontal
+    $miDiv.animate({ scrollLeft: scrollAmount }, 500); // Animar el scroll horizontal
 
 
 }
@@ -682,7 +682,7 @@ function getProductForUpdate(id) {
 
                 form.append($("<label>").text("Logo del producto: "));
                 form.append($("<input>").attr("type", "file").attr("name", "logo").attr("style", "color:black;"));
-                
+
                 form.append($("<label>").text("Logo del proveedor del producto: "));
                 form.append($("<input>").attr("type", "file").attr("name", "proveedor").attr("style", "color:black;"));
 
@@ -721,7 +721,7 @@ function getProductForUpdate(id) {
                 });
                 form.append(divFile);
 
-                form.append($("<input>").attr("type", "hidden").attr("name", "amount").attr("id", "amountInput").val(responseProduct.data.amount+","));
+                form.append($("<input>").attr("type", "hidden").attr("name", "amount").attr("id", "amountInput").val(responseProduct.data.amount + ","));
                 if (responseProduct.data.amount != null || responseProduct.data.amount != "") {
 
                     var div1 = $("<div>").attr("id", "amount").attr("style", "margin-top:2%;");
@@ -770,7 +770,7 @@ function getProductForUpdate(id) {
                 form.append($("<input>").attr("type", "text").attr("name", "amountOther").attr("placeholder", "Otra cantidad").val(responseProduct.data.amountOther));
 
 
-                if ((responseProduct.data.filters != null || responseProduct.data.filters != "" ) &&  sessionStorage.getItem("currentPageID") != "#tm-section-14") {
+                if ((responseProduct.data.filters != null || responseProduct.data.filters != "") && sessionStorage.getItem("currentPageID") != "#tm-section-14") {
                     var div = $("<div>").attr("id", "filters").attr("style", "margin-top:2%;").addClass("noClose");
 
                     $.ajax({
@@ -1013,7 +1013,7 @@ function prevProductIMg(currentImg) {
 }
 
 function deleteDocsPro(docName, id, Type) {
-    
+
     $.ajax({
         url: "aplication/RequestController.php", // Archivo PHP que contiene la función
         type: "POST", // Método de solicitud
