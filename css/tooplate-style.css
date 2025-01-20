@@ -405,7 +405,8 @@ p:last-child {
 }
 
 .productCarrusel{
-        margin-top: 1.5vh;
+    margin-top: -1vh;
+    right: -40%;
 }
 
 .imagenProducto img{
@@ -744,6 +745,10 @@ address {
     display: none;
     
 }
+#nuestromovil2 {
+    display: none;
+    
+}
 .portafolio,
 .comercial,
 .contactanos {
@@ -1004,7 +1009,10 @@ footer a {
     height: 7vh;
     width: 100%;
 }
-
+.policy{
+    background-color: transparent;
+    
+}
 .footer2 img {
     position: absolute;
     width: 100%;
@@ -1189,7 +1197,7 @@ footer a {
 
 .mision1 {
     position: relative;
-    top: 20%;
+    top: 18%;
     background-color: rgba(0, 139, 58, 0.52);
     color: white;
     text-transform: uppercase;
@@ -1305,9 +1313,9 @@ footer a {
     position: fixed;
     left: 70%;
     /* position: relative; */
-    top: 20%;
+    top: 12%;
     /* right: 10%; */
-    background-color: rgba(0, 139, 58, 0.6);
+    background-color: #68AF59;
     color: white;
     height: auto;
     border-radius: 10px;
@@ -1326,9 +1334,9 @@ footer a {
     position: fixed;
     left: 70%;
     /* position: relative; */
-    top: 25%;
+    top: 18%;
     /* right: 10%; */
-    background-color: rgba(0, 139, 58, 0.6);
+    background-color: #68AF59;
     color: white;
     height: auto;
     border-radius: 10px;
@@ -1347,9 +1355,9 @@ footer a {
     position: fixed;
     left: 70%;
     /* position: relative; */
-    top: 30%;
+    top: 24%;
     /* right: 10%; */
-    background-color: rgba(0, 139, 58, 0.6);
+    background-color: #68AF59;
     color: white;
     height: auto;
     border-radius: 10px;
@@ -1408,9 +1416,11 @@ footer a {
 
 .close-btn {
     position: absolute;
-    top: 10px;
+    top: -20px;
     right: 10px;
     cursor: pointer;
+    font-size: 70px;
+    color:#006838;
 }
 
 .popup-content p {
@@ -1605,12 +1615,12 @@ footer a {
     bottom: 10%;
     height: 7%;
     z-index: 999;
-    right: 2%;
+    right: 7%;
 }
 
 #fatherProductModal #whatsmobile{
     bottom: 27%;
-    right: 26%;
+    left: 26%;
 }
 
 .popup-content1 p {
@@ -2570,17 +2580,20 @@ button {
     max-width: 100%;
 }
 
+
 .divProduct p {
     margin: 0px;
     /* font-size: 15px; */
     color: rgba(107, 107, 106, 1);
-    line-height: calc(0.8 + 0.8);
+    line-height: calc(0 + 0.8);
 }
 
 .titleProduct{
     font-weight: bold;
     font-family: 'Lemon Milk';
     font-size: calc(0.8vh + 0.7vw) ;
+    padding-bottom: 1%;
+    padding-top: 1%;
 }
 
 .ProveedorImg {
@@ -2594,16 +2607,18 @@ button {
     margin-bottom: 1.5vh;
 }
 
-.textProduct{
-    font-size: calc(0.7vh + 0.6vw) ;
+.textProduct {
+    font-size: calc(0.5vh + 0.6vw);
     overflow: hidden;
-    height: 7vh;
+    height: 12vh;
 }
 
+
 .divProduct a {
-    font-size: calc(0.7vh + 0.6vw) ;
-    color: rgba(107, 107, 106, 1) !important;
+    font-size: calc(0.9vh + 0.6vw);
+    color: rgba(104, 175, 89, 1) !important;
     text-decoration: underline !important;
+    font-weight: bold;
 }
 
 
@@ -2675,15 +2690,16 @@ button {
 }
 
 #infoProductAmount{
-    color: rgba(55, 130, 82, 1);
-    font-size: calc(0.8vh + 0.8vw);
+    color: rgba(55, 130, 82, 1);   
+    font-size: calc(0.63vh + 0.63vw);
     line-height: calc(0.8vh + 0.8vw);
     font-weight: bold;
+    margin-bottom: 0%;
 }
 
 #infoProduct .filtersProduct {
     color: rgba(55, 130, 82, 1);
-    font-size: calc(0.8vh + 0.8vw);
+    font-size: calc(0.63vh + 0.63vw);
     line-height: calc(0.8vh + 0.8vw);
     font-weight: bold;
 }
@@ -2932,6 +2948,7 @@ height: 24%;
 
     .tm-main-nav a {
         padding-right: 10px;
+        text-decoration: underline;
     }
 
     .tm-content {
@@ -3142,7 +3159,7 @@ height: 24%;
     }
 
     .parrafo-vision{
-        top: 2%;
+        top: -1%;
         padding-top: 1%;
     }
     .parrafo-vision p {
@@ -3362,10 +3379,22 @@ height: 24%;
         bottom: 14%;
         right: 7%;
     }
+    #tmNavLink11{
+        display: none;
+    }
     #map-container {
      display: none;
     
     }
+    #closemenu{
+        position: absolute;
+        /* margin-bottom: 22%; */
+        left: 47%;
+        top: 89%;
+        color: white;
+        font-size: 200%;
+    }
+    
     .mision{
         position: relative;
         top: -25%;
@@ -3440,7 +3469,7 @@ height: 24%;
         left: 0px;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.75);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -3558,10 +3587,27 @@ height: 24%;
         width: 90%;
         background-size: cover;
     }
+    .policy{
+        background-color: rgba(0, 139, 58, 0.6);
+        height: 15%;
+        position: relative;
+        margin-bottom: 10%;
+        margin-top: 150%;
+    }
+
+    .foto-mision img{
+        display: none;
+    }
+    .popup-content1 img {
+      
+        bottom: 0%;
+       
+    }
     .politica {
-        top: 76%;
-        position: fixed;
-        left: 5%;
+        top: 15%;
+        position: relative;
+        margin-left: 5%;
+        left: 0%;
         width: 90%;
         line-height: 0px;
         height: auto;
@@ -3569,6 +3615,37 @@ height: 24%;
         font-size: 10px;
         padding-bottom: 0%;
         padding-top: 0%;
+        background-color: transparent;
+    }
+    .politica1 {
+        top: 7%;
+        position: relative;
+        margin-left: 5%;
+        left: 0%;
+        width: 90%;
+        line-height: 0px;
+        height: 2.5%;
+        font-family: 'Century Gothic';
+        font-size: 10px;
+        padding-bottom: 0%;
+        padding-top: 0%;
+        background-color: transparent;
+
+    }
+    .politica2 {
+        top: 6%;
+        position: relative;
+        margin-left: 5%;
+        left: 0%;
+        width: 90%;
+        line-height: 0px;
+        height: 2.5%;
+        font-family: 'Century Gothic';
+        font-size: 10px;
+        padding-bottom: 0%;
+        padding-top: 0%;
+        background-color: transparent;
+
     }
     .title-vision {
         top: 12%;
@@ -3621,6 +3698,7 @@ height: 24%;
         bottom: 0%;
         min-height: 10%;
         left: 0%;
+        z-index: 2000;
 
     }
 
@@ -3639,7 +3717,7 @@ height: 24%;
         margin-top: 12px;
         margin-left: 10%;
         border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.3);
 
     }
 
@@ -3652,7 +3730,7 @@ height: 24%;
         margin-top: 12px;
         margin-left: 10%;
         border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.3);
     }
 
     .portafolio img {
@@ -3664,8 +3742,9 @@ height: 24%;
         margin-left: 5%;
     }
 .containertitlemen{
-    width: 100%;
+    width: 95%;
     text-align: center;
+    margin-left: 5%;
 }
     .comercial img {
         width: 10%;
@@ -3673,7 +3752,7 @@ height: 24%;
         /* top: 5.7%; */
         /* left: 15%; */
         margin-top: 3%;
-        margin-left: 5%;
+        margin-left: 6%;
     }
 
     
@@ -3687,11 +3766,11 @@ height: 24%;
         }
 
     .whatsapp img {
-        width: 20%;
+        width: 17%;
         /* position: fixed; */
         /* top: 5.7%; */
         /* left: 15%; */
-        margin-top: 5%;
+        margin-top: 3%;
         margin-left: 5%;
     }
     .tm-main-nav a {
@@ -3705,12 +3784,15 @@ height: 24%;
        display: none;
     }
     .texcel {
-        width: 72%;
-        /* left: 24%; */
+        width: 83%;
+        left: 0%;
         position: relative;
-        margin-top: 5%; 
-        margin-left: 3%;
+        margin-top: 3%; 
+        margin-left: 0%;
         font-family: 'Lemon Milk';
+    }
+    #m3{
+        left: 5%;
     }
 
     .tm-main-nav {
@@ -3725,18 +3807,28 @@ height: 24%;
         display: flex;
         justify-content: space-between;
         /* position: relative; */
-        font-size: 80%;
+        font-size: 20px;
         text-align: center;
 
     }
-    #nuestromovil1 {
+    #nuestromovil2 {
         display: flex;
         justify-content: space-between;
-        position: relative;
-        font-size: 80%;
+        /* position: relative; */
+        font-size: 20px;
         text-align: center;
-        margin-top: -11%;
-        margin-left: 12%;
+        left: 7%;
+
+    }
+    #nuestromovil1 {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            font-size: 20px;
+            text-align: center;
+            margin-top: -14%;
+            margin-left: 16%;
+            text-decoration: underline;
     }
 
     #nuestromovil img {
@@ -3852,14 +3944,19 @@ height: 24%;
 
 
     }
-
+    .mision{
+        top: 10%;
+        position: relative;
+    }
     #red1,
     #red2,
     #red3,
     #red4,
     #red5,
     #red6,
-    #red7 {
+    #red7,
+    #red8,
+    #red9 {
 
         background-color: rgba(63, 63, 63, 0.7);
         border-radius: 12px;
@@ -4059,7 +4156,7 @@ height: 24%;
     #tmNavLink8,
     #tmNavLink9,
     #tmNavLink10 {
-        border: 1px solid #A6CA56;
+        border: 3px solid #A6CA56;
         border-radius: 15px;
         width: fit-content;
         align-items: center;
@@ -4068,12 +4165,14 @@ height: 24%;
         font-size: 16px;
         /* left: 10%; */
         margin: 0 auto;
-        padding: 10px;
+        color: white;
+        padding: 7px;
+        font-weight: bolder;
 
     }
 
     .tm-main-nav li {
-        padding: 0.5%;
+        padding: 2.5%;
     }
 
     nav a i {
@@ -4170,7 +4269,7 @@ height: 24%;
         /* display: flow; */
         align-items: center;
         width: 90%;
-        top: 51%;
+        top: 13%;
         left: 5%;
         flex-flow: wrap-reverse;
 
@@ -4298,9 +4397,9 @@ height: 24%;
         display: none;
     }
 
-    .mision1 {
-        display: none;
-    }
+   #foto2{
+    display: none;
+   }
 
     .parrafo-mision h4 {
         display: block;
@@ -4342,15 +4441,7 @@ height: 24%;
     }
    
 
-    .politica {
-        top: 79%;
-        position: fixed;
-        left: 5%;
-        width: 90%;
-        line-height: 1px;
-        height: auto;
-        font-family: 'Century Gothic';
-    }
+    
 
     .politica a {
         padding-bottom: 2.5%;
@@ -4650,7 +4741,7 @@ height: 24%;
         background-repeat: no-repeat;
         background-size: cover;
     }
-.slider{
+ .slider{
     display: block;
     background-image: url(../img/Fondo-8.png);
     background-repeat: no-repeat;
@@ -4659,7 +4750,7 @@ height: 24%;
   
     position: fixed;
     top: 0%;
-}
+ }
 
     #closeModal {
         right: 1%;
@@ -4917,13 +5008,19 @@ height: 24%;
         margin-right: 0;
         margin-bottom: 1.5rem;
     }
+    #loader-wrapper .loader-section {
+        display: none;
+      }
+      .loaded #loader {
+          display: none;
+      }
 }
 
 /* Loader */
 
 #loader-wrapper {
     position: fixed;
-    background-color: rgba(230, 230, 230);
+    background-color: #A5C956;
     top: 0;
     left: 0;
     width: 100%;
