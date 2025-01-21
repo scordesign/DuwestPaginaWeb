@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     getSessionDefault();
-
+    
 
     $("#closeModal").on("click", function () {
         $(".outWhats").toggleClass("hide");
@@ -56,13 +56,24 @@ function getSessionDefault() {
 }
 
 
+function isMobileDevice() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+  // Tests for match in userAgent string for mobile regex
+  if (/android|webos|iphone|ipad|ipod|blackberry|windows phone/i.test(userAgent) || window.innerWidth <= 768) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function getSession() {
+    
     return new Promise(function (resolve, reject) {
         $.ajax({
             url: "aplication/RequestController.php?action=getSession",
             type: "GET",
             success: function (response) {
-               // console.log(response);
                 response = (response == "\r\n") ? "" :response;
                 resolve(response); // Resuelve la promesa con la respuesta del servidor
             },

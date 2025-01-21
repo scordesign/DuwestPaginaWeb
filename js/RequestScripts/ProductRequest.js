@@ -333,21 +333,28 @@ function getfilters(pageId) {
             // var sectionNumber = pageId.substring(pageId.length - 2, pageId.length);
             $("#filter-product-" + sectionNumber).append($("<h4>").html("Filtrar").attr("class", "filtertitle"));
             for (var key in response.data) {
-                var divFirst = $("<div>").attr("class", "filters").attr("style", "width:100%;color:black;");
+                
+                var divFirst = $("<div>").attr("class", "filters").attr("onclick", "toggleDivsByKey('"+key+"')").attr("style", "width:100%;color:black;");
 
                 if (response.data.hasOwnProperty(key)) {
+                    
                     divFirst.append($("<h4>").html(key).attr("class", "bold"));
                     var objetos = response.data[key];
                     // Iterar sobre los objetos dentro de cada categoría
-
+                    
                     objetos.forEach(function (element) {
-                        var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:100%;");
+                        var divData = $("<div>").attr("class", "filtersEach").attr("data-key", key).attr("style", "display: none;width: 100%;");
 
                         divData.append($("<input>").attr("data", key).attr("type", "checkbox").attr("onclick", "filterAddProducts(" + element.id + "," + sectionNumber + ")").attr("name", element.name).attr("id", "CheckboxFilter" + sectionNumber + "-" + element.id));
                         divData.append($("<label>").text(element.name).attr("styles", "width:80%;"));
 
                         divFirst.append(divData);
                     });
+
+                    if (isMobileDevice()) {
+                        $("#filter-product-" + sectionNumber).append($("<div>").attr("class", "filterLine"));
+                    }
+
                     $("#filter-product-" + sectionNumber).append(divFirst);
                 }
             }
@@ -359,6 +366,11 @@ function getfilters(pageId) {
             console.log(xhr.responseText); // Mostrar la respuesta del servidor en la consola
         }
     });
+
+}
+
+function toggleDivsByKey(key) {
+  $(`div[data-key="${key}"]`).toggle(); 
 }
 
 function filterAdd(id) {
