@@ -334,16 +334,32 @@ function getfilters(pageId) {
             $("#filter-product-" + sectionNumber).append($("<h4>").html("Filtrar").attr("class", "filtertitle"));
             for (var key in response.data) {
                 
-                var divFirst = $("<div>").attr("class", "filters").attr("onclick", "toggleDivsByKey('"+key+"')").attr("style", "width:100%;color:black;");
+                var divFirst = $("<div>").attr("id","father"+key).attr("class", (key == "Clasificación" ? "filters filterCla" : "filters")).attr("style", "width:100%;color:black;");
 
+                
+              
                 if (response.data.hasOwnProperty(key)) {
-                    
-                    divFirst.append($("<h4>").html(key).attr("class", "bold"));
+
+                    var h4 =$("<h4>").html(key).attr("class", "bold");
+
+                    if (isMobileDevice() && key == "Clasificación") {
+                        h4.attr("style", "display: none;");
+                    }
+                    if (isMobileDevice() && key != "Clasificación") {
+                        h4.attr("onclick", "toggleDivsByKey('"+key+"')");
+                    }
+                    divFirst.append(h4);
                     var objetos = response.data[key];
                     // Iterar sobre los objetos dentro de cada categoría
+
                     
                     objetos.forEach(function (element) {
-                        var divData = $("<div>").attr("class", "filtersEach").attr("data-key", key).attr("style", "display: none;width: 100%;");
+                        
+                        var divData = $("<div>").attr("class", "filtersEach").attr("data-key", key);
+
+                        if ( isMobileDevice() && key != "Clasificación") {
+                            divData.attr("style", "display: none;width: 100%;");
+                        }
 
                         divData.append($("<input>").attr("data", key).attr("type", "checkbox").attr("onclick", "filterAddProducts(" + element.id + "," + sectionNumber + ")").attr("name", element.name).attr("id", "CheckboxFilter" + sectionNumber + "-" + element.id));
                         divData.append($("<label>").text(element.name).attr("styles", "width:80%;"));
@@ -352,7 +368,7 @@ function getfilters(pageId) {
                     });
 
                     if (isMobileDevice()) {
-                        $("#filter-product-" + sectionNumber).append($("<div>").attr("class", "filterLine"));
+                        $("#filter-product-" + sectionNumber).append($("<div>").attr("class", "filterLine").html(key == "Clasificación"?"Clasificación del producto":"Ver por "+ key));
                     }
 
                     $("#filter-product-" + sectionNumber).append(divFirst);
@@ -370,7 +386,16 @@ function getfilters(pageId) {
 }
 
 function toggleDivsByKey(key) {
-  $(`div[data-key="${key}"]`).toggle(); 
+  const $contenedor = $("#father"+key);
+
+  // Calcula la altura actual
+  const alturaActual = $contenedor.height();
+
+  // Realiza el toggle de los divs con el atributo data-key
+  $(`div[data-key="${key}"]`).fadeToggle(300, function () {
+    // Calcula la nueva altura después del toggle
+  });
+
 }
 
 function filterAdd(id) {

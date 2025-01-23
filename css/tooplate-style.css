@@ -4600,10 +4600,12 @@ height: 24%;
         width: 100%;
         border-top: 0.3vh solid rgba(166, 202, 86, 1);
         width: 80% !important;
-        margin: 3vh 0%;
+        margin-top: 2vh;
         margin-left: 10% !important;
         border-top-width: 2px;
         border-top-color: rgba(166, 202, 86, 1);
+        font-weight: bold;
+        padding-top: 1vh;
     }
 
     .filters {
@@ -4667,6 +4669,9 @@ height: 24%;
         color: white;
     }
 
+
+
+
     .filter-product form .filters {
         border: 0.3vh solid rgba(166, 202, 86, 1);
         border-radius: 2vh;
@@ -4676,6 +4681,12 @@ height: 24%;
         border-width: 2px;
         border-color: rgba(166, 202, 86, 1);
 
+    }
+
+
+
+    .filter-product form .filterCla {
+        border: 0px !important;
     }
 
 
@@ -4694,8 +4705,7 @@ height: 24%;
     .closeCellDiv {
         width: 80%;
         border-top: 0.3vh solid rgba(166, 202, 86, 1);
-        margin: auto;
-        margin-bottom: 1vh;
+        margin: 3vh 10%;
     }
 
     .hideCell {
