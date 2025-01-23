@@ -2585,7 +2585,7 @@ button {
     margin: 0px;
     /* font-size: 15px; */
     color: rgba(107, 107, 106, 1);
-    line-height: calc(0 + 0.8);
+    line-height: calc(0 + 1);
 }
 
 .titleProduct{
@@ -3379,9 +3379,9 @@ height: 24%;
         bottom: 14%;
         right: 7%;
     }
-    #tmNavLink11{
+    /* #tmNavLink11{
         display: none;
-    }
+    } */
     #map-container {
      display: none;
     
@@ -5007,12 +5007,12 @@ height: 24%;
         margin-right: 0;
         margin-bottom: 1.5rem;
     }
-    #loader-wrapper .loader-section {
+    /* #loader-wrapper .loader-section {
         display: none;
       }
       .loaded #loader {
           display: none;
-      }
+      } */
 }
 
 /* Loader */

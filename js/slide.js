@@ -57,4 +57,4 @@ function updateSlides() {
 updateSlides();
 
 // Cambiar de imagen automáticamente cada 5 segundos
-setInterval(showNextSlide, 5000);
+setInterval(showNextSlide, 7000);
