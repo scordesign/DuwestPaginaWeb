@@ -1,5 +1,6 @@
 $(function () {
-    $("#searchMenu").keyup(function () {
+    $("#searchMenu").keyup(function (event) {
+
         pageId = sessionStorage.getItem("currentPageID").replace("#tm-section-", "").trim();
         $("#products2-" + pageId + " .divProduct").remove();
         getProducts(pageId, $("#searchMenu").val(), ($("#filtersInput-" + pageId).val() == "" ? undefined : $("#filtersInput-" + pageId).val()))
@@ -70,7 +71,12 @@ function imgProduct(idImg, idProd) {
 
 }
 
-function searchCell(param) {
+function searchCell(param,event) {
+    if (event.key === "Enter") {
+        closeCell();
+        
+      }
+      
     pageId = sessionStorage.getItem("currentPageID").replace("#tm-section-", "").trim();
     $("#products2-" + pageId + " .divProduct").remove();
     getProducts(pageId, $("#searchMenuCell" + param).val(), ($("#filtersInput-" + pageId).val() == "" ? undefined : $("#filtersInput-" + pageId).val()))
@@ -1080,6 +1086,8 @@ function closeCell() {
     $(".filter-product").toggleClass("hideCell");
 }
 
-function seeFilters() {
+function seeFilters(event) {
+    $("#searchMenuCell0").val("");
     $(".filter-product").toggleClass("hideCell");
+    searchCell(0,event)
 }
