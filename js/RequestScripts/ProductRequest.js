@@ -527,7 +527,7 @@ function getProduct(id) {
             var i = 0;
             imagesProducts.forEach(element => {
                 var divCarruselinnerItem = $("<div>").attr("class", " carousel-item " + (i == 0 ? "active" : "")).attr("id", "carousel-item" + i).addClass("noClose");
-                divCarruselinnerItem.append($("<img>").attr("class", "imgCarousel d-block w-50").attr("src", element).attr("alt", "imagen " + i).addClass("noClose"));
+                divCarruselinnerItem.append($("<img>").attr("onclick", "imgProduct(" + i + "," + id + ")").attr("class", "imgCarousel d-block w-50").attr("src", element).attr("alt", "imagen " + i).addClass("noClose"));
                 divCarruselinner.append(divCarruselinnerItem);
                 i++;
             });
