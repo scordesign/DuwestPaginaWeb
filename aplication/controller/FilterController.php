@@ -9,7 +9,7 @@ class Filters
     private function convert_encoding_recursive($input)
     {
         if (is_array($input)) {
-            // Aplicar la funci¨®n recursivamente a cada elemento del array
+            // Aplicar la funciï¿½ï¿½n recursivamente a cada elemento del array
             return array_map(array($this, 'convert_encoding_recursive'), $input);
         } elseif (is_string($input)) {
             // Convertir la cadena a UTF-8
@@ -25,7 +25,7 @@ class Filters
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
 
-            $statement = $pdo->prepare("SELECT category FROM filters group by category");
+            $statement = $pdo->prepare("SELECT category FROM filters group by category ORDER BY category asc ");
             $statement->execute();
 
             $resultado = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -35,7 +35,7 @@ class Filters
             foreach ($resultado as $category) {
                 $statementIn = null;
                 $resultadoIn = null;
-                $statementIn = $pdo->prepare("SELECT * FROM filters where `category` = :category");
+                $statementIn = $pdo->prepare("SELECT * FROM filters where `category` = :category ORDER BY name asc ");
                 $statementIn->bindParam(':category', $category['category'], PDO::PARAM_STR);
                 $statementIn->execute();
                 $resultadoIn = $statementIn->fetchAll(PDO::FETCH_ASSOC);
@@ -91,7 +91,7 @@ class Filters
             // Preparar la consulta
             $stmt = $pdo->prepare($consulta);
 
-            // Asignar valores a los par¨¢metros (en este caso, solo uno)
+            // Asignar valores a los parï¿½ï¿½metros (en este caso, solo uno)
 
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
@@ -157,7 +157,7 @@ class Filters
             // Preparar la consulta
             $stmt = $pdo->prepare($consulta);
 
-            // Asignar valores a los par¨¢metros (en este caso, solo uno)
+            // Asignar valores a los parï¿½ï¿½metros (en este caso, solo uno)
 
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
