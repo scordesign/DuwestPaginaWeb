@@ -322,15 +322,43 @@ p:last-child {
 #imgFlagMob {
     display: none;
 }
+#pqrs-mobile{
+    display: none;
+}
 
 #imglogo a {
     height: 30%;
 
 }
-
+.pqrs-mobile{
+    backdrop-filter: blur(calc((0.1vw + 0.1vh)));
+    overflow: hidden;
+    font-size: calc((1vw + 1vh) + 0.3em);
+    width: fit-content;
+    height: fit-content;
+    background: #07670B3D;
+    border: solid #5BAB31 calc(0.03vw + 0.03vh);
+    border-radius: calc(1vw + 1vh);
+    right: 7vw;
+    top: 1vh;
+    position: fixed;
+    padding: 1% 1%;
+    text-align: justify;
+    font-family: 'Lemon Milk';
+    z-index: 2000;
+}
+.pqrs-mobile img{
+    height: 6vh;
+}
 #imgFlag {
     height: 10%;
 }
+#pqrs{
+    height: 10%;
+}
+#pqrs img{
+    height: 3.9vh ;
+   }
 
 #imgFlag img {
     height: 3.9vh;
@@ -3407,6 +3435,9 @@ height: 24%;
         width: 80%;
         left: 10%;
     }
+    #pqrs{
+        display: none;
+    }
     /* #tmNavLink11{
         display: none;
     } */
@@ -3867,7 +3898,7 @@ height: 24%;
         width: 20%;
 
     }
-
+  
 
     #imgFlag {
         position: fixed;
