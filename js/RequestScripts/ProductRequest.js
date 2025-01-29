@@ -490,7 +490,7 @@ function getProduct(id) {
 
             var div = $("<div>").attr("id", "fatherProductModal").addClass("noClose");
 
-            var divlogo = $("<div>").attr("id", "myCarouselProduct").attr("class", "carousel ").attr("data-ride", "carousel").addClass("noClose");
+            var divlogo = $("<div>").attr("class", "carousel divLogo").attr("data-ride", "carousel").addClass("noClose");
             var divAmount = $("<div>").attr("id", "amount").attr("class", "amount").addClass("noClose");
 
 
@@ -517,10 +517,33 @@ function getProduct(id) {
 
             // info
 
+            var divCarrusel = $("<div>").attr("id", "myCarouselProduct").attr("class", "carousel ").attr("data-ride", "carousel").addClass("noClose");
 
 
+            var divCarruselinner = $("<div>").attr("class", "carousel-inner").addClass("noClose");
 
+            imagesProducts = response.data.listImg;
 
+            var i = 0;
+            imagesProducts.forEach(element => {
+                var divCarruselinnerItem = $("<div>").attr("class", " carousel-item " + (i == 0 ? "active" : "")).attr("id", "carousel-item" + i).addClass("noClose");
+                divCarruselinnerItem.append($("<img>").attr("class", "imgCarousel d-block w-50").attr("src", element).attr("alt", "imagen " + i).addClass("noClose"));
+                divCarruselinner.append(divCarruselinnerItem);
+                i++;
+            });
+            divCarrusel.append(divCarruselinner);
+            var aCarruselPrev = $("<a>").attr("id", "carousel-control-prev").attr("onclick", "prevProductIMg(0)").attr("class", "carousel-control-prev").attr("role", "button").attr("data-slide", "prev").addClass("noClose");
+            aCarruselPrev.append($("<span>").attr("class", "carousel-control-prev-icon").attr("aria-hidden", "true").addClass("noClose"));
+            aCarruselPrev.append($("<span>").attr("class", "sr-only").html("Anterior").addClass("noClose"));
+
+            var aCarruselNext = $("<a>").attr("id", "carousel-control-next").attr("onclick", "nextProductIMg(0)").attr("class", "carousel-control-next").attr("role", "button").attr("data-slide", "next").addClass("noClose");
+            aCarruselNext.append($("<span>").attr("class", "carousel-control-next-icon").attr("aria-hidden", "true").addClass("noClose"));
+            aCarruselNext.append($("<span>").attr("class", "sr-only").html("Siguiente").addClass("noClose"));
+
+            divCarrusel.append(aCarruselPrev);
+            divCarrusel.append(aCarruselNext);
+
+            
 
 
             var divInfo = $("<div>").attr("id", "infoProduct").addClass("noClose");
@@ -539,6 +562,10 @@ function getProduct(id) {
 
             divInfo.append($("<h5>").addClass("noClose").html((response.data.name).toUpperCase()).addClass("fuente-leomn-milk").addClass("bold"));
 
+            if (isMobileDevice()) {
+                divInfo.append(divCarrusel);
+                divInfo.append($("<br>"));
+            }
 
 
             divInfo.append($("<p>").addClass("noClose").html(response.data.description).attr("id", "infoProductDesc").addClass("noClose").addClass("fuente-century-gothic"));
@@ -587,46 +614,12 @@ function getProduct(id) {
 
             // --------------------------------------------------------------------------------------------------------------------------
 
-            var divCarrusel = $("<div>").attr("id", "myCarouselNew").attr("class", "carousel productCarrusel").attr("data-ride", "carousel").addClass("noClose");
+            if (!isMobileDevice()) {
+                divInfo.append(divCarrusel);
+                divInfo.append($("<br>"));
+            }
 
 
-            var divCarruselinner = $("<div>").attr("class", "carousel-inner innerProduct").attr("id", "carousel-product").addClass("noClose");
-
-            imagesProducts = response.data.listImg;
-
-            var i = 0;
-            response.data.listImg.forEach(element => {
-                var divCarruselinnerItem = $("<div>").attr("class", "imagenProducto ").attr("id", "carousel-item" + i).addClass("noClose ");
-                divCarruselinnerItem.append($("<img>").attr("onclick", "imgProduct(" + i + "," + id + ")").attr("class", "d-block ").attr("src", element).attr("alt", "imagen " + i).addClass("noClose"));
-
-                divCarruselinner.append(divCarruselinnerItem);
-                i++;
-            });
-            divCarrusel.append(divCarruselinner);
-
-
-
-            // carrusel de direccion 
-
-            var divCarruselDirection = $("<div>").attr("id", "CarruselDirection").addClass("noClose").addClass("CarruselDirectionProduct");
-
-            var aCarruselPrev = $("<a>").attr("id", "carousel-prev").attr("onclick", "prevProdIMg(0)").addClass("noClose").addClass("beforeProduct");
-            aCarruselPrev.html("<");
-
-
-
-            var aCarruselNext = $("<a>").attr("id", "carousel-next").attr("onclick", "nextProdIMg(0)").addClass("noClose").addClass("nextProduct");
-            aCarruselNext.html(">");
-
-            divCarruselDirection.append(aCarruselPrev);
-
-            divCarruselDirection.append($("<img>").attr("id", "img-carrusel").attr("src", "img/61-camera-outline.gif").addClass("noClose").addClass("gifProduct"));
-
-            divCarruselDirection.append(aCarruselNext);
-
-            divInfo.append(divCarrusel);
-            divInfo.append(divCarruselDirection);
-            divInfo.append($("<br>"));
 
             // ---------------------------------------------------------------------------------------------------------------------------
 

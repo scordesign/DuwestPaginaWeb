@@ -405,8 +405,13 @@ p:last-child {
 }
 
 .productCarrusel{
-    margin-top: -10vh;
-    right: -40%;
+    margin-top: -15vh;
+    right: -72%;
+    width: 10vw;
+}
+
+.imgCarousel{
+    margin: auto;
 }
 
 .imagenProducto img{
@@ -1865,6 +1870,9 @@ footer a {
     margin-right: 0.5vw;
     max-width: 50%;
     overflow: auto;
+    position: absolute;
+    right: 2%;
+    top: 0%;
 }
 
 #fatherProductModal .amount::-webkit-scrollbar {
@@ -2660,13 +2668,24 @@ button {
 
 #myCarouselProduct {
     width: 40%;
-    float: left;
+    float: right;
     position: relative;
-    height: 12vh;
+    height: auto;
+    top: -10vh;
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%) !important;
 }
 
 .logoImg{
     height: 80%;
+    max-width: 100%;
+}
+
+.divLogo{
+    width: 10vw;
 }
 
 #fatherProductModal {
@@ -2677,6 +2696,7 @@ button {
     width: 100%;
     padding: 2% 2%;
     float: right;
+    margin-top: 3%;
 }
 
 #infoProduct h5 {
@@ -3384,6 +3404,8 @@ height: 24%;
     #fatherProductModal #whatsmobile{
         bottom: 14%;
         right: 7%;
+        width: 80%;
+        left: 10%;
     }
     /* #tmNavLink11{
         display: none;
@@ -4787,8 +4809,17 @@ height: 24%;
         position: fixed;
         max-height: 6%;
         padding: 1%;
-        color: black;
+        color: white;
         cursor: pointer;
+    }
+
+    .proveedor{
+        margin: auto;
+        width: 40vw;
+    }
+
+    .ProveedorImg{
+        height: 5vh ;
     }
 
     #myCarouselProduct {
@@ -4804,15 +4835,30 @@ height: 24%;
         border-top-right-radius: 20px;
         margin-top: 1vh;
         padding-top: 1vh;
-        border: solid 1px green;
         border-bottom: 0px;
+        top: 0vh;
+        margin-bottom: 2vh;
+        margin-top: 0px;
+    }
+
+    .divLogo{
+        padding-top: 1vh;
+        height: 10vh;
+        width: auto;
+    }
+
+    #fatherProductModal{
+        background: white;
+        margin-bottom: 0px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
     }
 
     .carousel-inner {
         position: relative;
         width: 100%;
         z-index: 10;
-        height: 0vh;
+        height: 100%;
         overflow: hidden;
     }
     
@@ -4823,7 +4869,6 @@ height: 24%;
 
     .carousel-item img {
         max-width: 100%;
-        height: 40vh;
         margin: auto;
     }
 
@@ -4841,6 +4886,7 @@ height: 24%;
         border-top-right-radius: 0px;
         padding: 2vh 4vw;
         padding-top: 1vh;
+        margin-top: 0px;
     }
 
     #infoProduct h5 {
@@ -4857,9 +4903,10 @@ height: 24%;
     }
 
     #infoProduct .filtersProduct {
-        color: black;
-        font-size: calc(1vh + 1vw);
-        line-height: calc(1vh + 0.7vw);
+        color: rgba(55, 130, 82, 1);
+        font-size: calc(1.1vh + 1.1vw);
+        line-height: calc(1.5vh + 1.5vw);
+        text-align: center;
     }
 
     #infoProduct .DocProducts {
@@ -4958,6 +5005,7 @@ height: 24%;
         text-align: justify;
         font-size: calc(1.3vh + 1.3vw);
         line-height: calc(1.5vh + 1.5vw);
+        text-align: center;
     }
 
     #infoNew h5 {
@@ -5023,9 +5071,10 @@ height: 24%;
     }
 
     #infoProductAmount{
-        color: black;
-        font-size: calc(1vh + 1vw);
-        line-height: calc(0.8vh + 0.8vw);
+        color: rgba(55, 130, 82, 1);
+        font-size: calc(1.1vh + 1.1vw);
+        line-height: calc(1.5vh + 1.5vw);
+        text-align: center;
     }
 
 }
