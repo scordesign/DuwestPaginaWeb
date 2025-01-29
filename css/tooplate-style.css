@@ -388,7 +388,10 @@ p:last-child {
 
 .slide img {
     width: 100%;
-    height: 100%;
+    height: 87%;
+}
+.pqrs-mobile{
+    display: none;
 }
 
 .navigation-manual {
@@ -425,6 +428,7 @@ p:last-child {
 }
 .slide img{
     object-fit:cover;
+    object-position: bottom;
 }
 
 .imagenProducto{
@@ -3409,6 +3413,30 @@ height: 24%;
         bottom: 14%;
         right: 7%;
     }
+    .pqrs-mobile{
+        display: block;
+        backdrop-filter: blur(calc((0.1vw + 0.1vh)));
+        overflow: hidden;
+        font-size: calc((1vw + 1vh) + 0.3em);
+        width: fit-content;
+        height: fit-content;
+        background: #07670B3D;
+        border: solid #5BAB31 calc(0.03vw + 0.03vh);
+        border-radius: calc(1vw + 1vh);
+        right: 7vw;
+        top: 1vh;
+        position: fixed;
+        padding: 1% 1%;
+        text-align: justify;
+        font-family: 'Lemon Milk';
+        z-index: 2000;
+    }
+    .pqrs-mobile img{
+        height: 6vh;
+    }
+    .slide img{
+        height: 100%;
+    }
     #pqrs{
         display: none;
     }
@@ -3433,7 +3461,7 @@ height: 24%;
         top: -25%;
     }
     .slide img{
-        object-fit:none;
+        object-fit:cover;
         object-position: 70%;
     }
     .slider{
