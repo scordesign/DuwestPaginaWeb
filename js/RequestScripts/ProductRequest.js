@@ -601,12 +601,24 @@ function getProduct(id) {
                 filtersProduct = filtersProduct.replace(",  ", "<br>");
                 divInfo.append($("<p>").addClass("filtersProduct").html(filtersProduct).addClass("noClose").addClass("fuente-century-gothic"));
             }
-            response.data.listDocs.forEach(element => {
-                // var pDocs = $("<p>").addClass("noClose");
-                // pDocs.append($("<a>").attr("href", element).attr("target", "_blank").html(element.split("/")[element.split("/").length-1]).addClass("noClose").addClass("fuente-century-gothic").addClass("DocProducts"));            
-                divInfo.append($("<a>").attr("href", element).attr("target", "_blank").html(element.split("/")[element.split("/").length - 1]).addClass("noClose").addClass("fuente-century-gothic").addClass("DocProducts"));
-                divInfo.append($("<br>"));
-            });
+
+            if (response.data.listDocs != null) {
+                response.data.listDocs.forEach((element) => {
+                  // var pDocs = $("<p>").addClass("noClose");
+                  // pDocs.append($("<a>").attr("href", element).attr("target", "_blank").html(element.split("/")[element.split("/").length-1]).addClass("noClose").addClass("fuente-century-gothic").addClass("DocProducts"));
+                  divInfo.append(
+                    $("<a>")
+                      .attr("href", element)
+                      .attr("target", "_blank")
+                      .html(element.split("/")[element.split("/").length - 1])
+                      .addClass("noClose")
+                      .addClass("fuente-century-gothic")
+                      .addClass("DocProducts")
+                  );
+                  divInfo.append($("<br>"));
+                });
+            }
+            
 
             // var divImg = $("<div>").attr("class","noClose imagenProducto");
             // divImg.append($("<img>").attr("src",response.data.listImg == null?"": response.data.listImg[0]).addClass("noClose"));
