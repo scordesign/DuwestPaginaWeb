@@ -7,12 +7,51 @@ function chargeFilters() {
         success: function (response) {
             response = (JSON.parse(response));
 
-            var tBody = $("#adminFilters");
-            tBody.html("");
+            var divContainerBody = $("#adminFilters");
+            divContainerBody.html("");
             filters = [];
+
+            var divContainer = $("<div>").attr("id","accordionTwo");
+
+            divContainer.append($("<button>").attr("style","btn btn-primary btn-lg btn-block my-2").attr("onclick","ProcessFilter(0,0)").html("Insertar").attr("style","margin: 1vh 0vh;"));
+
+            
+            var i = 0;
             for (var key in response.data) {
 
-                tBody.append($("<tr>").append($("<th>").attr("colspan", "3").attr("scope", "col").attr("style", "text-align: center;").html(key)));
+                var divTitle =   $("<div>").addClass("card-header").attr("id","heading"+key);
+                var h5 = $("<h5>").attr("class","mb-0");
+                var button =  $("<button>").attr("class","btn btn-link").attr("data-toggle","collapse").attr("data-target","#collapse"+key)
+                .attr("aria-expanded","true").attr("aria-controls","collapse"+key).html(key);
+
+                h5.append(button);
+                divTitle.append(h5);
+                divContainer.append(divTitle);
+
+                var divBody =  $("<div>").attr("class","collapse "+ (i == 0? "show"  : "" )).attr("id","collapse"+key).attr("aria-labelledby","heading"+key)
+                .attr("data-parent","#accordionTwo");
+
+
+                var divBodyInner =  $("<div>").attr("class","card-body");
+
+                var table = $("<table>").attr("class","table table-striped table-active");
+
+                var tableHead = $("<table>");
+
+                var tableHeadTr = $("<tr>");
+
+
+                tableHeadTr.append($("<th>").attr("scope","col").html("#"));
+                tableHeadTr.append($("<th>").attr("scope","col").html("Nombre"));
+                tableHeadTr.append($("<th>").attr("scope","col").html("Acciones"));
+
+                tableHead.append(tableHeadTr);
+                
+                table.append(tableHead);
+               
+
+                var tbody  = $("<tbody>");
+
                 filters.push(key);
                 if (response.data.hasOwnProperty(key)) {
                     var objets = response.data[key];
@@ -30,12 +69,21 @@ function chargeFilters() {
                         tdActions.append($("<button>").attr("class", "btn btn-danger butttonTd").attr("onclick", "ProcessFilter(" + element.id + ",2)").html("Eliminar"));
 
                         trEach.append(tdActions);
-                        tBody.append(trEach);
+                        tbody.append(trEach);
                         i++;
                     });
 
                 }
+
+                table.append(tbody);
+                divBodyInner.append(table);
+                divBody.append(divBodyInner);
+                divContainer.append(divBody);
+                i++;
             }
+
+            divContainerBody.append(divContainer);            
+
         },
         error: function (xhr, status, error) {
             // Manejar errores
