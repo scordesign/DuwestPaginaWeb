@@ -6,6 +6,7 @@ function chargeFilters() {
         type: "GET", // Método de solicitud
         success: function (response) {
             response = (JSON.parse(response));
+            console.log(response);
 
             var divContainerBody = $("#adminFilters");
             divContainerBody.html("");
@@ -60,7 +61,8 @@ function chargeFilters() {
                         var trEach = $("<tr>");
 
                         trEach.append($("<td>").html(i));
-                        trEach.append($("<td>").attr("id", "IdFilterName" + element.id).html(element.name).attr("style", "color: " + element.color + ";")); ;
+                        trEach.append($("<td>").attr("id", "IdFilterName" + element.id).html(element.name).css("background-color", element.color));
+                        console.log(element.color);
 
 
                         var tdActions = $("<td>");
