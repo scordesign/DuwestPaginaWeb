@@ -25,7 +25,9 @@ class Filters
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
 
+
             $statement = $pdo->prepare("SELECT category FROM filters group by category ORDER BY category ASC");
+      
             $statement->execute();
 
             $resultado = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -35,7 +37,7 @@ class Filters
             foreach ($resultado as $category) {
                 $statementIn = null;
                 $resultadoIn = null;
-                $statementIn = $pdo->prepare("SELECT * FROM filters where `category` = :category");
+                $statementIn = $pdo->prepare("SELECT * FROM filters where `category` = :category ORDER BY name asc ");
                 $statementIn->bindParam(':category', $category['category'], PDO::PARAM_STR);
                 $statementIn->execute();
                 $resultadoIn = $statementIn->fetchAll(PDO::FETCH_ASSOC);

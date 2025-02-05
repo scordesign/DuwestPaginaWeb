@@ -19,8 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('popup-text1').textContent = text1;
             // document.getElementById('popup-img1'). = img1;
             $("#popup-img1").attr("src", img1);
-            console.log($("#popup-img1"));
-            console.log(img1);
 
             popupContainer1.style.display = 'block';
         });
@@ -36,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         sessionStorage.setItem("currentPageID","#tm-section-11");
 
         // sessionStorage.getItem("currentPageID") = "#tm-section-11";
-        console.log(sessionStorage.getItem("currentPageID")+'<<<<<<<<<<<<<<<<');
         $("html, body").animate({
             scrollTop: $("#tm-section-11").offset().top
         }, 1000);
