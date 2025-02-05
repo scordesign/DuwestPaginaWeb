@@ -9,6 +9,7 @@ http://www.tooplate.com/view/2102-constructive
     border: 0px;
 }
 
+
 /* Importación de las fuentes */
 @font-face {
     font-family: 'Century Gothic';
@@ -55,6 +56,9 @@ http://www.tooplate.com/view/2102-constructive
 }
 .butttonTd{
     margin-left: 2%;
+}
+#loaderpage{
+    overflow: hidden;
 }
 
 .collapse{
