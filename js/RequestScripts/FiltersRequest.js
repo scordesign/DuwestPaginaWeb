@@ -60,11 +60,12 @@ function chargeFilters() {
                         var trEach = $("<tr>");
 
                         trEach.append($("<td>").html(i));
-                        trEach.append($("<td>").attr("id", "IdFilterName" + element.id).html(element.name));
+                        trEach.append($("<td>").attr("id", "IdFilterName" + element.id).html(element.name).attr("style", "color: " + element.color + ";")); ;
 
 
                         var tdActions = $("<td>");
                         tdActions.append($("<input>").attr("type", "text").attr("id", "IdFilterCategory" + element.id).val(element.category).attr("hidden", "hidden"));
+                        tdActions.append($("<input>").attr("type", "text").attr("id", "IdFilterColor" + element.id).val(element.color).attr("hidden", "hidden")); 
                         tdActions.append($("<button>").attr("class", "btn btn-success butttonTd").attr("onclick", "ProcessFilter(" + element.id + ",1)").html("Editar"));
                         tdActions.append($("<button>").attr("class", "btn btn-danger butttonTd").attr("onclick", "ProcessFilter(" + element.id + ",2)").html("Eliminar"));
 
@@ -127,6 +128,8 @@ function ProcessFilter(id, action) {
 
         var name = $("#IdFilterName" + id).html();
         var category = $("#IdFilterCategory" + id).val();
+        var color = $("#IdFilterColor" + id).val(); 
+
         if (action == 0) {
             form.append($("<label>").text("Nombre del filtro: "));
             form.append($("<input>").attr("type", "text").attr("value", "").attr("name", "name").attr("required", "required"));
@@ -140,6 +143,9 @@ function ProcessFilter(id, action) {
             });
             select.append($("<option>").attr("value", "otra").html("otra categoria"));
             form.append(select);
+
+            form.append($("<label>").text("Color del filtro: "));
+            form.append($("<input>").attr("type", "text").attr("name", "color").attr("required", "required")); // Nuevo campo color
 
             form.append($("<input>").attr("type", "text").attr("name", "action").attr("hidden", "hidden").attr("value", "addFilter"));
         } else if (action == 1) {
@@ -160,6 +166,8 @@ function ProcessFilter(id, action) {
             select.append($("<option>").attr("value", "otra").html("otra categoria"));
             form.append(select);
 
+            form.append($("<label>").text("Color del filtro: "));
+            form.append($("<input>").attr("type", "text").attr("name", "color").attr("value", color).attr("required", "required")); 
 
 
             form.append($("<input>").attr("type", "text").attr("name", "id").attr("hidden", "hidden").attr("value", id));

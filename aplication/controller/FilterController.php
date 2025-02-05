@@ -74,7 +74,7 @@ class Filters
 
             if ($_POST["name"] === null) {
                 $returnFields["status"] = 406;
-                $returnFields["message"] = "Nombre de filtro requerid";
+                $returnFields["message"] = "Nombre de filtro requerido";
                 $return = json_encode($returnFields);
                 return $return;
             }
@@ -83,6 +83,7 @@ class Filters
             $id = $_POST["id"];
             $category = $_POST["category"] === null ? $_POST["categoryOther"] === null ? "" : $_POST["categoryOther"] : $_POST["category"];
             $name = $_POST["name"] === null ? "" : $_POST["name"];
+            $color = $_POST["color"] === null ? "" : $_POST["color"];
 
 
 
@@ -104,11 +105,12 @@ class Filters
 
 
 
-            $stmt = $pdo->prepare("update filters set `name` =:name,`category` =:category where id =:id");
+            $stmt = $pdo->prepare("update filters set `name` =:name,`category` =:category, `color` =:color where id =:id");
 
 
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':category', $category);
+            $stmt->bindParam(':color', $color); 
             $stmt->bindParam(':id', $id);
             // Ejecutar la sentencia SQL con los valores correspondientes
             $stmt->execute();
@@ -221,15 +223,19 @@ class Filters
 
             $category = !isset($_POST["category"]) ? ($_POST["categoryOther"] === null ? "" : $_POST["categoryOther"] ): $_POST["category"];
             $name = $_POST["name"] === null ? "" : $_POST["name"];
+            $color = $_POST["color"] === null ? "" : $_POST["color"]; // Nuevo campo color
 
 
 
 
-            $stmt = $pdo->prepare("INSERT INTO filters (`name`,`category`) VALUES (:name,:category)");
+
+            $stmt = $pdo->prepare("INSERT INTO filters (`name`,`category`, 'color') VALUES (:name,:category, :color)");
 
 
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':category', $category);
+            $stmt->bindParam(':color', $color);
+
 
             // Ejecutar la sentencia SQL con los valores correspondientes
             $stmt->execute();
