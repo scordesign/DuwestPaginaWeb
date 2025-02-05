@@ -293,6 +293,10 @@ function pagination() {
     var pageId = sessionStorage.getItem("currentPageID").replace("#tm-section-", "").trim();
     var el = $("#products2-" + pageId);
 
+    // console.log((el.height() + el.offset().top) - 200 );
+    // console.log( $(window).height() );
+    // console.log(((el.height() + el.offset().top) - 200 <= $(window).height()));
+    // console.log((pageCurrent * 10) < total);
 
 
     if (((el.height() + el.offset().top) - 200 <= $(window).height()) && (pageCurrent * 10) < total) {
@@ -410,7 +414,6 @@ function filterAdd(id) {
     } else {
         $("#filtersInput").val($("#filtersInput").val().replace("{" + id + "},", ""));
     }
-    console.log(($("#filtersInput").val()));
 }
 
 function AmountAdd(id) {
@@ -419,7 +422,6 @@ function AmountAdd(id) {
     } else {
         $("#amountInput").val($("#amountInput").val().replace("{" + id + "},", ""));
     }
-    console.log(($("#amountInput").val()));
 }
 
 function filterAddProducts(id, section) {
@@ -443,7 +445,6 @@ function getProducts(section, search, filters, page) {
         success: function (response) {
             //console.log(response.replace(/\\/g, ''));
             response = JSON.parse(JSON.parse(response));
-            console.log(response);
 
             localStorage.setItem("TotalRegs", response.Total);
             localStorage.setItem("PageRegs", response.Page);
@@ -478,7 +479,6 @@ function getProduct(id) {
         success: function (response) {
             //console.log(response.replace(/\\/g, ''));
             response = JSON.parse(JSON.parse(response));
-            console.log(response);
 
             $(".outWhats").toggleClass("hide");
 
@@ -603,20 +603,32 @@ function getProduct(id) {
             }
 
             if (response.data.listDocs != null) {
-                response.data.listDocs.forEach((element) => {
-                  // var pDocs = $("<p>").addClass("noClose");
-                  // pDocs.append($("<a>").attr("href", element).attr("target", "_blank").html(element.split("/")[element.split("/").length-1]).addClass("noClose").addClass("fuente-century-gothic").addClass("DocProducts"));
+
+                
                   divInfo.append(
                     $("<a>")
-                      .attr("href", element)
+                      .attr("href", response.data.ficha)
                       .attr("target", "_blank")
-                      .html(element.split("/")[element.split("/").length - 1])
+                      .html("Ficha tecnica")
                       .addClass("noClose")
                       .addClass("fuente-century-gothic")
-                      .addClass("DocProducts")
+                      .addClass("btn")
+                      .addClass("btn-primary")
+                      .addClass("DocProductsFicha")
                   );
-                  divInfo.append($("<br>"));
-                });
+
+                  divInfo.append(
+                    $("<a>")
+                      .attr("href", response.data.hoja)
+                      .attr("target", "_blank")
+                      .html("Hoja de seguridad")
+                      .addClass("noClose")
+                      .addClass("fuente-century-gothic")
+                      .addClass("btn")
+                      .addClass("btn-primary")
+                      .addClass("DocProductsHoja")
+                  );
+
             }
             
 
@@ -760,10 +772,29 @@ function getProductForUpdate(id) {
                     // var pDocs = $("<p>").addClass("noClose");
                     // pDocs.append($("<a>").attr("href", element).attr("target", "_blank").html(element.split("/")[element.split("/").length-1]).addClass("noClose").addClass("fuente-century-gothic").addClass("DocProducts"));            
                     var divContent = $("<div>").addClass("ContentFiles").addClass("noClose");
-                    var divContentFile = $("<div>").addClass("ContentFile").html("<a href=\"" + element + "\" target=\"_blank\" class=\"noClose\">" + element.split("/")[element.split("/").length - 1] + "</a>").addClass("noClose");
+                    var divContentFile = $("<div>").addClass("ContentFileDoc").html("<a href=\"" + element + "\" target=\"_blank\" class=\"noClose\">" + element.split("/")[element.split("/").length - 1] + "</a>").addClass("noClose");
                     var divContentActions = $("<div>").addClass("ContentFileActions").addClass("noClose");
                     divContentActions.append($("<button>").attr("type", "button").attr("class", "btn btn-danger").attr("onclick", "deleteDocsPro(\"" + element + "\"," + responseProduct.data.id + "," + 0 + ")").html("<i class=\"far fa-trash-alt\"></i>").addClass("noClose"));
+                    var divContentSelect = $("<div>").addClass("selectFile").addClass("noClose");
+                    var selectContent = $("<select>").attr("onchange","updateFicha(\"" + element + "\"," + responseProduct.data.id + ", event )").addClass("form-select").addClass("noClose");
+                    
+                    var hoja = $("<option>").val("hoja").html("hoja");
+                    var ficha = $("<option>").val("ficha").html("ficha");
+                    var select = $("<option>").val("Seleccione").html("Seleccione");
+                    if (responseProduct.data.hoja == element) {
+                        hoja.attr("selected","selected");
+                    }else if (responseProduct.data.ficha == element) {
+                        ficha.attr("selected","selected");
+                    }else {
+                        select.attr("selected","selected");
+                    }
+                    selectContent.append(select);
+                    selectContent.append(ficha);
+                    selectContent.append(hoja);
+                    divContentSelect.append(selectContent);
+
                     divContent.append(divContentFile);
+                    divContent.append(divContentSelect);
                     divContent.append(divContentActions);
                     divFile.append(divContent);
                 });
@@ -1074,7 +1105,34 @@ function deleteDocsPro(docName, id, Type) {
         success: function (response) {
             // Manejar la respuesta
             response = JSON.parse(JSON.parse(response));
-            console.log(response);
+            chargeProducts(sessionStorage.getItem("currentPageID").replace("#tm-section-", "").trim())
+            getProductForUpdate(id);
+
+
+        },
+        error: function (xhr, status, error) {
+            // Manejar errores
+            console.log(xhr.responseText); // Mostrar la respuesta del servidor en la consola
+        }
+    });
+}
+
+function updateFicha(docName, id , event) {
+    if (event.target.value == "Seleccione") {
+        return;
+    }
+    $.ajax({
+        url: "aplication/RequestController.php", // Archivo PHP que contiene la función
+        type: "POST", // Método de solicitud
+        data: {
+            "action": "UpdateDocsPro",
+            "docName": docName, // Variable1 que deseas enviar
+            "id": id, // Variable2 que deseas enviar
+            "type": event.target.value // Variable3 que deseas enviar
+        },
+        success: function (response) {
+            // Manejar la respuesta
+            response = JSON.parse((response));
             chargeProducts(sessionStorage.getItem("currentPageID").replace("#tm-section-", "").trim())
             getProductForUpdate(id);
 

@@ -2703,7 +2703,7 @@ button {
     float: right;
     position: relative;
     height: auto;
-    top: -20vh;
+    top: -10vh;
 }
 
 .carousel-control-next,
@@ -2784,7 +2784,37 @@ button {
     width: 90%;
 }
 
+.ContentFileDoc {
+    width: 60%;
+}
+
+.selectFile{
+    width: 30%;
+}
+
+.DocProductsFicha{
+    background: rgb(12, 189, 105);
+    color:white;
+    text-decoration: none;
+    border: none;
+    font-weight: bold;
+}
+
+.DocProductsHoja{
+    background: rgb(151, 193, 123);
+    color:rgb(23, 167, 102) ;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 0.5vw;
+    border: none;
+}
+
 .ContentFile a {
+    color: #002907;
+    font-size: calc(0.7vh + 0.7vw);
+}
+
+.ContentFileDoc a {
     color: #002907;
     font-size: calc(0.7vh + 0.7vw);
 }

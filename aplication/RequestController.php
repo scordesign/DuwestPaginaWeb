@@ -32,6 +32,9 @@ switch (strtolower($_SERVER["REQUEST_METHOD"])) {
             case "deleteDocsPro":
                 echo $Products->deleteDocs();
                 break;
+            case "UpdateDocsPro":
+                echo $Products->updateDocs();
+                break;
             case "editProducts":
                 echo $Products->editProducts();
                 break;
