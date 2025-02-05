@@ -788,6 +788,7 @@ function getProductForUpdate(id) {
                                     // Iterar sobre los objetos dentro de cada categoría
                                     objetos.forEach(function (element) {
                                         var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:50%;background-color:" + element.color+";");
+                                        console.log(divData);
                                         var input = $("<input>").attr("type", "checkbox").attr("onclick", "filterAdd(" + element.id + ")").attr("name", element.name).attr("id", "checkBox-" + element.id).attr("style", "width:20%;");
                                         if (responseProduct.data.filters.includes("{" + element.id + "}")) {
                                             input.prop('checked', true);
