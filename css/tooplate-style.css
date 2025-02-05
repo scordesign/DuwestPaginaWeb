@@ -314,7 +314,7 @@ p:last-child {
     position: fixed;
     right: 5%;
     margin-top: 1%;
-    width: 40vw;
+    /* width: 40vw; */
     height: fit-content;
     z-index: 998;
 }
@@ -356,6 +356,10 @@ p:last-child {
 #pqrs{
     height: 10%;
 }
+#pqrs a {
+    display: flex;          
+    align-items: center;    
+  }
 #pqrs img{
     height: 3.9vh ;
    }
@@ -1291,7 +1295,7 @@ footer a {
 .parrafo-vision {
     position: relative;
     top: 8%;
-    background-color: rgba(73, 71, 69, 0.6);
+    background-color: rgba(73, 71, 69, 0.85);
     color: white;
     height: auto;
     background-image: url(../img/fondo-suelo-blanco.png);
@@ -1319,7 +1323,7 @@ footer a {
 .parrafo-mision {
     position: relative;
     top: 21%;
-    background-color: rgba(73, 71, 69, 0.6);
+    background-color: rgba(73, 71, 69, 0.85);
     color: white;
     height: auto;
     background-image: url(../img/fondo-suelo-blanco.png);
@@ -2222,7 +2226,7 @@ button {
     margin-right: 2%;
     align-items: center;
     text-align: center;
-    background: white;
+    background: transparent;
 }
 
 .divNewImage img {
@@ -3035,7 +3039,7 @@ height: 24%;
 
     .tm-main-nav a {
         padding-right: 10px;
-        text-decoration: underline;
+        /* text-decoration: underline; */
     }
 
     .tm-content {
