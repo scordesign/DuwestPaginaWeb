@@ -188,7 +188,7 @@ function addProduct() {
                         // Iterar sobre los objetos dentro de cada categoría
                         var i = 0;
                         objetos.forEach(function (element) {
-                            var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:50%;float: left;background-color:" + element.color+";");
+                            var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:50%;float: left;background-color:" + element.color+";color:"+element.text+";");
 
                             divData.append($("<input>").attr("type", "checkbox").attr("onclick", "filterAdd(" + element.id + ")").attr("name", element.name).attr("id", "checkBox-" + element.id).attr("style", "width:20%; background-color:" + element.color+";"));
                             divData.append($("<label>").text(element.name).attr("styles", "width:80%;"));
