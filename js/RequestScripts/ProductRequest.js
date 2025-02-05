@@ -182,9 +182,9 @@ function addProduct() {
                         // Iterar sobre los objetos dentro de cada categoría
                         var i = 0;
                         objetos.forEach(function (element) {
-                            var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:50%;float: left;");
+                            var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:50%;float: left;background-color:" + element.color+";");
 
-                            divData.append($("<input>").attr("type", "checkbox").attr("onclick", "filterAdd(" + element.id + ")").attr("name", element.name).attr("id", "checkBox-" + element.id).attr("style", "width:20%;"));
+                            divData.append($("<input>").attr("type", "checkbox").attr("onclick", "filterAdd(" + element.id + ")").attr("name", element.name).attr("id", "checkBox-" + element.id).attr("style", "width:20%; background-color:" + element.color+";"));
                             divData.append($("<label>").text(element.name).attr("styles", "width:80%;"));
 
                             divFirst.append(divData);
@@ -341,7 +341,7 @@ function getfilters(pageId) {
                     // Iterar sobre los objetos dentro de cada categoría
 
                     objetos.forEach(function (element) {
-                        var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:100%;");
+                        var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:100%;background-color:" + element.color+";");
 
                         divData.append($("<input>").attr("data", key).attr("type", "checkbox").attr("onclick", "filterAddProducts(" + element.id + "," + sectionNumber + ")").attr("name", element.name).attr("id", "CheckboxFilter" + sectionNumber + "-" + element.id));
                         divData.append($("<label>").text(element.name).attr("styles", "width:80%;"));
@@ -787,7 +787,7 @@ function getProductForUpdate(id) {
                                     var objetos = response.data[key];
                                     // Iterar sobre los objetos dentro de cada categoría
                                     objetos.forEach(function (element) {
-                                        var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:50%;");
+                                        var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:50%;background-color:" + element.color+";");
                                         var input = $("<input>").attr("type", "checkbox").attr("onclick", "filterAdd(" + element.id + ")").attr("name", element.name).attr("id", "checkBox-" + element.id).attr("style", "width:20%;");
                                         if (responseProduct.data.filters.includes("{" + element.id + "}")) {
                                             input.prop('checked', true);
