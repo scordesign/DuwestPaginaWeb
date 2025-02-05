@@ -103,6 +103,73 @@ class Products
         // Iterar sobre el resultado
     }
 
+    public function updateDocs(): string
+    {
+        $returnFields = array();
+        try {
+
+
+            $conexion = new Conexion();
+            $pdo = $conexion->obtenerConexion();
+
+
+            $id = $_POST["id"];
+            $docName = $_POST["docName"];
+            $type = $_POST["type"];
+
+
+
+            $consulta = "SELECT * FROM products WHERE id = :id ";
+
+            // Preparar la consulta
+            $stmt = $pdo->prepare($consulta);
+
+            // Asignar valores a los parámetros (en este caso, solo uno)
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+            // Ejecutar la consulta
+            $stmt->execute();
+            // Obtener los resultados
+            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+
+            $sSql = "";
+
+            
+            $sSql = "update products set `".$type."` = :docName where `id` = :id ";
+            
+
+            $stmt = $pdo->prepare($sSql);
+
+            $stmt->bindParam(':docName', $docName);
+            $stmt->bindParam(':id', $id);
+
+
+            // Ejecutar la sentencia SQL con los valores correspondientes
+            $stmt->execute();
+
+
+
+            $returnFields["status"] = 200;
+            $returnFields["message"] = "editado correctamente";
+
+            $returnProduct = json_encode($returnFields);
+
+
+            return $returnProduct;
+
+        } catch (\Throwable $e) {
+            $returnFields["status"] = 500;
+            $returnFields["message"] = $e->getMessage();
+
+            $returnProduct = json_encode($returnFields);
+
+            return $returnProduct;
+        }
+        // Iterar sobre el resultado
+    }
+
+
 
     public function editProducts(): string
     {
@@ -775,6 +842,8 @@ class Products
                 $resultadosReturn['amountOther'] = $resultado['amountOther'];
                 $resultadosReturn['logo'] = $resultado['logo'];
                 $resultadosReturn['proveedor'] = $resultado['proveedor'];
+                $resultadosReturn['ficha'] = $resultado['ficha'];
+                $resultadosReturn['hoja'] = $resultado['hoja'];
 
                 $resultadosReturn['amountImgs'] = "";
                 $resultadosReturn['amountName'] = "";
@@ -824,7 +893,7 @@ class Products
             $returnProduct = json_encode($returnFields);
 
 
-            return json_encode($returnProduct);
+            return json_encode(value: $returnProduct);
         }
         // Iterar sobre el resultado
     }

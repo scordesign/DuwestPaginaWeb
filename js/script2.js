@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Desplazar la página hacia la #tm-section-10
         sessionStorage.setItem("currentPageID","#tm-section-10");
         // sessionStorage.getItem("currentPageID") = "#tm-section-10";
-        console.log(sessionStorage.getItem("currentPageID")+'<<<<<<<<<<<<<<<<');
         $("html, body").animate({
             scrollTop: $("#tm-section-10").offset().top
         }, 1000);

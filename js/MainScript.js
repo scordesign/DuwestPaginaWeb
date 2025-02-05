@@ -9,7 +9,6 @@ function cerrarPopup() {
 var sidebarVisible = false;
 
 const url = new URL(location);
-console.log(url.hash);
 
 // sessionStorage.setItem("currentPageID",url.hash == ""?sessionStorage.getItem("currentPageID") == null ?  "#tm-section-1":sessionStorage.getItem("currentPageID")  == "undefined"?"#tm-section-1":sessionStorage.getItem("currentPageID") : url.hash );
 sessionStorage.setItem("currentPageID", url.hash === "" ? "#tm-section-1" : url.hash);
@@ -383,7 +382,6 @@ function changePage(currentNavItem) {
 
 
     SetInfoSection(currentNavItem.data().page);
-    // console.log(sessionStorage.getItem("currentPageID") + '>>>>>>>>>>>>>>');
     if (currentNavItem.data("page") != '#popup-container') {
         $(sessionStorage.getItem("currentPageID")).hide();
 
@@ -396,7 +394,6 @@ function changePage(currentNavItem) {
 
 
         history.pushState({ page: newSection }, "", newSection);
-        console.log(currentNavItem.data("page"));
     }
 
 
