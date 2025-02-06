@@ -2586,6 +2586,8 @@ button {
     width: 10%;
     height: 2.3vh;
     margin-right: 5%;
+    margin-left: 0.2vw;
+    margin-top: 0.4vh;
 }
 
 .filter-product form .filters input:checked {
