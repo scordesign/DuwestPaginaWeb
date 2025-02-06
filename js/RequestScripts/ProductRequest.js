@@ -188,9 +188,9 @@ function addProduct() {
                         // Iterar sobre los objetos dentro de cada categoría
                         var i = 0;
                         objetos.forEach(function (element) {
-                            var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:50%;float: left;background-color:" + element.color+ ";color:"+element.text+";");
+                            var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:50%;float: left;background-color:" + element.color+ ";color:"+element.text+";font-size: 16px;font-weight:bold;border-radius:20px;");
 
-                            divData.append($("<input>").attr("type", "checkbox").attr("onclick", "filterAdd(" + element.id + ")").attr("name", element.name).attr("id", "checkBox-" + element.id).attr("style", "width:20%; background-color:" + element.color+";color:"+element.text+";"));
+                            divData.append($("<input>").attr("type", "checkbox").attr("onclick", "filterAdd(" + element.id + ")").attr("name", element.name).attr("id", "checkBox-" + element.id).attr("style", "width:20%; background-color:" + element.color+";color:"+element.text+";font-size: 16px;font-weight:bold;border-radius:20px;"));
                             divData.append($("<label>").text(element.name).attr("styles", "width:80%;"));
 
                             divFirst.append(divData);
@@ -365,7 +365,7 @@ function getfilters(pageId) {
                     
                     objetos.forEach(function (element) {
                         
-                        var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:100%;background-color:" + element.color+";color:"+element.text+";","data-key", key);
+                        var divData = $("<div>").attr("class", "filtersEach").attr("style", "display:inline-flex;width:100%;background-color:" + element.color+";color:"+element.text+";font-size: 16px;font-weight:bold;border-radius:20px;","data-key", key);
 
                         if ( isMobileDevice() && key != "Clasificación") {
                             divData.attr("style", "display: none;width: 100%;");
