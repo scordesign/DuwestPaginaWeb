@@ -3537,7 +3537,7 @@ height: 24%;
     }
     .slide img{
         object-fit:cover;
-        object-position: 70%;
+        object-position: 45%;
     }
     .slider{
         display: block;
