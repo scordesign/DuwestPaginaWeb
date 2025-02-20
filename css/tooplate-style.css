@@ -1687,6 +1687,8 @@ footer a {
     font-family: 'Century Gothic', sans-serif;
     font-weight: lighter;
 }
+
+
 #whatsmobile{
     position: fixed;
     bottom: 10%;
@@ -1696,8 +1698,11 @@ footer a {
 }
 
 #fatherProductModal #whatsmobile{
+    position: relative;
     bottom: 27%;
-    left: 26%;
+    left: 0%;
+    width: 35%;
+    top: 2vh;
 }
 
 .popup-content1 p {
@@ -1898,6 +1903,7 @@ footer a {
 
 
 #modal {
+    height: auto;
     border-radius: 2%;
     position: relative;
     width: 50%;
