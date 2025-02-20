@@ -360,16 +360,33 @@ p:last-child {
 #pqrs{
     height: 10%;
 }
+#pqrs:hover{
+    color:#68AF59;
+}
 #pqrs a {
     display: flex;          
     align-items: center;    
   }
+  #pqrs a:hover {
+    color:#68AF59;
+  }
  #h4pqr{
     font-weight: bold;
+    font-family: 'Lemon Milk' !important;
+    font-size: 1.2em;
+    margin-top: 10%;
+ }
+ #h4pqr:hover{
+    color: #68AF59;
+    text-decoration: none;
  }
 #pqrs img{
     height: 3.9vh ;
    }
+
+#pqrs img:hover{
+    color: #68AF59;
+}
 
 #imgFlag img {
     height: 3.9vh;
@@ -377,6 +394,9 @@ p:last-child {
 
 #imglogo img {
     width: 8vw;
+}
+#closemenu{
+    display: none;
 }
 .slider {
     width: 100%;
@@ -1471,6 +1491,14 @@ footer a {
     font-size: 70px;
     color:#006838;
 }
+.close-btn2 {
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 70px;
+    color:#006838;
+}
 
 .popup-content p {
     margin: 0;
@@ -1873,7 +1901,7 @@ footer a {
     border-radius: 2%;
     position: relative;
     width: 50%;
-    height: 70%;
+    height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -1992,8 +2020,10 @@ button {
     position: fixed;
     max-height: 6%;
     padding: 1%;
-    color: black;
+    color: #006838;
     cursor: pointer;
+    font-size: 200%;
+
 }
 
 #miFormulario {
@@ -2811,6 +2841,11 @@ button {
     text-decoration: none;
     border: none;
     font-weight: bold;
+}  
+.DocProductsFicha:hover {
+    color: #fff;
+    background-color: rgb(12, 189, 105);
+    border-color: rgb(12, 189, 105);
 }
 
 .DocProductsHoja{
@@ -2820,6 +2855,11 @@ button {
     text-decoration: none;
     margin-left: 0.5vw;
     border: none;
+}
+.DocProductsHoja:hover {
+    color: #fff;
+    background-color: rgb(12, 189, 105);
+    border-color: rgb(12, 189, 105);
 }
 
 .ContentFile a {
@@ -3523,6 +3563,7 @@ height: 24%;
     
     }
     #closemenu{
+        display: block;
         position: absolute;
         /* margin-bottom: 22%; */
         left: 47%;
