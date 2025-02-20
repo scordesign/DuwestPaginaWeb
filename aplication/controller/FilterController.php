@@ -122,7 +122,7 @@ class Filters
             $returnFields["status"] = 200;
             $returnFields["message"] = "Editado correctamente";
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -131,7 +131,7 @@ class Filters
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -185,7 +185,7 @@ class Filters
             $returnFields["status"] = 200;
             $returnFields["message"] = "Eliminado correctamente";
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -194,7 +194,7 @@ class Filters
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -251,7 +251,7 @@ class Filters
             $returnFields["status"] = 200;
             $returnFields["message"] = "Registrado correctamente";
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -260,7 +260,7 @@ class Filters
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);

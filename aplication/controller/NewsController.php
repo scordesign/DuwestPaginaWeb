@@ -68,7 +68,7 @@ class News
             $returnFields["status"] = 200;
             $returnFields["message"] = "Registrado correctamente";
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -77,7 +77,7 @@ class News
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -173,7 +173,7 @@ class News
             $returnFields["status"] = 200;
             $returnFields["message"] = "Editado correctamente";
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -182,7 +182,7 @@ class News
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -254,7 +254,7 @@ class News
             $returnFields["status"] = 200;
             $returnFields["message"] = "Eliminado correctamente";
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -263,7 +263,7 @@ class News
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -339,7 +339,7 @@ class News
             $returnFields["status"] = 200;
             $returnFields["message"] = "Registrado correctamente";
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -348,7 +348,7 @@ class News
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -422,7 +422,7 @@ class News
             $returnFields["status"] = 200;
             $returnFields["message"] = "Correcto" ;
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -430,7 +430,7 @@ class News
         } catch (\Throwable $e) {
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage()." - ".$e->getLine()." - ".$error;
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -475,7 +475,7 @@ class News
             $returnFields["status"] = 200;
             $returnFields["message"] = "Correcto";
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -484,7 +484,7 @@ class News
             $returnFields["status"] = 500;
             $returnFields["message"] = $e;
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);

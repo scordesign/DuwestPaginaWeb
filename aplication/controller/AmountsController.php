@@ -23,7 +23,7 @@ class Amounts
             $returnFields["status"] = 200;
             $returnFields["message"] = "correcto";
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode($returnProduct);
@@ -31,7 +31,7 @@ class Amounts
             
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
             
             return json_encode($returnProduct);
         }
@@ -120,7 +120,7 @@ class Amounts
             $returnFields["status"] = 200;
             $returnFields["message"] = "Editado correctamente";
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -129,7 +129,7 @@ class Amounts
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -187,7 +187,7 @@ class Amounts
             $returnFields["status"] = 200;
             $returnFields["message"] = "Eliminado correctamente";
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -196,7 +196,7 @@ class Amounts
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -263,7 +263,7 @@ class Amounts
             $returnFields["status"] = 200;
             $returnFields["message"] = "Registrado correctamente";
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);
@@ -272,7 +272,7 @@ class Amounts
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnNew = json_encode($returnFields);
+            $returnNew = ($returnFields);
 
 
             return json_encode($returnNew);

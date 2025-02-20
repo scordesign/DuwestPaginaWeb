@@ -376,7 +376,7 @@ function ProcessFilter(id, action) {
           processData: false, // Datos a enviar (datos del formulario serializados)
           success: function (response) {
             // Manejar la respuesta
-            response = JSON.parse(JSON.parse(response));
+            response = (JSON.parse(response));
             $("#alerta").removeClass("bg-success");
             $("#alerta").removeClass("bg-danger");
             $("#alerta").removeClass("bg-warning");

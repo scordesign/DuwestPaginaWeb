@@ -86,7 +86,7 @@ class Products
             $returnFields["status"] = 200;
             $returnFields["message"] = "Registrado correctamente";
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode($returnProduct);
@@ -95,7 +95,7 @@ class Products
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode($returnProduct);
@@ -379,7 +379,7 @@ class Products
             $returnFields["status"] = 200;
             $returnFields["message"] = "Editado correctamente";
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode($returnProduct);
@@ -388,7 +388,7 @@ class Products
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode($returnProduct);
@@ -459,7 +459,7 @@ class Products
             $returnFields["status"] = 200;
             $returnFields["message"] = "Eliminado correctamente";
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode($returnProduct);
@@ -468,7 +468,7 @@ class Products
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode($returnProduct);
@@ -525,14 +525,14 @@ class Products
             if (count($images['name']) > 3) {
                 $returnFields["status"] = 406;
                 $returnFields["message"] = "Solo se admiten 3 imagenes por producto";
-                $return = json_encode($returnFields);
+                $return = ($returnFields);
                 return json_encode($return);
             }
             
             if (count($files['name']) > 4) {
                 $returnFields["status"] = 406;
                 $returnFields["message"] = "Solo se admiten 4 archivos por producto";
-                $return = json_encode($returnFields);
+                $return = ($returnFields);
                 return json_encode($return);
             }
             
@@ -540,7 +540,7 @@ class Products
             if ($_POST["name"] === null) {
                 $returnFields["status"] = 406;
                 $returnFields["message"] = "Nombre de producto requerid";
-                $return = json_encode($returnFields);
+                $return = ($returnFields);
                 return json_encode($return);
             }
 
@@ -663,7 +663,7 @@ class Products
             $returnFields["status"] = 200;
             $returnFields["message"] = "Registrado correctamente";
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode($returnProduct);
@@ -672,7 +672,7 @@ class Products
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage() ." ". $e->getLine();
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode($returnProduct);
@@ -778,7 +778,7 @@ class Products
             $returnFields["status"] = 200;
             $returnFields["message"] = "Correcto";
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode($returnProduct);
@@ -796,7 +796,7 @@ class Products
             $returnFields["status"] = 500;
             $returnFields["message"] = "Error en la línea $lineaError del archivo $archivoError: $mensajeError ".$Ssql;
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
             return json_encode($returnProduct);
         }
@@ -881,7 +881,7 @@ class Products
             $returnFields["info"] = $resultadosinfo;
             $returnFields["message"] = "Correcto";
 
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode($returnProduct);
@@ -890,7 +890,7 @@ class Products
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
             // $returnFields["info"] = $Ssql;
-            $returnProduct = json_encode($returnFields);
+            $returnProduct = ($returnFields);
 
 
             return json_encode(value: $returnProduct);

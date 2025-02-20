@@ -1,7 +1,6 @@
 $(function () {
     $("#searchMenu").keyup(function () {
         $("#news .divNew").remove();
-        console.log("la hace");
         getNews( $("#searchMenu").val());
     });
 
@@ -66,7 +65,7 @@ function addNew() {
                 processData: false,// Datos a enviar (datos del formulario serializados)
                 success: function (response) {
                     // Manejar la respuesta
-                    response = JSON.parse(JSON.parse(response));
+                    response = (JSON.parse(response));
                     $("#alerta").removeClass("bg-success");
                     $("#alerta").removeClass("bg-danger");
                     $("#alerta").removeClass("bg-warning");
@@ -116,7 +115,6 @@ function paginationNews() {
         getNews( ($("#searchMenu").val() == "" ? undefined : $("#searchMenu").val()), (pageCurrent.valueOf() - 1) + 2)
         return;
     }
-    console.log("no lo hizo");
 }
 
 function chargeNews() {
@@ -131,22 +129,30 @@ function getNews( search, page) {
         url: "aplication/RequestController.php?action=getNews" + (typeof search == "undefined" ? "" : "&search=" + search) + (typeof page == "undefined" ? "" : "&page=" + page), // Archivo PHP que contiene la función
         type: "GET", // Método de solicitud
         success: function (response) {
-            //console.log(response.replace(/\\/g, ''));
-            response = JSON.parse(JSON.parse(response));
+            response = (JSON.parse(response));
 
             localStorage.setItem("TotalRegs", response.Total);
             localStorage.setItem("PageRegs", response.Page);
             var i =1;
             response.data.forEach(element => {
-                var background =  (i % 3) == 1 ? "backgreenGray"  : (i % 3) == 2 ? "backgreenLess" : "backgreen" ;
+                var background =  (i % 2) == 1 ? "backgreen"  : "backgreenLess";
+                var imageClass =  (i % 2) == 1 ? "image1"  : "image2";
 
                 var divFather = $("<div>").attr("class", "divNew");
 
                 var divOne = $("<div>").attr("class", "divNewImage");
+
+                if (!isMobileDevice()) {
+                    // Cambiar la fuente de la imagen para pantallas más pequeñas
+                    divOne.addClass(imageClass);
+                } 
+
+                
+
                 var divTwo = $("<div>").attr("class", "divNewDesc fuente-century-gothic").attr("onclick", "getNew(" + element.id + ")").addClass(background);
 
-
-                if ($(window).width() <= 600) {
+                
+                if (isMobileDevice()) {
                     // Cambiar la fuente de la imagen para pantallas más pequeñas
                     divTwo.attr("style","background: linear-gradient(0deg,  rgba(1, 1, 1, 0.8) 0% , rgba(255, 255, 255, 0) 50% , rgba(255, 255, 255, 0) 100%),url(\""+(element.images == null ? "" : element.images.length == 0 ? "" : element.images[0])+"\");");
                 } 
@@ -175,10 +181,7 @@ function getNew(id) {
         url: "aplication/RequestController.php?action=getNew&id=" + id, // Archivo PHP que contiene la función
         type: "GET", // Método de solicitud
         success: function (response) {
-            //console.log(response.replace(/\\/g, ''));
-            response = JSON.parse(JSON.parse(response));
-            console.log(response);
-            console.log(response.listImg);
+            response = (JSON.parse(response));
             $("#formModalNotice").html("");
             if ($("#modalBackgroundNotice").hasClass("hide")) {
                 $("#modalBackgroundNotice").toggleClass("hide");
@@ -250,7 +253,7 @@ function getNewForUpdate(id) {
         type: "GET", // Método de solicitud
         success: function (responseNew) {
             //console.log(response.replace(/\\/g, ''));
-            responseNew = JSON.parse(JSON.parse(responseNew));
+            responseNew = (JSON.parse(responseNew));
             getSession().then(function (session) {
 
 
@@ -334,7 +337,7 @@ function getNewForUpdate(id) {
                         processData: false,// Datos a enviar (datos del formulario serializados)
                         success: function (response) {
                             // Manejar la respuesta
-                            response = JSON.parse(JSON.parse(response));
+                            response = (JSON.parse(response));
                             $("#alerta").removeClass("bg-success");
                             $("#alerta").removeClass("bg-danger");
                             $("#alerta").removeClass("bg-warning");
@@ -386,7 +389,7 @@ function getNewForDelete(id) {
         type: "GET", // Método de solicitud
         success: function (responseNew) {
             //console.log(response.replace(/\\/g, ''));
-            responseNew = JSON.parse(JSON.parse(responseNew));
+            responseNew = (JSON.parse(responseNew));
             getSession().then(function (session) {
                 if (!($("#modalBackgroundNotice").hasClass("hide"))) {
                     $("#modalBackgroundNotice").toggleClass("hide");
@@ -446,7 +449,7 @@ function getNewForDelete(id) {
                         processData: false,// Datos a enviar (datos del formulario serializados)
                         success: function (response) {
                             // Manejar la respuesta
-                            response = JSON.parse(JSON.parse(response));
+                            response = (JSON.parse(response));
                             $("#alerta").removeClass("bg-success");
                             $("#alerta").removeClass("bg-danger");
                             $("#alerta").removeClass("bg-warning");
@@ -521,8 +524,7 @@ function deleteDocs(docName, id, Type) {
         },
         success: function (response) {
             // Manejar la respuesta
-            response = JSON.parse(JSON.parse(response));
-            console.log(response);
+            response = (JSON.parse(response));
             chargeNews()
             getNewForUpdate(id);
 

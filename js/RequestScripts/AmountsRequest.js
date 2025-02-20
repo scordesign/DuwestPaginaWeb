@@ -5,7 +5,7 @@ function chargeAmounts() {
         url: "aplication/RequestController.php?action=getAmounts", // Archivo PHP que contiene la función
         type: "GET", // Método de solicitud
         success: function (response) {
-            response = JSON.parse(JSON.parse(response));
+            response = (JSON.parse(response));
 
             var tBody = $("#adminAmounts");
             tBody.html("");
@@ -120,7 +120,7 @@ function ProcessAmount(id, action) {
                 processData: false,// Datos a enviar (datos del formulario serializados)
                 success: function (response) {
                     // Manejar la respuesta
-                    response = JSON.parse(JSON.parse(response));
+                    response = (JSON.parse(response));
                     $("#alerta").removeClass("bg-success");
                     $("#alerta").removeClass("bg-danger");
                     $("#alerta").removeClass("bg-warning");

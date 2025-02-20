@@ -177,7 +177,7 @@ function addProduct() {
         url: "aplication/RequestController.php?action=getAmounts", // Archivo PHP que contiene la función
         type: "GET", // Método de solicitud
         success: function (response) {
-          response = JSON.parse(JSON.parse(response));
+          response = (JSON.parse(response));
 
           var divFirst = $("<div>")
             .attr("class", "amounts noClose")
@@ -397,7 +397,7 @@ function addProduct() {
           processData: false, // Datos a enviar (datos del formulario serializados)
           success: function (response) {
             // Manejar la respuesta
-            response = JSON.parse(JSON.parse(response));
+            response = (JSON.parse(response));
             $("#alerta").removeClass("bg-success");
             $("#alerta").removeClass("bg-danger");
             $("#alerta").removeClass("bg-warning");
@@ -683,7 +683,7 @@ function getProducts(section, search, filters, page) {
     type: "GET", // Método de solicitud
     success: function (response) {
       //console.log(response.replace(/\\/g, ''));
-      response = JSON.parse(JSON.parse(response));
+      response = (JSON.parse(response));
 
       localStorage.setItem("TotalRegs", response.Total);
       localStorage.setItem("PageRegs", response.Page);
@@ -734,7 +734,7 @@ function getProduct(id) {
     type: "GET", // Método de solicitud
     success: function (response) {
       //console.log(response.replace(/\\/g, ''));
-      response = JSON.parse(JSON.parse(response));
+      response = (JSON.parse(response));
 
       $(".outWhats").toggleClass("hide");
 
@@ -972,6 +972,10 @@ function getProduct(id) {
               .replaceAll("0", " ")
           : filtersProduct.replaceAll("0", " ");
         filtersProduct = filtersProduct.replace(",  ", "<br>");
+        filtersProduct = filtersProduct.replace(",,", "");
+        filtersProduct = filtersProduct.replace(", ,", "");
+        filtersProduct = filtersProduct.endsWith(", ") ? filtersProduct.substring(0,filtersProduct.length - 2 ) : filtersProduct;
+
         divInfo.append(
           $("<p>")
             .addClass("filtersProduct")
@@ -1048,7 +1052,7 @@ function getProduct(id) {
       var whatsapp = $("<a>").attr("href", href).attr("target", "_blank");
       whatsapp.append(
         $("<img>")
-          .attr("src", "img/Whatsappgif.gif")
+          .attr("src", "img/Boton-Producto-Whatsapp.png")
           .attr("id", "whatsmobile")
           .addClass("noClose")
       );
@@ -1100,7 +1104,7 @@ function getProductForUpdate(id) {
     type: "GET", // Método de solicitud
     success: function (responseProduct) {
       //console.log(response.replace(/\\/g, ''));
-      responseProduct = JSON.parse(JSON.parse(responseProduct));
+      responseProduct = (JSON.parse(responseProduct));
       getSession()
         .then(function (session) {
           $("#formModal").html("");
@@ -1320,7 +1324,7 @@ function getProductForUpdate(id) {
               url: "aplication/RequestController.php?action=getAmounts", // Archivo PHP que contiene la función
               type: "GET", // Método de solicitud
               success: function (response) {
-                response = JSON.parse(JSON.parse(response));
+                response = (JSON.parse(response));
 
                 var divFirst = $("<div>")
                   .attr("class", "amounts noClose")
@@ -1499,7 +1503,7 @@ function getProductForUpdate(id) {
               processData: false, // Datos a enviar (datos del formulario serializados)
               success: function (response) {
                 // Manejar la respuesta
-                response = JSON.parse(JSON.parse(response));
+                response = (JSON.parse(response));
                 $("#alerta").removeClass("bg-success");
                 $("#alerta").removeClass("bg-danger");
                 $("#alerta").removeClass("bg-warning");
@@ -1555,7 +1559,7 @@ function getProductForDelete(id) {
     type: "GET", // Método de solicitud
     success: function (responseProduct) {
       //console.log(response.replace(/\\/g, ''));
-      responseProduct = JSON.parse(JSON.parse(responseProduct));
+      responseProduct = (JSON.parse(responseProduct));
       getSession()
         .then(function (session) {
           $("#formModal").html("");
@@ -1644,7 +1648,7 @@ function getProductForDelete(id) {
               processData: false, // Datos a enviar (datos del formulario serializados)
               success: function (response) {
                 // Manejar la respuesta
-                response = JSON.parse(JSON.parse(response));
+                response = (JSON.parse(response));
                 $("#alerta").removeClass("bg-success");
                 $("#alerta").removeClass("bg-danger");
                 $("#alerta").removeClass("bg-warning");
@@ -1730,7 +1734,7 @@ function deleteDocsPro(docName, id, Type) {
     },
     success: function (response) {
       // Manejar la respuesta
-      response = JSON.parse(JSON.parse(response));
+      response = (JSON.parse(response));
       chargeProducts(
         sessionStorage
           .getItem("currentPageID")
