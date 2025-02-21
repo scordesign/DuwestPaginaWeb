@@ -274,7 +274,16 @@ p:last-child {
     margin-right: auto;
     margin-left: auto;
 }
-
+.underline-long::after {
+    content: "";
+    display: block;
+    width: 120%; /* Ajusta la longitud */
+    height: 3px; /* Grosor de la línea */
+    background-color: currentColor; /* Mismo color del texto */
+    margin: 0 auto;
+    position: relative;
+    left: -10%;
+}
 .tm-main {
     height: 100%;
     min-height: 100vh;
@@ -2639,7 +2648,8 @@ button {
 
     border-radius: 50%;
     /* Forma circular */
-    border: 2px solid #ccc;
+    border: 2px solid white;
+    background-color: white;
     /* Borde del checkbox */
     cursor: pointer;
     /* Cambia el cursor al pasar sobre el checkbox */
@@ -2651,7 +2661,7 @@ button {
 }
 
 .filter-product form .filters input:checked {
-    background-color: #007bff;
+    background-color: #3caa41;
     /* Cambia el color de fondo cuando está marcado */
 }
 
