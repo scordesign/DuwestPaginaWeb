@@ -137,6 +137,7 @@ function addProduct() {
             .attr("style", "color: #32aa48; font-size:23vh;")
         );
 
+<<<<<<< Updated upstream
         form.append($("<label>").text("error: "));
         form.append(
           $("<input>")
@@ -145,6 +146,144 @@ function addProduct() {
             .attr("value", "Sesión no iniciada")
             .attr("style", "text-align: center;")
         );
+=======
+        form.append($("<label>").text("Nombre del producto: "));
+        form.append($("<input>").attr("type", "text").attr("name", "name").attr("required", "required"));
+
+
+
+        form.append($("<input>").attr("type", "hidden").attr("name", "amount").attr("id", "amountInput"));
+
+        var div1 = $("<div>").attr("id", "amount").attr("style", "margin-top:2%;");
+
+        $.ajax({
+            url: "aplication/RequestController.php?action=getAmounts", // Archivo PHP que contiene la función
+            type: "GET", // Método de solicitud
+            success: function (response) {
+                response = JSON.parse(JSON.parse(response));
+
+                var divFirst = $("<div>").attr("class", "amounts noClose").attr("style", "width:100%;color:black;");
+
+
+                divFirst.append($("<h4>").html("presentaciones").attr("class", "bold noClose"));
+
+
+                // Iterar sobre los objetos dentro de cada categoría
+                var i = 0;
+                response.data.forEach(function (element) {
+                    var divData = $("<div>").attr("class", "AmountsEach").addClass("noClose").attr("style", "display:inline-flex;width:50%;float: left;");
+
+                    divData.append($("<input>").attr("type", "checkbox").attr("onclick", "AmountAdd(" + element.id + ")").attr("name", element.name).attr("id", "checkBox-amount-" + element.id).attr("style", "width:20%;"));
+                    divData.append($("<label>").text(element.name).attr("styles", "width:80%;"));
+
+                    divFirst.append(divData);
+                    i++;
+                });
+
+
+
+                div1.append(divFirst);
+            },
+            error: function (xhr, status, error) {
+                // Manejar errores
+                console.log(xhr.responseText); // Mostrar la respuesta del servidor en la consola
+            }
+        });
+
+        form.append(div1);
+        form.append($("<input>").attr("type", "text").attr("name", "amountOther").attr("placeholder", "Otra cantidad"));
+
+
+        form.append($("<label>").text("Descripción del producto: "));
+        form.append($("<textarea>").attr("name", "description").attr("style", "width: calc(100% - 20px);"));
+
+        form.append($("<label>").text("Logo del producto: "));
+        form.append($("<input>").attr("type", "file").attr("name", "logo").attr("style", "color:black;"));
+
+        form.append($("<label>").text("Logo del proveedor del producto: "));
+        form.append($("<input>").attr("type", "file").attr("name", "proveedor").attr("style", "color:black;"));
+
+        form.append($("<label>").text("Imagenes del producto: "));
+        form.append($("<input>").attr("type", "file").attr("name", "images[]").attr("multiple", "multiple").attr("style", "color:black;"));
+
+        form.append($("<label>").text("Archivos asociados al producto: "));
+        form.append($("<input>").attr("type", "file").attr("name", "files[]").attr("multiple", "multiple").attr("style", "color:black;"));
+
+        var div = $("<div>").attr("id", "filters").attr("style", "margin-top:2%;");
+        var selectedFiltersContainer = $("<div>").attr("id", "selectedFilters").attr("style", "width:100%; margin-top: 20px; font-size: 20px; font-weight: bold;");
+        $("#filters").before(selectedFiltersContainer);
+        
+        $.ajax({
+            url: "aplication/RequestController.php?action=getfilters",
+            type: "GET",
+            success: function (response) {
+                response = JSON.parse(response);
+        
+                for (var key in response.data) {
+                    if (response.data.hasOwnProperty(key)) {
+                        var divFirst = $("<div>").attr("class", "filters noClose").attr("style", "width:100%; color:black;");
+                        divFirst.append($("<h4>").html(key).attr("class", "bold noClose"));
+        
+                        var objetos = response.data[key];
+                        objetos.forEach(function (element) {
+                            var divData = $("<div>")
+                                .attr("class", "filtersEach")
+                                .attr("style", "display:inline-flex;width:50%;float:left;background-color:" + element.color + ";color:" + element.text + ";font-size:16px;font-weight:bold;border-radius:20px;margin:0.5vh 0vw;");
+        
+                            var checkBox = $("<input>")
+                                .attr("type", "checkbox")
+                                .attr("onclick", "filterAdd(" + element.id + ", '" + element.name + "', '" + element.type + "')")
+                                .attr("name", element.name)
+                                .attr("id", "checkBox-" + element.id)
+                                .attr("style", "width:20%;background-color:" + element.color + ";color:" + element.text + ";font-size:16px;font-weight:bold;border-radius:20px;margin:0.5vh 0vw;");
+        
+                            divData.append(checkBox);
+                            divData.append($("<label>").text(element.name).attr("style", "width:80%;"));
+        
+                            divFirst.append(divData);
+                        });
+        
+                        $("#filters").append(divFirst);
+                    }
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr.responseText);
+            }
+        });
+        
+        function filterAdd(id, name, type) {
+            var checkBox = $("#checkBox-" + id);
+            var selectedFiltersDiv = $("#selectedFilters");
+        
+            if (type === "clasificacion") {
+                if (checkBox.is(":checked")) {
+                    if ($("#filter-title-" + id).length === 0) {
+                        selectedFiltersDiv.append($("<h2>").attr("id", "filter-title-" + id).text(name));
+                    }
+                } else {
+                    $("#filter-title-" + id).remove();
+                }
+            }
+        }
+        
+        // Verificar sessionStorage correctamente
+        var currentPageID = sessionStorage.getItem("currentPageID") || "";
+        if (!(currentPageID.trim().endsWith("14") || currentPageID.trim().endsWith("15"))) {
+            form.append($("#filters"));
+        }
+
+
+        form.append($("<input>").attr("type", "text").attr("name", "filters").attr("id", "filtersInput").attr("hidden", "hidden"));
+
+        form.append($("<input>").attr("type", "text").attr("name", "section").attr("hidden", "hidden").attr("value", sessionStorage.getItem("currentPageID")));
+
+        form.append($("<input>").attr("type", "text").attr("name", "action").attr("hidden", "hidden").attr("value", "addProduct"));
+
+
+        form.append($("<button>").attr("type", "submit").text("Registar nuevo Producto").attr("id", "addProduct"));
+
+>>>>>>> Stashed changes
 
         // Agregar el formulario al cuerpo del documento
         $("#formModal").append(form);
