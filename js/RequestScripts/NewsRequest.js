@@ -511,6 +511,26 @@ function prevNewIMg(currentImg) {
     $("#carousel-prev").attr("onclick", "prevNewIMg(" + nextPage + ")");
 
 }
+var currentImg = 0; // Imagen inicial
+var intervalTime = 3000; // Tiempo en milisegundos (3000 ms = 3 segundos)
+
+function autoNextImg() {
+    currentImg = $(".carousel-item.active").index(); // Obtener la imagen activa
+    nextNewIMg(currentImg); // Llamar la función que cambia la imagen
+}
+
+// Iniciar el carrusel automáticamente cada 3 segundos
+var autoSlide = setInterval(autoNextImg, intervalTime);
+
+// Detener el auto-slide al pasar el mouse sobre el carrusel (opcional)
+$(".carousel").hover(
+    function() {
+        clearInterval(autoSlide);
+    },
+    function() {
+        autoSlide = setInterval(autoNextImg, intervalTime);
+    }
+);
 
 function deleteDocs(docName, id, Type) {
     $.ajax({

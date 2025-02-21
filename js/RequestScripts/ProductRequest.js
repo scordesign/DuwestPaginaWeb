@@ -824,19 +824,28 @@ function getProducts(section, search, filters, page) {
 
      // Obtener la clasificación seleccionada
      let selectedClassification = "";
+     let selectedColor = "";
+
      if (filters) {
        const filterIds = filters.split(",");
        filterIds.forEach(filterId => {
          const filterElement = $(`#CheckboxFilter${section}-${filterId.replace(/[{}]/g, '')}`);
          if (filterElement.length && filterElement.attr("data") === "Clasificación") {
            selectedClassification = filterElement.attr("name");
+           selectedColor = filterElement.closest(".filtersEach").css("background-color"); // Obtener el color de fondo del elemento
          }
        });
      }
 
      // Actualizar el título con la clasificación seleccionada
      const classificationTitle = selectedClassification 
-       ? `<h2 style="color:black;margin-left:25%;"> ${selectedClassification}</h2>`
+       ? `<h2 style="font-family: 'Lemon Milk' !important;
+    font-weight: 600;
+    font-size: 30px;background: linear-gradient(to right, ${selectedColor} 50%, transparent 50%);
+    background-size: 120% 3px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding-bottom: 5px;color: ${selectedColor};margin-left:25%;margin-top:1%;"> ${selectedClassification}</h2>`
        : "<h2></h2>";
 
      // Limpiar el contenedor de productos y agregar el título
