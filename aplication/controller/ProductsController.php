@@ -6,8 +6,8 @@ class Products
     public function __construct()
     {
     }
-    
-        private function convert_encoding_recursive($input)
+
+    private function convert_encoding_recursive($input)
     {
         if (is_array($input)) {
             // Aplicar la funci車n recursivamente a cada elemento del array
@@ -135,9 +135,9 @@ class Products
 
             $sSql = "";
 
-            
-            $sSql = "update products set `".$type."` = :docName where `id` = :id ";
-            
+
+            $sSql = "update products set `" . $type . "` = :docName where `id` = :id ";
+
 
             $stmt = $pdo->prepare($sSql);
 
@@ -208,7 +208,7 @@ class Products
 
 
             $consulta = "SELECT * FROM products WHERE id = :id ";
-            
+
 
             // Preparar la consulta
             $stmt = $pdo->prepare($consulta);
@@ -221,31 +221,31 @@ class Products
             $stmt->execute();
             // Obtener los resultados
             $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
-            
+
             $resultado = $this->convert_encoding_recursive($resultado);
-            
-            if ((count($images['name']) +( $resultado['listImg'] == "[]" ? 0 :count( explode(",",$resultado['listImg']) ) )) > 3) {
+
+            if ((count($images['name']) + ($resultado['listImg'] == "[]" ? 0 : count(explode(",", $resultado['listImg'])))) > 3) {
                 $returnFields["status"] = 406;
                 $returnFields["message"] = "Solo se admiten 3 imagenes por producto si necesita elimine imagenes";
                 $return = json_encode($returnFields);
                 return json_encode($return);
             }
-            
-            if ((count($files['name']) + ($resultado['listDocs'] == "[]"? 0 : count(explode(",", $resultado['listDocs'] )) )) > 4) {
+
+            if ((count($files['name']) + ($resultado['listDocs'] == "[]" ? 0 : count(explode(",", $resultado['listDocs'])))) > 4) {
                 $returnFields["status"] = 406;
                 $returnFields["message"] = "Solo se admiten 4 archivos por producto";
                 $return = json_encode($returnFields);
                 return json_encode($return);
             }
-            
 
-            
+
+
             $logopatch = $resultado["logo"] == null ? "" : $resultado["logo"];
             $proveedorpatch = $resultado["proveedor"] == null ? "" : $resultado["proveedor"];
 
             // var_dump($logo);
 
-            if (($logo["name"] == null ?"": $logo["name"]) !== "" ) {
+            if (($logo["name"] == null ? "" : $logo["name"]) !== "") {
                 if ($logopatch !== "") {
                     unlink(str_replace("/aplication/controller", "", str_replace("\\", "/", __DIR__)) . "/" . $logopatch);
                 }
@@ -266,12 +266,12 @@ class Products
                     $logopatch = "/img/prueba/" . $name . "/images/logo/" . basename($logo["name"]);
                     // Agregar nombre del archivo a la lista
                 }
-                
-                
+
+
             }
-            
+
             //------------------------------------------------------------------- proveedor 
-            if (($proveedor["name"] == null ?"": $proveedor["name"]) !== "" ) {
+            if (($proveedor["name"] == null ? "" : $proveedor["name"]) !== "") {
                 if ($proveedorpatch !== "") {
                     unlink(str_replace("/aplication/controller", "", str_replace("\\", "/", __DIR__)) . "/" . $proveedorpatch);
                 }
@@ -292,8 +292,8 @@ class Products
                     $proveedorpatch = "/img/prueba/" . $name . "/images/logo/" . basename($proveedor["name"]);
                     // Agregar nombre del archivo a la lista
                 }
-        }
-            
+            }
+
 
 
             $imagesNamesString = str_replace("\\", "", $resultado['listImg']);
@@ -310,14 +310,14 @@ class Products
                     // Mover archivo al directorio deseado
                     if ($nombre != null || $nombre != "") {
                         $rutaArchivo = $directoryimage . "/" . basename($images["name"][$key]);
-                        
+
                         move_uploaded_file($images["tmp_name"][$key], $rutaArchivo);
                         // Agregar nombre del archivo a la lista
                         $imagesNames[] = /*$directoryimage .*/ "img/prueba/" . $name . "/images/" . basename($images["name"][$key]);
 
                     }
                 }
-                
+
                 $imagesNames = $this->convert_encoding_recursive($imagesNames);
 
                 $imagesNamesString = substr(str_replace("\\", "", json_encode($imagesNames, JSON_UNESCAPED_UNICODE)), 0, strlen(str_replace("\\", "", json_encode($imagesNames, JSON_UNESCAPED_UNICODE))) - 1) . "," . substr(str_replace("\\", "", $resultado['listImg']), 1);
@@ -352,8 +352,8 @@ class Products
                 $filesNamesString = str_ends_with($filesNamesString, ',]') ? str_replace(",]", "]", $filesNamesString) : $filesNamesString;
                 $filesNamesString = str_contains($filesNamesString, ',,') ? str_replace(",,", ",", $filesNamesString) : $filesNamesString;
             }
-            
-            
+
+
 
 
 
@@ -519,23 +519,23 @@ class Products
 
             $proveedor = $_FILES["proveedor"];
             $logo = $_FILES["logo"];
-            
-            
-            
+
+
+
             if (count($images['name']) > 3) {
                 $returnFields["status"] = 406;
                 $returnFields["message"] = "Solo se admiten 3 imagenes por producto";
                 $return = ($returnFields);
                 return json_encode($return);
             }
-            
+
             if (count($files['name']) > 4) {
                 $returnFields["status"] = 406;
                 $returnFields["message"] = "Solo se admiten 4 archivos por producto";
                 $return = ($returnFields);
                 return json_encode($return);
             }
-            
+
 
             if ($_POST["name"] === null) {
                 $returnFields["status"] = 406;
@@ -571,9 +571,9 @@ class Products
                 $logopatch = "/img/prueba/" . $name . "/images/logo/" . basename($logo["name"]);
                 // Agregar nombre del archivo a la lista
             }
-            
-            
-            
+
+
+
             $directoryProveedor = str_replace("/aplication/controller", "", str_replace("\\", "/", __DIR__)) . "/img/prueba/" . $name . "/images/logo";
             if (!is_dir($directoryProveedor)) {
                 // Crear la carpeta con permisos 0777 (lectura, escritura y ejecución para todos)
@@ -582,7 +582,7 @@ class Products
                 // Establecer permisos adicionales si es necesario
                 chmod($directoryProveedor, 0777);
             }
-            
+
             $rutaArchivoProveedor = "";
             $proveedorpatch = "";
             if ($proveedor !== null) {
@@ -670,7 +670,7 @@ class Products
 
         } catch (\Throwable $e) {
             $returnFields["status"] = 500;
-            $returnFields["message"] = $e->getMessage() ." ". $e->getLine();
+            $returnFields["message"] = $e->getMessage() . " " . $e->getLine();
 
             $returnProduct = ($returnFields);
 
@@ -786,15 +786,15 @@ class Products
         } catch (\Throwable $e) {
             $lineaError = $e->getLine();
 
-    // Obtener la página (archivo) donde se generó el error
-    $archivoError = $e->getFile();
+            // Obtener la página (archivo) donde se generó el error
+            $archivoError = $e->getFile();
 
-    // Obtener el mensaje de error
-    $mensajeError = $e->getMessage();
+            // Obtener el mensaje de error
+            $mensajeError = $e->getMessage();
 
-    // Mostrar información del error
+            // Mostrar información del error
             $returnFields["status"] = 500;
-            $returnFields["message"] = "Error en la línea $lineaError del archivo $archivoError: $mensajeError ".$Ssql;
+            $returnFields["message"] = "Error en la línea $lineaError del archivo $archivoError: $mensajeError " . $Ssql;
 
             $returnProduct = ($returnFields);
 
@@ -871,8 +871,8 @@ class Products
                     $amountImg = str_ends_with($amountImg, ',') ? substr($amountImg, 0, -1) : $amountImg;
                     $amountDesc = str_ends_with($amountDesc, ', ') ? substr($amountDesc, 0, -2) : $amountDesc;
 
-                    $resultadosReturn['amountImgs'] = explode(",", $amountImg) ; 
-                    $resultadosReturn['amountName'] = $amountDesc . (( $resultado['amountOther'] == null)? "" : ",". $resultado['amountOther'] ); 
+                    $resultadosReturn['amountImgs'] = explode(",", $amountImg);
+                    $resultadosReturn['amountName'] = $amountDesc . (($resultado['amountOther'] == null) ? "" : "," . $resultado['amountOther']);
                 }
             }
 

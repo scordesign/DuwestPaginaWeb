@@ -540,10 +540,10 @@ function getfilters(pageId) {
         if (response.data.hasOwnProperty(key)) {
           var h4 = $("<h4>").html(key).attr("class", "bold");
 
-          if (isMobileDevice() && key == "Clasificación") {
+          if (/*isMobileDevice() &&*/ key == "Clasificación") {
             h4.attr("style", "display: none;");
           }
-          if (isMobileDevice() && key != "Clasificación") {
+          if (/*isMobileDevice() &&*/ key != "Clasificación") {
             h4.attr("onclick", "toggleDivsByKey('" + key + "')");
           }
           divFirst.append(h4);
@@ -559,12 +559,10 @@ function getfilters(pageId) {
                   element.color +
                   ";color:" +
                   element.text +
-                  ";font-size: 16px;font-weight:bold;border-radius:20px;margin: 0.5vh 0vw;",
-                "data-key",
-                key
-              );
+                  ";font-size: 16px;font-weight:bold;border-radius:20px;margin: 0.5vh 0vw;"
+              ).attr("data-key", key);
 
-            if (isMobileDevice() && key != "Clasificación") {
+            if (/*isMobileDevice() &&*/ key != "Clasificación") {
               divData.attr("style", "display: none;width: 100%;");
             }
 
@@ -586,7 +584,7 @@ function getfilters(pageId) {
             divFirst.append(divData);
           });
 
-          if (isMobileDevice()) {
+          // if (/*isMobileDevice()*/) {
             $("#filter-product-" + sectionNumber).append(
               $("<div>")
                 .attr("class", "filterLine")
@@ -596,7 +594,7 @@ function getfilters(pageId) {
                     : "Ver por " + key
                 )
             );
-          }
+          // }
 
           $("#filter-product-" + sectionNumber).append(divFirst);
         }
@@ -614,7 +612,7 @@ function toggleDivsByKey(key) {
 
   // Calcula la altura actual
   const alturaActual = $contenedor.height();
-
+  
   // Realiza el toggle de los divs con el atributo data-key
   $(`div[data-key="${key}"]`).fadeToggle(300, function () {
     // Calcula la nueva altura después del toggle
