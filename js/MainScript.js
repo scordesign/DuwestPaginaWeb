@@ -61,9 +61,14 @@ $(function () {
     };
 }
 
+
+  
+//   $("#tm-section-13").on("scroll", debounce(pagination, 300)); // 300ms de espera
+//   $("#tm-section-14").on("scroll", debounce(pagination, 300)); // 300ms de espera
+
     $("#tm-section-12").on('scroll', throttle(pagination, 200));
-    $("#tm-section-13").on('scroll', throttle(pagination, 200));
-    $("#products2-14").on('scroll', throttle(pagination14, 200));
+    $("#tm-section-13").on('scroll', throttle(pagination, 400));
+    $("#products2-14").on('scroll', throttle(pagination14, 400));
     $("#products2-15").on('scroll', throttle(pagination14, 200));
     $("#tm-section-16").on('scroll', throttle(paginationNews, 200));
 

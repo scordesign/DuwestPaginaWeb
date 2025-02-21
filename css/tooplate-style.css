@@ -2625,6 +2625,8 @@ button {
 }
 .filter-product form .filters h4 {
     font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 0.4vh;
 }
 
 .filter-product form .filters input {
@@ -2641,7 +2643,7 @@ button {
     /* Borde del checkbox */
     cursor: pointer;
     /* Cambia el cursor al pasar sobre el checkbox */
-    width: 10%;
+    width: 11%;
     height: 2.3vh;
     margin-right: 5%;
     margin-left: 0.2vw;
@@ -2916,7 +2918,19 @@ button {
     background-color: rgb(184, 89, 0) !important;
 }
 
-
+.filterLine{
+    width: 100%;
+    border-top: 0.3vh solid rgba(166, 202, 86, 1);
+    width: 80% !important;
+    margin-top: 2vh;
+    margin-left: 10% !important;
+    border-top-width: 2px;
+    border-top-color: rgb(28, 34, 14);
+    font-weight: bold;
+    padding-top: 1vh;
+    color: black;
+    text-align: center;
+}
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Josefin+Slab|Arvo|Lato|Vollkorn|Abril+Fatface|Old+Standard+TT|Droid+Sans|Lobster|Inconsolata|Montserrat|Playfair+Display|Karla|Alegreya|Libre+Baskerville|Merriweather|Lora|Archivo+Narrow|Neuton|Signika|Questrial|Fjalla+One|Bitter|Varela+Round);
 
@@ -2938,6 +2952,25 @@ button {
     top: 0%;
 
 }
+
+.filters h4{
+    text-align: center;
+
+}
+
+.filters{
+    border: 0.3vh solid rgb(0, 142, 91);
+    border-radius: 2vh;
+    padding: 0.2vh;
+    margin-top: 2%;
+    border-width: 2px;
+    border-color: rgb(0, 142, 91);
+}
+
+.filterCla {
+    border-width: 0px;
+}
+
 
 #inlineFrameExample {
     width: 100%;
@@ -4815,6 +4848,7 @@ height: 24%;
         border-top-color: rgba(166, 202, 86, 1);
         font-weight: bold;
         padding-top: 1vh;
+        color: white;
     }
 
     .filters {
@@ -4823,7 +4857,10 @@ height: 24%;
         align-items: center;
         /* margin-left: 45%; */
         display: inline-grid;
+        
     }
+
+    
 
     .filtersEach {
         display: inline-flex;
