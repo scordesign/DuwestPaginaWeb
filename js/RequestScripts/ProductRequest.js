@@ -688,6 +688,27 @@ function getProducts(section, search, filters, page) {
       localStorage.setItem("TotalRegs", response.Total);
       localStorage.setItem("PageRegs", response.Page);
 
+     // Obtener la clasificación seleccionada
+     let selectedClassification = "";
+     if (filters) {
+       const filterIds = filters.split(",");
+       filterIds.forEach(filterId => {
+         const filterElement = $(`#CheckboxFilter${section}-${filterId.replace(/[{}]/g, '')}`);
+         if (filterElement.length && filterElement.attr("data") === "Clasificación") {
+           selectedClassification = filterElement.attr("name");
+         }
+       });
+     }
+
+     // Actualizar el título con la clasificación seleccionada
+     const classificationTitle = selectedClassification 
+       ? `<h2 style="color:black;">Clasificación seleccionada: ${selectedClassification}</h2>` 
+       : "<h2>Todos los productos</h2>";
+
+     // Limpiar el contenedor de productos y agregar el título
+     $("#products2-" + section).html(classificationTitle);
+
+       
       response.data.forEach((element) => {
         var divFather = $("<div>")
           .attr("class", "divProduct")
@@ -1761,7 +1782,7 @@ function updateFicha(docName, id, event) {
       action: "UpdateDocsPro",
       docName: docName, // Variable1 que deseas enviar
       id: id, // Variable2 que deseas enviar
-      type: event.target.value, // Variable3 que deseas enviar
+      type: event.target.value, // Variable3 que deseas g
     },
     success: function (response) {
       // Manejar la respuesta
