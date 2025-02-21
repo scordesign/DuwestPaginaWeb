@@ -727,7 +727,7 @@ function getfilters(pageId) {
                 .html(
                   key == "Clasificación"
                     ? "Clasificación del producto"
-                    : "Ver por " + key
+                    : " " 
                 )
             );
           // }
