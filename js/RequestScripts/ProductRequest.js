@@ -137,7 +137,6 @@ function addProduct() {
             .attr("style", "color: #32aa48; font-size:23vh;")
         );
 
-<<<<<<< Updated upstream
         form.append($("<label>").text("error: "));
         form.append(
           $("<input>")
@@ -146,7 +145,6 @@ function addProduct() {
             .attr("value", "Sesión no iniciada")
             .attr("style", "text-align: center;")
         );
-=======
         form.append($("<label>").text("Nombre del producto: "));
         form.append($("<input>").attr("type", "text").attr("name", "name").attr("required", "required"));
 
@@ -283,7 +281,6 @@ function addProduct() {
 
         form.append($("<button>").attr("type", "submit").text("Registar nuevo Producto").attr("id", "addProduct"));
 
->>>>>>> Stashed changes
 
         // Agregar el formulario al cuerpo del documento
         $("#formModal").append(form);
@@ -839,11 +836,11 @@ function getProducts(section, search, filters, page) {
 
      // Actualizar el título con la clasificación seleccionada
      const classificationTitle = selectedClassification 
-       ? `<h2 style="color:black;">Clasificación seleccionada: ${selectedClassification}</h2>` 
-       : "<h2>Todos los productos</h2>";
+       ? `<h2 style="color:black;margin-left:25%;"> ${selectedClassification}</h2>`
+       : "<h2></h2>";
 
      // Limpiar el contenedor de productos y agregar el título
-     $("#products2-" + section).html(classificationTitle);
+     $("#productsclas-" + section).html(classificationTitle);
 
        
       response.data.forEach((element) => {
