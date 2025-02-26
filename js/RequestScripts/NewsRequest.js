@@ -135,7 +135,7 @@ function getNews( search, page) {
             localStorage.setItem("PageRegs", response.Page);
             var i =1;
             response.data.forEach(element => {
-                var background =  (i % 2) == 1 ? "backgreen"  : "backgreenLess";
+                var background =  (i % 3) == 1 ? "backgreen"  :(i % 3) == 0 ? "backgreenGray" : "backgreenLess";
                 var imageClass =  (i % 2) == 1 ? "image1"  : "image2";
 
                 var divFather = $("<div>").attr("class", "divNew");

@@ -576,36 +576,66 @@ function addProduct() {
     });
 }
 
-function pagination() {
-  var pageCurrent = localStorage.getItem("PageRegs");
-  var total = localStorage.getItem("TotalRegs");
-  var pageId = sessionStorage
-    .getItem("currentPageID")
-    .replace("#tm-section-", "")
-    .trim();
-  var el = $("#products2-" + pageId);
+var requestQueue = Promise.resolve(); // Inicializa la cola de promesas vacía
 
-  // console.log((el.height() + el.offset().top) - 200 );
-  // console.log( $(window).height() );
-  // console.log(((el.height() + el.offset().top) - 200 <= $(window).height()));
-  // console.log((pageCurrent * 10) < total);
-
-  if (
-    el.height() + el.offset().top - 200 <= $(window).height() &&
-    pageCurrent * 10 < total
-  ) {
-    localStorage.setItem("PageRegs", pageCurrent.valueOf() - 1 + 2);
-    getProducts(
-      pageId,
-      $("#searchMenu").val() == "" ? undefined : $("#searchMenu").val(),
-      $("#filtersInput-" + pageId).val() == ""
-        ? undefined
-        : $("#filtersInput-" + pageId).val(),
-      pageCurrent.valueOf() - 1 + 2
-    );
-    return;
-  }
+function enqueueRequest(task) {
+  requestQueue = requestQueue.then(task).catch(console.error);
 }
+
+ function pagination() {
+   var pageCurrent = localStorage.getItem("PageRegs");
+   var total = localStorage.getItem("TotalRegs");
+   var pageId = sessionStorage
+     .getItem("currentPageID")
+     .replace("#tm-section-", "")
+     .trim();
+   var el = $("#products2-" + pageId);
+   if (
+     el.height() + el.offset().top - 200 <= $(window).height() &&
+     pageCurrent * 10 < total
+   ) {
+     localStorage.setItem("PageRegs", pageCurrent.valueOf() - 1 + 2);
+     // Agregar la petición a la cola
+     enqueueRequest(() => getProducts(
+       pageId,
+       $("#searchMenu").val() == "" ? undefined : $("#searchMenu").val(),
+       $("#filtersInput-" + pageId).val() == ""
+         ? undefined
+         : $("#filtersInput-" + pageId).val(),
+       pageCurrent.valueOf() - 1 + 2
+     ));
+   }
+ }
+
+
+//  function pagination() {
+//    var pageCurrent = localStorage.getItem("PageRegs");
+//    var total = localStorage.getItem("TotalRegs");
+//    var pageId = sessionStorage
+//      .getItem("currentPageID")
+//      .replace("#tm-section-", "")
+//      .trim();
+//    var el = $("#products2-" + pageId);
+//    // console.log((el.height() + el.offset().top) - 200 );
+//    // console.log( $(window).height() );
+//    // console.log(((el.height() + el.offset().top) - 200 <= $(window).height()));
+//    // console.log((pageCurrent * 10) < total);
+//    if (
+//      el.height() + el.offset().top - 200 <= $(window).height() &&
+//      pageCurrent * 10 < total
+//    ) {
+//      localStorage.setItem("PageRegs", pageCurrent.valueOf() - 1 + 2);
+//      getProducts(
+//        pageId,
+//        $("#searchMenu").val() == "" ? undefined : $("#searchMenu").val(),
+//        $("#filtersInput-" + pageId).val() == ""
+//          ? undefined
+//          : $("#filtersInput-" + pageId).val(),
+//        pageCurrent.valueOf() - 1 + 2
+//      );
+//      return;
+//    }
+//  }
 
 function pagination14() {
   var pageCurrent = localStorage.getItem("PageRegs");
@@ -850,6 +880,7 @@ function getProducts(section, search, filters, page) {
 
      // Limpiar el contenedor de productos y agregar el título
      $("#productsclas-" + section).html(classificationTitle);
+    //  $("#products2-" + section).html(classificationTitle);
 
        
       response.data.forEach((element) => {

@@ -2342,6 +2342,7 @@ button {
 }
 
 .backgreenGray {
+    width: 40%;
     background: rgba(73, 71, 69, 0.6);
     background-image: url(../img/fondo-7.png);
     background-repeat: no-repeat;
@@ -2648,7 +2649,7 @@ button {
 
     border-radius: 50%;
     /* Forma circular */
-    border: 2px solid white;
+    border: 2px solid black;
     background-color: white;
     /* Borde del checkbox */
     cursor: pointer;
@@ -2976,7 +2977,21 @@ button {
     margin-top: 2%;
     border-width: 2px;
     border-color: rgb(0, 142, 91);
+    max-height: 30vh;
+    overflow: auto;
 }
+
+.filters::-webkit-scrollbar {
+    width: 0.3vw;
+}
+
+.filters::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Color del thumb (el control deslizante) */
+    border-radius: 0.2vw;
+    /* Radio de borde del thumb */
+}
+
 
 .filterCla {
     border-width: 0px;
@@ -4863,6 +4878,7 @@ height: 24%;
     }
 
     .filters {
+        max-height: initial;
         width: 100%;
         color: white;
         align-items: center;
