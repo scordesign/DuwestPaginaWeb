@@ -2281,6 +2281,8 @@ button {
     text-align: center;
     background: transparent;
     overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 .divNewImage img {
