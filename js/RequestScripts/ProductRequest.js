@@ -693,6 +693,8 @@ function getfilters(pageId) {
     success: function (response) {
       response = JSON.parse(response);
       var sectionNumber = pageId;
+
+      var sectionId = sessionStorage.getItem("currentPageID");
       // var sectionNumber = pageId.substring(pageId.length - 2, pageId.length);
       $("#filter-product-" + sectionNumber).append(
         $("<h4>").html("Filtrar").attr("class", "filtertitle")
@@ -750,6 +752,9 @@ function getfilters(pageId) {
               $("<label>").text(element.name).attr("styles", "width:80%;")
             );
 
+            if (("#" + element.module) == sectionId && key == "Clasificación") {
+              divData.addClass("hide");
+            }
             divFirst.append(divData);
           });
 

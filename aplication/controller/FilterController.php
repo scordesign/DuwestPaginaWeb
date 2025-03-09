@@ -85,6 +85,8 @@ class Filters
             $name = $_POST["name"] === null ? "" : $_POST["name"];
             $color = $_POST["color"] === null ? "" : $_POST["color"];
             $text = $_POST["text"] === null ? "" : $_POST["text"];
+            $module = $_POST["module"] === null ? "" : $_POST["module"];
+
 
 
 
@@ -106,13 +108,14 @@ class Filters
 
 
 
-            $stmt = $pdo->prepare("update filters set `name` =:name,`category` =:category, `color` =:color,  `text` =:text where id =:id");
+            $stmt = $pdo->prepare("update filters set `name` =:name,`category` =:category, `color` =:color,  `text` =:text,  `module    ` =:module where id =:id");
 
 
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':category', $category);
             $stmt->bindParam(':color', $color); 
             $stmt->bindParam(':text', $text); 
+            $stmt->bindParam(':module', $module); 
             $stmt->bindParam(':id', $id);
             // Ejecutar la sentencia SQL con los valores correspondientes
             $stmt->execute();
@@ -226,20 +229,24 @@ class Filters
             $category = !isset($_POST["category"]) ? ($_POST["categoryOther"] === null ? "" : $_POST["categoryOther"] ): $_POST["category"];
             $name = $_POST["name"] === null ? "" : $_POST["name"];
             $color = $_POST["color"] === null ? "" : $_POST["color"]; 
-            $color = $_POST["text"] === null ? "" : $_POST["text"]; 
+            $text = $_POST["text"] === null ? "" : $_POST["text"]; 
+            $module = $_POST["module"] === null ? "" : $_POST["module"]; 
 
 
 
 
 
 
-            $stmt = $pdo->prepare("INSERT INTO filters (`name`,`category`, 'color', 'text' ) VALUES (:name,:category, :color, :text)");
+
+            $stmt = $pdo->prepare("INSERT INTO filters (`name`,`category`, 'color', 'text' , 'module' ) VALUES (:name,:category, :color, :text, :module)");
 
 
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':category', $category);
             $stmt->bindParam(':color', $color);
             $stmt->bindParam(':text', $text);
+            $stmt->bindParam(':module', $module);
+
 
 
 
