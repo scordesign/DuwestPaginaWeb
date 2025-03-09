@@ -1700,7 +1700,7 @@ footer a {
 
 #whatsmobile{
     position: fixed;
-    bottom: 10%;
+    bottom: 1%;
     height: 7%;
     z-index: 999;
     right: 7%;
@@ -2679,7 +2679,7 @@ button {
     right: 10%;
     top: 10%;
     margin-top: 2%;
-    padding-bottom: 5vh;
+    padding-bottom: 10vh;
 }
 
 .divProduct {

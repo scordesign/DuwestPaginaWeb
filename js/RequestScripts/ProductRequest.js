@@ -16,6 +16,7 @@ $(function () {
 });
 
 let imagesProducts = [];
+let currentImage = 0;
 
 function closeImgProd(idProd) {
   $("#modalBackgroundImgProd").toggleClass("hide");
@@ -83,6 +84,8 @@ function imgProduct(idImg, idProd) {
     .attr("onclick", "nextNewIMg(0)")
     .addClass("noClose");
   aCarruselNext.html(">");
+
+  
 
   divCarruselDirection.append(aCarruselPrev);
 
@@ -917,6 +920,12 @@ function getProducts(section, search, filters, page) {
   });
 }
 
+function iniciarAutoPlay() {
+  intervalo = setInterval(nextProductIMg(currentImage), 3000); // Cambia cada 3 segundos
+  currentImage++;
+  currentImage = imagesProducts.length < currentImage ?0:currentImage;
+}
+
 function getProduct(id) {
   var section = sessionStorage
     .getItem("currentPageID")
@@ -1042,6 +1051,14 @@ function getProduct(id) {
           .addClass("noClose")
       );
 
+      if (i <= 1) {
+        aCarruselPrev.addClass("invisible");
+        aCarruselNext.addClass("invisible");
+      }
+      if (i > 1) {
+        iniciarAutoPlay();
+      }
+
       divCarrusel.append(aCarruselPrev);
       divCarrusel.append(aCarruselNext);
 
@@ -1166,10 +1183,15 @@ function getProduct(id) {
               .substring(1, filtersProduct.length)
               .replaceAll("0", " ")
           : filtersProduct.replaceAll("0", " ");
-        filtersProduct = filtersProduct.replace(",  ", "<br>");
-        filtersProduct = filtersProduct.replace(",,", "");
-        filtersProduct = filtersProduct.replace(", ,", "");
+        
+          console.log(filtersProduct);  
+
+        filtersProduct = filtersProduct.replaceAll(",  ", "<br>");
+        filtersProduct = filtersProduct.replaceAll(", ,", "");
+        filtersProduct = filtersProduct.replaceAll(",,", "");
         filtersProduct = filtersProduct.endsWith(", ") ? filtersProduct.substring(0,filtersProduct.length - 2 ) : filtersProduct;
+
+        console.log(filtersProduct);
 
         divInfo.append(
           $("<p>")
@@ -1259,6 +1281,7 @@ function getProduct(id) {
       div.append(divInfo);
 
       $("#formModal").append(div);
+      
     },
     error: function (xhr, status, error) {
       // Manejar errores
