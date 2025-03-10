@@ -168,7 +168,7 @@ function _map(d3,colombiaGeoJSON)
     // Draw effects
     textArt(nameFn(d));
   }
-
+  
   function mouseout(d){
     // Reset province color
     mapLayer.selectAll('path')
@@ -286,6 +286,17 @@ function _map(d3,colombiaGeoJSON)
       // Modify this line to return a complete transform string
       return `translate(${centroid[0] - 10}, ${centroid[1] - 10})`;
     }
+    function selectRegionByName(regionCode) {
+      const selectedRegion = colombiaGeoJSON.features.find(d => d.properties.DPTO === regionCode);
+    
+      if (selectedRegion) {
+        console.log("Región seleccionada:", selectedRegion.properties.NOMBRE_DPT);
+        clicked(selectedRegion); // Simula el clic
+      } else {
+        console.log("Departamento no encontrado con código:", regionCode);
+      }
+    }
+    
   // Update color scale domain based on data
   color.domain([0, d3.max(features, colorFn)]);
 
@@ -312,9 +323,13 @@ function _map(d3,colombiaGeoJSON)
     .attr("width", 10)  // Adjust width and height as needed
     .attr("height", 10)
     .attr("transform", d => positionImage(d)); // Call positionImage for transform
+    selectRegionByName("25"); // Cambia "Antioquia" por la región que quieras seleccionar
 
   return svg.node()
+  selectRegionByName("25"); // Cambia "Antioquia" por la región que quieras seleccionar
+
 }
+// selectRegionByName("25"); // Cambia "Antioquia" por la región que quieras seleccionar
 
 
 function _colombiaGeoJSON(d3){return(

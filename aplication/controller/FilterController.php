@@ -108,7 +108,7 @@ class Filters
 
 
 
-            $stmt = $pdo->prepare("update filters set `name` =:name,`category` =:category, `color` =:color,  `text` =:text,  `module    ` =:module where id =:id");
+            $stmt = $pdo->prepare("update filters set `name` =:name,`category` =:category, `color` =:color,  `text` =:text,  `module` =:module where id =:id");
 
 
             $stmt->bindParam(':name', $name);

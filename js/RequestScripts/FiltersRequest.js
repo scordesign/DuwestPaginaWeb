@@ -182,6 +182,7 @@ function ProcessFilter(id, action) {
       var name = $("#IdFilterName" + id).html();
       var category = $("#IdFilterCategory" + id).val();
       var color = $("#IdFilterColor" + id).val();
+      var module = $("#IdFilterModule" + id).val();
 
       if (action == 0) {
         form.append($("<label>").text("Nombre del filtro: "));
@@ -218,6 +219,24 @@ function ProcessFilter(id, action) {
             .attr("name", "color")
             .attr("required", "required")
         ); // Nuevo campo color
+
+        form.append($("<label>").text("Módulo usado: "));
+
+        var select = $("<select>")
+          .attr("onchange", "othherCatrgory(event)")
+          .attr("name", "module")
+          .attr("class", "form-select form-select-sm")
+          .attr("aria-label", ".form-select-sm example");
+        select.append(
+          $("<option>").attr("value", "tm-section-12").html("Protección de cultivos")
+        );
+        select.append(
+          $("<option>").attr("value", "tm-section-13").html("Nutrición especializada")
+        );
+        select.append(
+          $("<option>").attr("value", "tm-section-14").html("Semillas")
+        );
+        form.append(select);
 
         form.append(
           $("<input>")
@@ -266,6 +285,23 @@ function ProcessFilter(id, action) {
             .attr("value", color)
             .attr("required", "required")
         );
+        form.append($("<label>").text("Módulo usado: "));
+
+        var select = $("<select>")
+        .attr("onchange", "othherCatrgory(event)")
+        .attr("name", "module")
+        .attr("class", "form-select form-select-sm")
+        .attr("aria-label", ".form-select-sm example");
+          select.append(
+            $("<option>").attr("value", "tm-section-12").html("Protección de cultivos")
+          );
+          select.append(
+            $("<option>").attr("value", "tm-section-13").html("Nutrición especializada")
+          );
+          select.append(
+            $("<option>").attr("value", "tm-section-14").html("Semillas")
+          );
+        form.append(select);
 
         form.append(
           $("<input>")
@@ -314,6 +350,26 @@ function ProcessFilter(id, action) {
         select.append(
           $("<option>").attr("value", "otra").html("otra categoria")
         );
+        form.append(select);
+
+        form.append($("<label>").text("Módulo usado: "));
+
+        var select = $("<select>")
+        .attr("onchange", "othherCatrgory(event)")
+        .attr("name", "module")
+        .attr("class", "form-select form-select-sm")
+        .attr("aria-label", ".form-select-sm example");
+
+       
+          select.append(
+            $("<option>").attr("value", "tm-section-12").html("Protección de cultivos")
+          );
+          select.append(
+            $("<option>").attr("value", "tm-section-13").html("Nutrición especializada")
+          );
+          select.append(
+            $("<option>").attr("value", "tm-section-14").html("Semillas")
+          );
         form.append(select);
 
         form.append(
