@@ -752,7 +752,7 @@ function getfilters(pageId) {
               $("<label>").text(element.name).attr("styles", "width:80%;")
             );
 
-            if (("#" + element.module) == sectionId && key == "Clasificación") {
+            if (("#" + element.module) != sectionId && key == "Clasificación") {
               divData.addClass("hide");
             }
             divFirst.append(divData);
