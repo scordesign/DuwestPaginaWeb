@@ -756,6 +756,9 @@ function getfilters(pageId) {
               divData.addClass("hide");
             }
             divFirst.append(divData);
+            console.log(sectionId);
+            console.log(key);
+
           });
 
           // if (/*isMobileDevice()*/) {
