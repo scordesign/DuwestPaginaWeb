@@ -756,9 +756,12 @@ function getfilters(pageId) {
               divData.addClass("hide");
             }
             divFirst.append(divData);
+            console.log(("#" + element.module));
             console.log(sectionId);
+            console.log(("#" + element.module) == sectionId);
             console.log(key);
-
+            console.log(key == "Clasificación");
+            console.log("Clasificación");
           });
 
           // if (/*isMobileDevice()*/) {
