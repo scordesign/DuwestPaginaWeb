@@ -709,7 +709,7 @@ function getfilters(pageId) {
           .attr("style", "width:100%;color:black;");
 
         if (response.data.hasOwnProperty(key)) {
-          var h4 = $("<h4>").html(key).attr("class", "bold");
+          var h4 = $("<h4>").html('<img src="./img/flechaabajo.png" style="position:absolute;left:12%;width:20px; height:20px; right:100px;">' + key).attr("class", "bold");
 
           if (/*isMobileDevice() &&*/ key == "Clasificación") {
             h4.attr("style", "display: none;");
