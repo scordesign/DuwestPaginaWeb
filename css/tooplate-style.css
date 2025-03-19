@@ -1959,7 +1959,7 @@ footer a {
     overflow: auto;
     position: absolute;
     right: 2%;
-    top: 0%;
+    top: -20%;
 }
 
 #fatherProductModal .amount::-webkit-scrollbar {
@@ -2791,7 +2791,7 @@ button {
     float: right;
     position: relative;
     height: auto;
-    top: -10vh;
+    top: -8vh;
 }
 
 .carousel-control-next,
