@@ -4360,7 +4360,10 @@ height: 24%;
         left: 0%;
         right: 0%;
         position: fixed;
-        
+    }
+
+    #footercat{
+        display: none;
     }
 
     .box4 {
@@ -5045,6 +5048,7 @@ height: 24%;
         background-image: url(../img/fondo-7.png);
         background-repeat: no-repeat;
         background-size: cover;
+        max-height: none;
     }
  .slider{
     display: block;
@@ -5105,6 +5109,7 @@ height: 24%;
         margin-bottom: 0px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
+        margin-top: 7vh;
     }
 
     .carousel-inner {

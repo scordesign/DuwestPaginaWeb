@@ -210,6 +210,7 @@ class Filters
     public function addFilter(): string
     {
         $returnFields = array();
+        $sSql="";
         try {
 
 
@@ -234,11 +235,10 @@ class Filters
 
 
 
+            
 
 
-
-
-            $stmt = $pdo->prepare("INSERT INTO filters (`name`,`category`, 'color', 'text' , 'module' ) VALUES (:name,:category, :color, :text, :module)");
+            $stmt = $pdo->prepare("INSERT INTO filters (`name`,`category`, `color`, `text` , `module` ) VALUES (:name, :category, :color, :text, :module)");
 
 
             $stmt->bindParam(':name', $name);
@@ -266,7 +266,6 @@ class Filters
         } catch (\Throwable $e) {
             $returnFields["status"] = 500;
             $returnFields["message"] = $e->getMessage();
-
             $returnNew = ($returnFields);
 
 
