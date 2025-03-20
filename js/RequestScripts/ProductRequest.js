@@ -85,8 +85,6 @@ function imgProduct(idImg, idProd) {
     .addClass("noClose");
   aCarruselNext.html(">");
 
-  
-
   divCarruselDirection.append(aCarruselPrev);
 
   divCarruselDirection.append(
@@ -149,141 +147,258 @@ function addProduct() {
             .attr("style", "text-align: center;")
         );
         form.append($("<label>").text("Nombre del producto: "));
-        form.append($("<input>").attr("type", "text").attr("name", "name").attr("required", "required"));
+        form.append(
+          $("<input>")
+            .attr("type", "text")
+            .attr("name", "name")
+            .attr("required", "required")
+        );
 
+        form.append(
+          $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "amount")
+            .attr("id", "amountInput")
+        );
 
-
-        form.append($("<input>").attr("type", "hidden").attr("name", "amount").attr("id", "amountInput"));
-
-        var div1 = $("<div>").attr("id", "amount").attr("style", "margin-top:2%;");
+        var div1 = $("<div>")
+          .attr("id", "amount")
+          .attr("style", "margin-top:2%;");
 
         $.ajax({
-            url: "aplication/RequestController.php?action=getAmounts", // Archivo PHP que contiene la función
-            type: "GET", // Método de solicitud
-            success: function (response) {
-                response = JSON.parse(JSON.parse(response));
+          url: "aplication/RequestController.php?action=getAmounts", // Archivo PHP que contiene la función
+          type: "GET", // Método de solicitud
+          success: function (response) {
+            response = JSON.parse(JSON.parse(response));
 
-                var divFirst = $("<div>").attr("class", "amounts noClose").attr("style", "width:100%;color:black;");
+            var divFirst = $("<div>")
+              .attr("class", "amounts noClose")
+              .attr("style", "width:100%;color:black;");
 
+            divFirst.append(
+              $("<h4>").html("presentaciones").attr("class", "bold noClose")
+            );
 
-                divFirst.append($("<h4>").html("presentaciones").attr("class", "bold noClose"));
+            // Iterar sobre los objetos dentro de cada categoría
+            var i = 0;
+            response.data.forEach(function (element) {
+              var divData = $("<div>")
+                .attr("class", "AmountsEach")
+                .addClass("noClose")
+                .attr("style", "display:inline-flex;width:50%;float: left;");
 
+              divData.append(
+                $("<input>")
+                  .attr("type", "checkbox")
+                  .attr("onclick", "AmountAdd(" + element.id + ")")
+                  .attr("name", element.name)
+                  .attr("id", "checkBox-amount-" + element.id)
+                  .attr("style", "width:20%;")
+              );
+              divData.append(
+                $("<label>").text(element.name).attr("styles", "width:80%;")
+              );
 
-                // Iterar sobre los objetos dentro de cada categoría
-                var i = 0;
-                response.data.forEach(function (element) {
-                    var divData = $("<div>").attr("class", "AmountsEach").addClass("noClose").attr("style", "display:inline-flex;width:50%;float: left;");
+              divFirst.append(divData);
+              i++;
+            });
 
-                    divData.append($("<input>").attr("type", "checkbox").attr("onclick", "AmountAdd(" + element.id + ")").attr("name", element.name).attr("id", "checkBox-amount-" + element.id).attr("style", "width:20%;"));
-                    divData.append($("<label>").text(element.name).attr("styles", "width:80%;"));
-
-                    divFirst.append(divData);
-                    i++;
-                });
-
-
-
-                div1.append(divFirst);
-            },
-            error: function (xhr, status, error) {
-                // Manejar errores
-                console.log(xhr.responseText); // Mostrar la respuesta del servidor en la consola
-            }
+            div1.append(divFirst);
+          },
+          error: function (xhr, status, error) {
+            // Manejar errores
+            console.log(xhr.responseText); // Mostrar la respuesta del servidor en la consola
+          },
         });
 
         form.append(div1);
-        form.append($("<input>").attr("type", "text").attr("name", "amountOther").attr("placeholder", "Otra cantidad"));
-
+        form.append(
+          $("<input>")
+            .attr("type", "text")
+            .attr("name", "amountOther")
+            .attr("placeholder", "Otra cantidad")
+        );
 
         form.append($("<label>").text("Descripción del producto: "));
-        form.append($("<textarea>").attr("name", "description").attr("style", "width: calc(100% - 20px);"));
+        form.append(
+          $("<textarea>")
+            .attr("name", "description")
+            .attr("style", "width: calc(100% - 20px);")
+        );
 
         form.append($("<label>").text("Logo del producto: "));
-        form.append($("<input>").attr("type", "file").attr("name", "logo").attr("style", "color:black;"));
+        form.append(
+          $("<input>")
+            .attr("type", "file")
+            .attr("name", "logo")
+            .attr("style", "color:black;")
+        );
 
         form.append($("<label>").text("Logo del proveedor del producto: "));
-        form.append($("<input>").attr("type", "file").attr("name", "proveedor").attr("style", "color:black;"));
+        form.append(
+          $("<input>")
+            .attr("type", "file")
+            .attr("name", "proveedor")
+            .attr("style", "color:black;")
+        );
 
         form.append($("<label>").text("Imagenes del producto: "));
-        form.append($("<input>").attr("type", "file").attr("name", "images[]").attr("multiple", "multiple").attr("style", "color:black;"));
+        form.append(
+          $("<input>")
+            .attr("type", "file")
+            .attr("name", "images[]")
+            .attr("multiple", "multiple")
+            .attr("style", "color:black;")
+        );
 
         form.append($("<label>").text("Archivos asociados al producto: "));
-        form.append($("<input>").attr("type", "file").attr("name", "files[]").attr("multiple", "multiple").attr("style", "color:black;"));
+        form.append(
+          $("<input>")
+            .attr("type", "file")
+            .attr("name", "files[]")
+            .attr("multiple", "multiple")
+            .attr("style", "color:black;")
+        );
 
-        var div = $("<div>").attr("id", "filters").attr("style", "margin-top:2%;");
-        var selectedFiltersContainer = $("<div>").attr("id", "selectedFilters").attr("style", "width:100%; margin-top: 20px; font-size: 20px; font-weight: bold;");
+        var div = $("<div>")
+          .attr("id", "filters")
+          .attr("style", "margin-top:2%;");
+        var selectedFiltersContainer = $("<div>")
+          .attr("id", "selectedFilters")
+          .attr(
+            "style",
+            "width:100%; margin-top: 20px; font-size: 20px; font-weight: bold;"
+          );
         $("#filters").before(selectedFiltersContainer);
-        
+
         $.ajax({
-            url: "aplication/RequestController.php?action=getfilters",
-            type: "GET",
-            success: function (response) {
-                response = JSON.parse(response);
-        
-                for (var key in response.data) {
-                    if (response.data.hasOwnProperty(key)) {
-                        var divFirst = $("<div>").attr("class", "filters noClose").attr("style", "width:100%; color:black;");
-                        divFirst.append($("<h4>").html(key).attr("class", "bold noClose"));
-        
-                        var objetos = response.data[key];
-                        objetos.forEach(function (element) {
-                            var divData = $("<div>")
-                                .attr("class", "filtersEach")
-                                .attr("style", "display:inline-flex;width:50%;float:left;background-color:" + element.color + ";color:" + element.text + ";font-size:16px;font-weight:bold;border-radius:20px;margin:0.5vh 0vw;");
-        
-                            var checkBox = $("<input>")
-                                .attr("type", "checkbox")
-                                .attr("onclick", "filterAdd(" + element.id + ", '" + element.name + "', '" + element.type + "')")
-                                .attr("name", element.name)
-                                .attr("id", "checkBox-" + element.id)
-                                .attr("style", "width:20%;background-color:" + element.color + ";color:" + element.text + ";font-size:16px;font-weight:bold;border-radius:20px;margin:0.5vh 0vw;");
-        
-                            divData.append(checkBox);
-                            divData.append($("<label>").text(element.name).attr("style", "width:80%;"));
-        
-                            divFirst.append(divData);
-                        });
-        
-                        $("#filters").append(divFirst);
-                    }
-                }
-            },
-            error: function (xhr, status, error) {
-                console.log(xhr.responseText);
+          url: "aplication/RequestController.php?action=getfilters",
+          type: "GET",
+          success: function (response) {
+            response = JSON.parse(response);
+
+            for (var key in response.data) {
+              if (response.data.hasOwnProperty(key)) {
+                var divFirst = $("<div>")
+                  .attr("class", "filters noClose")
+                  .attr("style", "width:100%; color:black;");
+                divFirst.append(
+                  $("<h4>").html(key).attr("class", "bold noClose")
+                );
+
+                var objetos = response.data[key];
+                objetos.forEach(function (element) {
+                  var divData = $("<div>")
+                    .attr("class", "filtersEach")
+                    .attr(
+                      "style",
+                      "display:inline-flex;width:50%;float:left;background-color:" +
+                        element.color +
+                        ";color:" +
+                        element.text +
+                        ";font-size:16px;font-weight:bold;border-radius:20px;margin:0.5vh 0vw;"
+                    );
+
+                  var checkBox = $("<input>")
+                    .attr("type", "checkbox")
+                    .attr(
+                      "onclick",
+                      "filterAdd(" +
+                        element.id +
+                        ", '" +
+                        element.name +
+                        "', '" +
+                        element.type +
+                        "')"
+                    )
+                    .attr("name", element.name)
+                    .attr("id", "checkBox-" + element.id)
+                    .attr(
+                      "style",
+                      "width:20%;background-color:" +
+                        element.color +
+                        ";color:" +
+                        element.text +
+                        ";font-size:16px;font-weight:bold;border-radius:20px;margin:0.5vh 0vw;"
+                    );
+
+                  divData.append(checkBox);
+                  divData.append(
+                    $("<label>").text(element.name).attr("style", "width:80%;")
+                  );
+
+                  divFirst.append(divData);
+                });
+
+                $("#filters").append(divFirst);
+              }
             }
+          },
+          error: function (xhr, status, error) {
+            console.log(xhr.responseText);
+          },
         });
-        
+
         function filterAdd(id, name, type) {
-            var checkBox = $("#checkBox-" + id);
-            var selectedFiltersDiv = $("#selectedFilters");
-        
-            if (type === "clasificacion") {
-                if (checkBox.is(":checked")) {
-                    if ($("#filter-title-" + id).length === 0) {
-                        selectedFiltersDiv.append($("<h2>").attr("id", "filter-title-" + id).text(name));
-                    }
-                } else {
-                    $("#filter-title-" + id).remove();
-                }
+          var checkBox = $("#checkBox-" + id);
+          var selectedFiltersDiv = $("#selectedFilters");
+
+          if (type === "clasificacion") {
+            if (checkBox.is(":checked")) {
+              if ($("#filter-title-" + id).length === 0) {
+                selectedFiltersDiv.append(
+                  $("<h2>")
+                    .attr("id", "filter-title-" + id)
+                    .text(name)
+                );
+              }
+            } else {
+              $("#filter-title-" + id).remove();
             }
+          }
         }
-        
+
         // Verificar sessionStorage correctamente
         var currentPageID = sessionStorage.getItem("currentPageID") || "";
-        if (!(currentPageID.trim().endsWith("14") || currentPageID.trim().endsWith("15"))) {
-            form.append($("#filters"));
+        if (
+          !(
+            currentPageID.trim().endsWith("14") ||
+            currentPageID.trim().endsWith("15")
+          )
+        ) {
+          form.append($("#filters"));
         }
 
+        form.append(
+          $("<input>")
+            .attr("type", "text")
+            .attr("name", "filters")
+            .attr("id", "filtersInput")
+            .attr("hidden", "hidden")
+        );
 
-        form.append($("<input>").attr("type", "text").attr("name", "filters").attr("id", "filtersInput").attr("hidden", "hidden"));
+        form.append(
+          $("<input>")
+            .attr("type", "text")
+            .attr("name", "section")
+            .attr("hidden", "hidden")
+            .attr("value", sessionStorage.getItem("currentPageID"))
+        );
 
-        form.append($("<input>").attr("type", "text").attr("name", "section").attr("hidden", "hidden").attr("value", sessionStorage.getItem("currentPageID")));
+        form.append(
+          $("<input>")
+            .attr("type", "text")
+            .attr("name", "action")
+            .attr("hidden", "hidden")
+            .attr("value", "addProduct")
+        );
 
-        form.append($("<input>").attr("type", "text").attr("name", "action").attr("hidden", "hidden").attr("value", "addProduct"));
-
-
-        form.append($("<button>").attr("type", "submit").text("Registar nuevo Producto").attr("id", "addProduct"));
-
+        form.append(
+          $("<button>")
+            .attr("type", "submit")
+            .text("Registar nuevo Producto")
+            .attr("id", "addProduct")
+        );
 
         // Agregar el formulario al cuerpo del documento
         $("#formModal").append(form);
@@ -316,7 +431,7 @@ function addProduct() {
         url: "aplication/RequestController.php?action=getAmounts", // Archivo PHP que contiene la función
         type: "GET", // Método de solicitud
         success: function (response) {
-          response = (JSON.parse(response));
+          response = JSON.parse(response);
 
           var divFirst = $("<div>")
             .attr("class", "amounts noClose")
@@ -536,7 +651,7 @@ function addProduct() {
           processData: false, // Datos a enviar (datos del formulario serializados)
           success: function (response) {
             // Manejar la respuesta
-            response = (JSON.parse(response));
+            response = JSON.parse(response);
             $("#alerta").removeClass("bg-success");
             $("#alerta").removeClass("bg-danger");
             $("#alerta").removeClass("bg-warning");
@@ -585,31 +700,32 @@ function enqueueRequest(task) {
   requestQueue = requestQueue.then(task).catch(console.error);
 }
 
- function pagination() {
-   var pageCurrent = localStorage.getItem("PageRegs");
-   var total = localStorage.getItem("TotalRegs");
-   var pageId = sessionStorage
-     .getItem("currentPageID")
-     .replace("#tm-section-", "")
-     .trim();
-   var el = $("#products2-" + pageId);
-   if (
-     el.height() + el.offset().top - 200 <= $(window).height() &&
-     pageCurrent * 10 < total
-   ) {
-     localStorage.setItem("PageRegs", pageCurrent.valueOf() - 1 + 2);
-     // Agregar la petición a la cola
-     enqueueRequest(() => getProducts(
-       pageId,
-       $("#searchMenu").val() == "" ? undefined : $("#searchMenu").val(),
-       $("#filtersInput-" + pageId).val() == ""
-         ? undefined
-         : $("#filtersInput-" + pageId).val(),
-       pageCurrent.valueOf() - 1 + 2
-     ));
-   }
- }
-
+function pagination() {
+  var pageCurrent = localStorage.getItem("PageRegs");
+  var total = localStorage.getItem("TotalRegs");
+  var pageId = sessionStorage
+    .getItem("currentPageID")
+    .replace("#tm-section-", "")
+    .trim();
+  var el = $("#products2-" + pageId);
+  if (
+    el.height() + el.offset().top - 200 <= $(window).height() &&
+    pageCurrent * 10 < total
+  ) {
+    localStorage.setItem("PageRegs", pageCurrent.valueOf() - 1 + 2);
+    // Agregar la petición a la cola
+    enqueueRequest(() =>
+      getProducts(
+        pageId,
+        $("#searchMenu").val() == "" ? undefined : $("#searchMenu").val(),
+        $("#filtersInput-" + pageId).val() == ""
+          ? undefined
+          : $("#filtersInput-" + pageId).val(),
+        pageCurrent.valueOf() - 1 + 2
+      )
+    );
+  }
+}
 
 //  function pagination() {
 //    var pageCurrent = localStorage.getItem("PageRegs");
@@ -697,13 +813,16 @@ function getfilters(pageId) {
       var sectionId = sessionStorage.getItem("currentPageID");
       // var sectionNumber = pageId.substring(pageId.length - 2, pageId.length);
       $("#filter-product-" + sectionNumber).append(
-        $("<span>").html("x").attr("class", "closeModal").attr("onclick", "closeCell()").attr("style", "font-size: 4vh;")
+        $("<span>")
+          .html("x")
+          .attr("class", "closeModal")
+          .attr("onclick", "closeCell()")
+          .attr("style", "font-size: 4vh;")
       );
 
       $("#filter-product-" + sectionNumber).append(
         $("<h4>").html("Filtrar").attr("class", "filtertitle")
       );
-      
 
       for (var key in response.data) {
         var divFirst = $("<div>")
@@ -715,7 +834,12 @@ function getfilters(pageId) {
           .attr("style", "width:100%;color:black;");
 
         if (response.data.hasOwnProperty(key)) {
-          var h4 = $("<h4>").html('<img src="./img/flechaabajo.png" style="position:absolute;left:12%;width:20px; height:25px; right:100px;">' + key).attr("class", "bold");
+          var h4 = $("<h4>")
+            .html(
+              '<img src="./img/flechaabajo.png" style="position:absolute;left:12%;width:20px; height:25px; right:100px;">' +
+                key
+            )
+            .attr("class", "bold");
 
           if (/*isMobileDevice() &&*/ key == "Clasificación") {
             h4.attr("style", "display: none;");
@@ -737,7 +861,8 @@ function getfilters(pageId) {
                   ";color:" +
                   element.text +
                   ";font-size: 16px;font-weight:bold;border-radius:20px;margin: 0.5vh 0vw;"
-              ).attr("data-key", key);
+              )
+              .attr("data-key", key);
 
             if (/*isMobileDevice() &&*/ key != "Clasificación") {
               divData.attr("style", "display: none;width: 100%;");
@@ -758,28 +883,24 @@ function getfilters(pageId) {
               $("<label>").text(element.name).attr("styles", "width:80%;")
             );
 
-            if (("#" + element.module) != sectionId && key == "Clasificación") {
+            if ("#" + element.module != sectionId && key == "Clasificación") {
               divData.addClass("hide");
             }
             divFirst.append(divData);
-            console.log(("#" + element.module));
+            console.log("#" + element.module);
             console.log(sectionId);
-            console.log(("#" + element.module) == sectionId);
+            console.log("#" + element.module == sectionId);
             console.log(key);
             console.log(key == "Clasificación");
             console.log("Clasificación");
           });
 
           // if (/*isMobileDevice()*/) {
-            $("#filter-product-" + sectionNumber).append(
-              $("<div>")
-                .attr("class", "filterLine")
-                .html(
-                  key == "Clasificación"
-                    ? "Clasificación del producto"
-                    : " " 
-                )
-            );
+          $("#filter-product-" + sectionNumber).append(
+            $("<div>")
+              .attr("class", "filterLine")
+              .html(key == "Clasificación" ? "Clasificación del producto" : " ")
+          );
           // }
 
           $("#filter-product-" + sectionNumber).append(divFirst);
@@ -798,7 +919,7 @@ function toggleDivsByKey(key) {
 
   // Calcula la altura actual
   const alturaActual = $contenedor.height();
-  
+
   // Realiza el toggle de los divs con el atributo data-key
   $(`div[data-key="${key}"]`).fadeToggle(300, function () {
     // Calcula la nueva altura después del toggle
@@ -867,42 +988,48 @@ function getProducts(section, search, filters, page) {
     type: "GET", // Método de solicitud
     success: function (response) {
       //console.log(response.replace(/\\/g, ''));
-      response = (JSON.parse(response));
+      response = JSON.parse(response);
 
       localStorage.setItem("TotalRegs", response.Total);
       localStorage.setItem("PageRegs", response.Page);
 
-     // Obtener la clasificación seleccionada
-     let selectedClassification = "";
-     let selectedColor = "";
+      // Obtener la clasificación seleccionada
+      let selectedClassification = "";
+      let selectedColor = "";
 
-     if (filters) {
-       const filterIds = filters.split(",");
-       filterIds.forEach(filterId => {
-         const filterElement = $(`#CheckboxFilter${section}-${filterId.replace(/[{}]/g, '')}`);
-         if (filterElement.length && filterElement.attr("data") === "Clasificación") {
-           selectedClassification = filterElement.attr("name");
-           selectedColor = filterElement.closest(".filtersEach").css("background-color"); // Obtener el color de fondo del elemento
-         }
-       });
-     }
+      if (filters) {
+        const filterIds = filters.split(",");
+        filterIds.forEach((filterId) => {
+          const filterElement = $(
+            `#CheckboxFilter${section}-${filterId.replace(/[{}]/g, "")}`
+          );
+          if (
+            filterElement.length &&
+            filterElement.attr("data") === "Clasificación"
+          ) {
+            selectedClassification = filterElement.attr("name");
+            selectedColor = filterElement
+              .closest(".filtersEach")
+              .css("background-color"); // Obtener el color de fondo del elemento
+          }
+        });
+      }
 
-     // Actualizar el título con la clasificación seleccionada
-     const classificationTitle = selectedClassification 
-       ? `<h2 style="font-family: 'Lemon Milk' !important;
+      // Actualizar el título con la clasificación seleccionada
+      const classificationTitle = selectedClassification
+        ? `<h2 style="font-family: 'Lemon Milk' !important;
     font-weight: 600;
     font-size: 30px;background: linear-gradient(to right, ${selectedColor} 50%, transparent 50%);
     background-size: 120% 3px;
     background-position: center bottom;
     background-repeat: no-repeat;
     padding-bottom: 5px;color: ${selectedColor};margin-left:25%;margin-top:1%;"> ${selectedClassification}</h2>`
-       : "<h2></h2>";
+        : "<h2></h2>";
 
-     // Limpiar el contenedor de productos y agregar el título
-     $("#productsclas-" + section).html(classificationTitle);
-    //  $("#products2-" + section).html(classificationTitle);
+      // Limpiar el contenedor de productos y agregar el título
+      $("#productsclas-" + section).html(classificationTitle);
+      //  $("#products2-" + section).html(classificationTitle);
 
-       
       response.data.forEach((element) => {
         var divFather = $("<div>")
           .attr("class", "divProduct")
@@ -940,7 +1067,7 @@ function getProducts(section, search, filters, page) {
 function iniciarAutoPlay() {
   intervalo = setInterval(nextProductIMg(currentImage), 3000); // Cambia cada 3 segundos
   currentImage++;
-  currentImage = imagesProducts.length < currentImage ?0:currentImage;
+  currentImage = imagesProducts.length < currentImage ? 0 : currentImage;
 }
 
 function getProduct(id) {
@@ -955,7 +1082,7 @@ function getProduct(id) {
     type: "GET", // Método de solicitud
     success: function (response) {
       //console.log(response.replace(/\\/g, ''));
-      response = (JSON.parse(response));
+      response = JSON.parse(response);
 
       $(".outWhats").toggleClass("hide");
 
@@ -1200,13 +1327,15 @@ function getProduct(id) {
               .substring(1, filtersProduct.length)
               .replaceAll("0", " ")
           : filtersProduct.replaceAll("0", " ");
-        
-          console.log(filtersProduct);  
+
+        console.log(filtersProduct);
 
         filtersProduct = filtersProduct.replaceAll(",  ", "<br>");
         filtersProduct = filtersProduct.replaceAll(", ,", "");
         filtersProduct = filtersProduct.replaceAll(",,", "");
-        filtersProduct = filtersProduct.endsWith(", ") ? filtersProduct.substring(0,filtersProduct.length - 2 ) : filtersProduct;
+        filtersProduct = filtersProduct.endsWith(", ")
+          ? filtersProduct.substring(0, filtersProduct.length - 2)
+          : filtersProduct;
 
         console.log(filtersProduct);
 
@@ -1298,7 +1427,6 @@ function getProduct(id) {
       div.append(divInfo);
 
       $("#formModal").append(div);
-      
     },
     error: function (xhr, status, error) {
       // Manejar errores
@@ -1339,7 +1467,7 @@ function getProductForUpdate(id) {
     type: "GET", // Método de solicitud
     success: function (responseProduct) {
       //console.log(response.replace(/\\/g, ''));
-      responseProduct = (JSON.parse(responseProduct));
+      responseProduct = JSON.parse(responseProduct);
       getSession()
         .then(function (session) {
           $("#formModal").html("");
@@ -1415,46 +1543,52 @@ function getProductForUpdate(id) {
           );
 
           var divImg = $("<div>").addClass("noClose");
-          responseProduct.data.listImg.forEach((element) => {
-            // var pDocs = $("<p>").addClass("noClose");
-            // pDocs.append($("<a>").attr("href", element).attr("target", "_blank").html(element.split("/")[element.split("/").length-1]).addClass("noClose").addClass("fuente-century-gothic").addClass("DocProducts"));
-            var divContent = $("<div>")
-              .addClass("ContentFiles")
-              .addClass("noClose");
-            var divContentFile = $("<div>")
-              .addClass("ContentFile")
-              .html(
-                '<a href="' +
-                  element +
-                  '" target="_blank" class="noClose">' +
-                  element.split("/")[element.split("/").length - 1] +
-                  "</a>"
-              )
-              .addClass("noClose");
-            var divContentActions = $("<div>")
-              .addClass("ContentFileActions")
-              .addClass("noClose");
-            divContentActions.append(
-              $("<button>")
-                .attr("type", "button")
-                .attr("class", "btn btn-danger")
-                .attr(
-                  "onclick",
-                  'deleteDocsPro("' +
+          if (
+            (responseProduct.data.listImg == null
+              ? "[]"
+              : responseProduct.data.listImg) != "[]"
+          ) {
+            responseProduct.data.listImg.forEach((element) => {
+              // var pDocs = $("<p>").addClass("noClose");
+              // pDocs.append($("<a>").attr("href", element).attr("target", "_blank").html(element.split("/")[element.split("/").length-1]).addClass("noClose").addClass("fuente-century-gothic").addClass("DocProducts"));
+              var divContent = $("<div>")
+                .addClass("ContentFiles")
+                .addClass("noClose");
+              var divContentFile = $("<div>")
+                .addClass("ContentFile")
+                .html(
+                  '<a href="' +
                     element +
-                    '",' +
-                    responseProduct.data.id +
-                    "," +
-                    1 +
-                    ")"
+                    '" target="_blank" class="noClose">' +
+                    element.split("/")[element.split("/").length - 1] +
+                    "</a>"
                 )
-                .html('<i class="far fa-trash-alt"></i>')
-                .addClass("noClose")
-            );
-            divContent.append(divContentFile);
-            divContent.append(divContentActions);
-            divImg.append(divContent);
-          });
+                .addClass("noClose");
+              var divContentActions = $("<div>")
+                .addClass("ContentFileActions")
+                .addClass("noClose");
+              divContentActions.append(
+                $("<button>")
+                  .attr("type", "button")
+                  .attr("class", "btn btn-danger")
+                  .attr(
+                    "onclick",
+                    'deleteDocsPro("' +
+                      element +
+                      '",' +
+                      responseProduct.data.id +
+                      "," +
+                      1 +
+                      ")"
+                  )
+                  .html('<i class="far fa-trash-alt"></i>')
+                  .addClass("noClose")
+              );
+              divContent.append(divContentFile);
+              divContent.append(divContentActions);
+              divImg.append(divContent);
+            });
+          }
           form.append(divImg);
 
           form.append($("<label>").text("Archivos asociados al producto: "));
@@ -1467,77 +1601,84 @@ function getProductForUpdate(id) {
           );
 
           var divFile = $("<div>").addClass("noClose");
-          responseProduct.data.listDocs.forEach((element) => {
-            // var pDocs = $("<p>").addClass("noClose");
-            // pDocs.append($("<a>").attr("href", element).attr("target", "_blank").html(element.split("/")[element.split("/").length-1]).addClass("noClose").addClass("fuente-century-gothic").addClass("DocProducts"));
-            var divContent = $("<div>")
-              .addClass("ContentFiles")
-              .addClass("noClose");
-            var divContentFile = $("<div>")
-              .addClass("ContentFileDoc")
-              .html(
-                '<a href="' +
-                  element +
-                  '" target="_blank" class="noClose">' +
-                  element.split("/")[element.split("/").length - 1] +
-                  "</a>"
-              )
-              .addClass("noClose");
-            var divContentActions = $("<div>")
-              .addClass("ContentFileActions")
-              .addClass("noClose");
-            divContentActions.append(
-              $("<button>")
-                .attr("type", "button")
-                .attr("class", "btn btn-danger")
+
+          if (
+            (responseProduct.data.listDocs == null
+              ? "[]"
+              : responseProduct.data.listDocs) != "[]"
+          ) {
+            responseProduct.data.listDocs.forEach((element) => {
+              // var pDocs = $("<p>").addClass("noClose");
+              // pDocs.append($("<a>").attr("href", element).attr("target", "_blank").html(element.split("/")[element.split("/").length-1]).addClass("noClose").addClass("fuente-century-gothic").addClass("DocProducts"));
+              var divContent = $("<div>")
+                .addClass("ContentFiles")
+                .addClass("noClose");
+              var divContentFile = $("<div>")
+                .addClass("ContentFileDoc")
+                .html(
+                  '<a href="' +
+                    element +
+                    '" target="_blank" class="noClose">' +
+                    element.split("/")[element.split("/").length - 1] +
+                    "</a>"
+                )
+                .addClass("noClose");
+              var divContentActions = $("<div>")
+                .addClass("ContentFileActions")
+                .addClass("noClose");
+              divContentActions.append(
+                $("<button>")
+                  .attr("type", "button")
+                  .attr("class", "btn btn-danger")
+                  .attr(
+                    "onclick",
+                    'deleteDocsPro("' +
+                      element +
+                      '",' +
+                      responseProduct.data.id +
+                      "," +
+                      0 +
+                      ")"
+                  )
+                  .html('<i class="far fa-trash-alt"></i>')
+                  .addClass("noClose")
+              );
+              var divContentSelect = $("<div>")
+                .addClass("selectFile")
+                .addClass("noClose");
+              var selectContent = $("<select>")
                 .attr(
-                  "onclick",
-                  'deleteDocsPro("' +
+                  "onchange",
+                  'updateFicha("' +
                     element +
                     '",' +
                     responseProduct.data.id +
-                    "," +
-                    0 +
-                    ")"
+                    ", event )"
                 )
-                .html('<i class="far fa-trash-alt"></i>')
-                .addClass("noClose")
-            );
-            var divContentSelect = $("<div>")
-              .addClass("selectFile")
-              .addClass("noClose");
-            var selectContent = $("<select>")
-              .attr(
-                "onchange",
-                'updateFicha("' +
-                  element +
-                  '",' +
-                  responseProduct.data.id +
-                  ", event )"
-              )
-              .addClass("form-select")
-              .addClass("noClose");
+                .addClass("form-select")
+                .addClass("noClose");
 
-            var hoja = $("<option>").val("hoja").html("Hoja");
-            var ficha = $("<option>").val("ficha").html("Ficha");
-            var select = $("<option>").val("Seleccione").html("Seleccione");
-            if (responseProduct.data.hoja == element) {
-              hoja.attr("selected", "selected");
-            } else if (responseProduct.data.ficha == element) {
-              ficha.attr("selected", "selected");
-            } else {
-              select.attr("selected", "selected");
-            }
-            selectContent.append(select);
-            selectContent.append(ficha);
-            selectContent.append(hoja);
-            divContentSelect.append(selectContent);
+              var hoja = $("<option>").val("hoja").html("Hoja");
+              var ficha = $("<option>").val("ficha").html("Ficha");
+              var select = $("<option>").val("Seleccione").html("Seleccione");
+              if (responseProduct.data.hoja == element) {
+                hoja.attr("selected", "selected");
+              } else if (responseProduct.data.ficha == element) {
+                ficha.attr("selected", "selected");
+              } else {
+                select.attr("selected", "selected");
+              }
+              selectContent.append(select);
+              selectContent.append(ficha);
+              selectContent.append(hoja);
+              divContentSelect.append(selectContent);
 
-            divContent.append(divContentFile);
-            divContent.append(divContentSelect);
-            divContent.append(divContentActions);
-            divFile.append(divContent);
-          });
+              divContent.append(divContentFile);
+              divContent.append(divContentSelect);
+              divContent.append(divContentActions);
+              divFile.append(divContent);
+            });
+          }
           form.append(divFile);
 
           form.append(
@@ -1559,7 +1700,7 @@ function getProductForUpdate(id) {
               url: "aplication/RequestController.php?action=getAmounts", // Archivo PHP que contiene la función
               type: "GET", // Método de solicitud
               success: function (response) {
-                response = (JSON.parse(response));
+                response = JSON.parse(response);
 
                 var divFirst = $("<div>")
                   .attr("class", "amounts noClose")
@@ -1738,7 +1879,7 @@ function getProductForUpdate(id) {
               processData: false, // Datos a enviar (datos del formulario serializados)
               success: function (response) {
                 // Manejar la respuesta
-                response = (JSON.parse(response));
+                response = JSON.parse(response);
                 $("#alerta").removeClass("bg-success");
                 $("#alerta").removeClass("bg-danger");
                 $("#alerta").removeClass("bg-warning");
@@ -1794,7 +1935,7 @@ function getProductForDelete(id) {
     type: "GET", // Método de solicitud
     success: function (responseProduct) {
       //console.log(response.replace(/\\/g, ''));
-      responseProduct = (JSON.parse(responseProduct));
+      responseProduct = JSON.parse(responseProduct);
       getSession()
         .then(function (session) {
           $("#formModal").html("");
@@ -1883,7 +2024,7 @@ function getProductForDelete(id) {
               processData: false, // Datos a enviar (datos del formulario serializados)
               success: function (response) {
                 // Manejar la respuesta
-                response = (JSON.parse(response));
+                response = JSON.parse(response);
                 $("#alerta").removeClass("bg-success");
                 $("#alerta").removeClass("bg-danger");
                 $("#alerta").removeClass("bg-warning");
@@ -1969,7 +2110,7 @@ function deleteDocsPro(docName, id, Type) {
     },
     success: function (response) {
       // Manejar la respuesta
-      response = (JSON.parse(response));
+      response = JSON.parse(response);
       chargeProducts(
         sessionStorage
           .getItem("currentPageID")
