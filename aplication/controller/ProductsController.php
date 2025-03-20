@@ -703,9 +703,9 @@ class Products
                 $filtersList = explode(",", $filters);
                 $Ssql .= "(";
                 foreach ($filtersList as $filter) {
-                    $Ssql .= "`filters` like :filter" . str_replace("%", "", $filter) . " or ";
+                    $Ssql .= "`filters` like :filter" . str_replace("%", "", $filter) . " and ";
                 }
-                $Ssql = str_ends_with($Ssql, ' or ') ? substr($Ssql, 0, strlen($Ssql) - 3) : $Ssql;
+                $Ssql = str_ends_with($Ssql, ' and ') ? substr($Ssql, 0, strlen($Ssql) - 4) : $Ssql;
                 $Ssql .= ")";
             }
             $Ssql = str_ends_with($Ssql, ' and ') ? substr($Ssql, 0, strlen($Ssql) - 4) : $Ssql;
@@ -723,8 +723,7 @@ class Products
             if ($filters !== "") {
                 $filtersList = explode(",", $filters);
                 foreach ($filtersList as $filter) {
-                    $filterSearch = "%{" . str_replace("%", "", $filter) . "}%";
-                    $statementCount->bindParam(":filter" . str_replace("%", "", $filter), $filterSearch, PDO::PARAM_STR);
+                    $statementCount->bindValue(":filter" . str_replace("%", "", $filter), ("%{" . str_replace("%", "", $filter) . "}%"), PDO::PARAM_STR);
                 }
             }
 
@@ -748,10 +747,11 @@ class Products
             if ($filters !== "") {
                 $filtersList = explode(",", $filters);
                 foreach ($filtersList as $filter) {
-                    $filterSearch = "%{" . str_replace("%", "", $filter) . "}%";
-                    $statement->bindParam(":filter" . str_replace("%", "", $filter), $filterSearch, PDO::PARAM_STR);
+                    $statement->bindValue(":filter" . str_replace("%", "", $filter), ("%{" . str_replace("%", "", $filter) . "}%"), PDO::PARAM_STR);
                 }
             }
+
+
 
             $statement->execute();
             $resultados = $statement->fetchAll(PDO::FETCH_ASSOC);
