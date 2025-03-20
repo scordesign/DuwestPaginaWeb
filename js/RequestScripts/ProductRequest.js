@@ -1161,7 +1161,7 @@ function getProduct(id) {
             var filtersProductElement = $(
               "#CheckboxFilter" + section + "-" + element
             );
-            if (filtersProductElement.attr("data") != "Proveedores") {
+            if (filtersProductElement.attr("data") != "Casa comercial") {
               if (filtersProduct.includes(filtersProductElement.attr("data"))) {
                 filtersProduct =
                   filtersProduct.substring(
@@ -1263,7 +1263,7 @@ function getProduct(id) {
           $("<button>")
             .attr("type", "button")
             .attr("class", "btn btn-success ")
-            .html("editar")
+            .html("Editar")
             .attr("style", "margin-top:2%;")
             .attr("onclick", "getProductForUpdate(" + id + ")")
         );
@@ -1272,7 +1272,7 @@ function getProduct(id) {
           $("<button>")
             .attr("type", "button")
             .attr("class", "btn btn-danger ")
-            .html("eliminar")
+            .html("Eliminar")
             .attr("style", "margin-top:2%;")
             .attr("onclick", "getProductForDelete(" + id + ")")
         );
@@ -1518,8 +1518,8 @@ function getProductForUpdate(id) {
               .addClass("form-select")
               .addClass("noClose");
 
-            var hoja = $("<option>").val("hoja").html("hoja");
-            var ficha = $("<option>").val("ficha").html("ficha");
+            var hoja = $("<option>").val("hoja").html("Hoja");
+            var ficha = $("<option>").val("ficha").html("Ficha");
             var select = $("<option>").val("Seleccione").html("Seleccione");
             if (responseProduct.data.hoja == element) {
               hoja.attr("selected", "selected");
