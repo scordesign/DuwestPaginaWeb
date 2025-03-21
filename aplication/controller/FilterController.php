@@ -84,7 +84,7 @@ class Filters
             $category = $_POST["category"] === null ? $_POST["categoryOther"] === null ? "" : $_POST["categoryOther"] : $_POST["category"];
             $name = $_POST["name"] === null ? "" : $_POST["name"];
             $color = $_POST["color"] === null ? "" : $_POST["color"];
-            $text = $_POST["text"] === null ? "" : $_POST["text"];
+            $text = !isset($_POST["text"]) ? "" : $_POST["text"];
             $module = $_POST["module"] === null ? "" : $_POST["module"];
 
 
@@ -230,7 +230,7 @@ class Filters
             $category = !isset($_POST["category"]) ? ($_POST["categoryOther"] === null ? "" : $_POST["categoryOther"] ): $_POST["category"];
             $name = $_POST["name"] === null ? "" : $_POST["name"];
             $color = $_POST["color"] === null ? "" : $_POST["color"]; 
-            $text = $_POST["text"] === null ? "" : $_POST["text"]; 
+            $text = !isset($_POST["text"]) ? "" : $_POST["text"];
             $module = $_POST["module"] === null ? "" : $_POST["module"]; 
 
 

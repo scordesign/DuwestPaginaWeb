@@ -290,10 +290,9 @@ function _map(d3,colombiaGeoJSON)
       const selectedRegion = colombiaGeoJSON.features.find(d => d.properties.DPTO === regionCode);
     
       if (selectedRegion) {
-        console.log("Región seleccionada:", selectedRegion.properties.NOMBRE_DPT);
         clicked(selectedRegion); // Simula el clic
       } else {
-        console.log("Departamento no encontrado con código:", regionCode);
+        alert("Departamento no encontrado con código:"+ regionCode);
       }
     }
     

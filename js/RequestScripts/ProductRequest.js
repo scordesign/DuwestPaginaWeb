@@ -887,12 +887,6 @@ function getfilters(pageId) {
               divData.addClass("hide");
             }
             divFirst.append(divData);
-            console.log("#" + element.module);
-            console.log(sectionId);
-            console.log("#" + element.module == sectionId);
-            console.log(key);
-            console.log(key == "Clasificación");
-            console.log("Clasificación");
           });
 
           // if (/*isMobileDevice()*/) {
@@ -951,7 +945,20 @@ function AmountAdd(id) {
 }
 
 function filterAddProducts(id, section) {
-  if ($("#CheckboxFilter" + section + "-" + id).prop("checked")) {
+
+  var filterSelect = $("#CheckboxFilter" + section + "-" + id);
+
+  $('#father'+filterSelect.attr("data")).find('[data-key="'+filterSelect.attr("data")+'"] input').each(function() {
+
+    if ($(this).prop("checked") &&  $(this).attr("id") != "CheckboxFilter" + section + "-" + id ) {
+      $(this).prop('checked',false);
+      var idInner = $(this).attr("id").split("_")[1];
+      $("#filtersInput-" + section).val("");
+    }
+  });
+
+  
+  if (filterSelect.prop("checked")) {
     $("#filtersInput-" + section).val(
       $("#filtersInput-" + section).val() + "{" + id + "},"
     );
