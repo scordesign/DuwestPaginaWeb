@@ -25,7 +25,7 @@ class Filters
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
 
-            $statement = $pdo->prepare("SELECT category FROM filters group by category ORDER BY category asc ");
+            $statement = $pdo->prepare("SELECT category FROM filters group by category ORDER BY SUBSTRING(category, 3, 1) asc ");
             $statement->execute();
 
             $resultado = $statement->fetchAll(PDO::FETCH_ASSOC);

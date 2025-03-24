@@ -7,7 +7,11 @@ const images = [
     
     // Añade tantas imágenes como necesites
 ];
-   
+const links = [
+    'https://pagina.duwestcolombia.com/#tm-section-12',
+    'https://pagina.duwestcolombia.com/#tm-section-14',
+    'https://pagina.duwestcolombia.com/#tm-section-13'
+];
 
 const slidesContainer = document.getElementById('slides');
 const manualNavContainer = document.getElementById('manual-navigation');
@@ -17,10 +21,15 @@ images.forEach((image, index) => {
     const slideDiv = document.createElement('div');
     slideDiv.classList.add('slide');
     
+    const linkElement = document.createElement('a');
+    linkElement.href = links[index] || '#'; // Usar '#' como fallback
+    linkElement.target = '_blank';
+    
     const imgElement = document.createElement('img');
     imgElement.src = image;
-    slideDiv.appendChild(imgElement);
-
+    
+    linkElement.appendChild(imgElement);
+    slideDiv.appendChild(linkElement);
     slidesContainer.appendChild(slideDiv);
 
     // Crear y añadir los botones de navegación manual

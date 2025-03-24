@@ -816,6 +816,7 @@ function getfilters(pageId) {
         $("<span>")
           .html("x")
           .attr("class", "closeModal")
+          .attr("id", "xfilter")
           .attr("onclick", "closeCell()")
           .attr("style", "font-size: 4vh;")
       );
@@ -836,7 +837,7 @@ function getfilters(pageId) {
         if (response.data.hasOwnProperty(key)) {
           var h4 = $("<h4>")
             .html(
-              '<img src="./img/flechaabajo.png" style="position:absolute;left:12%;width:20px; height:25px; right:100px;">' +
+              '<img src="./img/flechaabajo.png" style="position:absolute;left:12%;width:20px; height:20px; right:100px;">' +
                 key
             )
             .attr("class", "bold");
