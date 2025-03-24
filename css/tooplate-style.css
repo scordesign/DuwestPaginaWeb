@@ -306,9 +306,9 @@ p:last-child {
 #tmSideBar span i {
     font-size: 3.5vh;
 }
-#xfilter{
+/* #xfilter{
     display: none;
-}
+} */
 .sidebar {
     backdrop-filter: blur(10px);
     border-radius: 1rem;

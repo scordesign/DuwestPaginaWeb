@@ -812,14 +812,17 @@ function getfilters(pageId) {
 
       var sectionId = sessionStorage.getItem("currentPageID");
       // var sectionNumber = pageId.substring(pageId.length - 2, pageId.length);
-      $("#filter-product-" + sectionNumber).append(
-        $("<span>")
-          .html("x")
-          .attr("class", "closeModal")
-          .attr("id", "xfilter")
-          .attr("onclick", "closeCell()")
-          .attr("style", "font-size: 4vh;")
-      );
+      
+      // Solo agregar la "x" si es un dispositivo móvil
+      if (isMobileDevice()) {
+          $("#filter-product-" + sectionNumber).append(
+              $("<span>")
+                  .html("x")
+                  .attr("class", "closeModal")
+                  .attr("onclick", "closeCell()")
+                  .attr("style", "font-size: 4vh;")
+          );
+      }
 
       $("#filter-product-" + sectionNumber).append(
         $("<h4>").html("Filtrar").attr("class", "filtertitle")
