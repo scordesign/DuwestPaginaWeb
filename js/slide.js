@@ -8,9 +8,10 @@ const images = [
     // Añade tantas imágenes como necesites
 ];
 const links = [
-    'https://pagina.duwestcolombia.com/',
-    'https://pagina.duwestcolombia.com/',
-    'https://pagina.duwestcolombia.com/#tm-section-14'
+    null,
+    'https://pagina.duwestcolombia.com/#tm-section-14',
+    null,
+    
 ];
 
 const slidesContainer = document.getElementById('slides');
@@ -21,15 +22,19 @@ images.forEach((image, index) => {
     const slideDiv = document.createElement('div');
     slideDiv.classList.add('slide');
     
-    const linkElement = document.createElement('a');
-    linkElement.href = links[index] || '#'; // Usar '#' como fallback
-    // linkElement.target = '_blank';
-    
     const imgElement = document.createElement('img');
     imgElement.src = image;
-    
-    linkElement.appendChild(imgElement);
-    slideDiv.appendChild(linkElement);
+
+ // Solo agregar el enlace si hay un link en la posición correspondiente
+    if (links[index]) {
+        const linkElement = document.createElement('a');
+        linkElement.href = links[index];
+        linkElement.appendChild(imgElement);
+        slideDiv.appendChild(linkElement);
+    } else {
+        slideDiv.appendChild(imgElement);
+    }
+
     slidesContainer.appendChild(slideDiv);
 
     // Crear y añadir los botones de navegación manual
