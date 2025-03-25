@@ -8,8 +8,8 @@ const images = [
     // Añade tantas imágenes como necesites
 ];
 const links = [
-    'https://pagina.duwestcolombia.com/#tm-section-1',
-    'https://pagina.duwestcolombia.com/#tm-section-1',
+    'https://pagina.duwestcolombia.com/',
+    'https://pagina.duwestcolombia.com/',
     'https://pagina.duwestcolombia.com/#tm-section-14'
 ];
 
@@ -23,7 +23,7 @@ images.forEach((image, index) => {
     
     const linkElement = document.createElement('a');
     linkElement.href = links[index] || '#'; // Usar '#' como fallback
-    linkElement.target = '_blank';
+    // linkElement.target = '_blank';
     
     const imgElement = document.createElement('img');
     imgElement.src = image;
