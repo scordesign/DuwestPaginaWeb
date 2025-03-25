@@ -9,8 +9,8 @@ const images = [
 ];
 const links = [
     'https://pagina.duwestcolombia.com/#tm-section-1',
-    'https://pagina.duwestcolombia.com/#tm-section-14',
-    'https://pagina.duwestcolombia.com/#tm-section-1'
+    'https://pagina.duwestcolombia.com/#tm-section-1',
+    'https://pagina.duwestcolombia.com/#tm-section-14'
 ];
 
 const slidesContainer = document.getElementById('slides');
