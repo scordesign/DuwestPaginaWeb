@@ -8,9 +8,9 @@ const images = [
     // Añade tantas imágenes como necesites
 ];
 const links = [
-    'https://pagina.duwestcolombia.com/#tm-section-12',
+    'https://pagina.duwestcolombia.com/#tm-section-1',
     'https://pagina.duwestcolombia.com/#tm-section-14',
-    'https://pagina.duwestcolombia.com/#tm-section-13'
+    'https://pagina.duwestcolombia.com/#tm-section-1'
 ];
 
 const slidesContainer = document.getElementById('slides');
