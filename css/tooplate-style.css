@@ -4314,6 +4314,8 @@ height: 24%;
     }
    
         .social-iconsm {
+            position: absolute;
+            top: 0%;
             display: flex;
             gap: 10px;
             list-style: none;
@@ -4323,7 +4325,8 @@ height: 24%;
             justify-content: center;
             width: 100%;
             margin-left: 0%;
-            margin-top: -200%;
+            padding: 10px;
+            
         }
         
         .social-iconsm span {
