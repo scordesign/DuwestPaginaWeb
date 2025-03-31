@@ -4118,7 +4118,7 @@ height: 24%;
         display: flex;
         justify-content: space-between;
         /* position: relative; */
-        font-size: 20px;
+        font-size: 17px;
         text-align: center;
 
     }
@@ -4126,7 +4126,7 @@ height: 24%;
         display: flex;
         justify-content: space-between;
         /* position: relative; */
-        font-size: 20px;
+        font-size: 17px;
         text-align: center;
         left: 7%;
 
@@ -4135,7 +4135,7 @@ height: 24%;
             display: flex;
             justify-content: space-between;
             position: relative;
-            font-size: 20px;
+            font-size: 17px;
             text-align: center;
             margin-top: -14%;
             margin-left: 16%;
