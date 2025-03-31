@@ -89,7 +89,7 @@ body {
     margin-left: 4px;
     border-radius: 5px;
     width: 5vw;
-    height: 6vh;
+    height: 6dvh;
     z-index: 1001;
 }
 
@@ -103,7 +103,7 @@ body {
     border: solid #5BAB31 calc(0.03vw + 0.03vh);
     border-radius: calc(1vw + 1vh);
     left: 10vw;
-    top: 25vh;
+    top: 25dvh;
     position: fixed;
     padding: 1% 1%;
     text-align: justify;
@@ -150,7 +150,7 @@ body {
     font-weight: 300;
     color: white;
     overflow-x: hidden;
-    min-height: 100vh;
+    min-height: 100dvh;
     height: 100%;
     position: relative;
     background: #222222;
@@ -286,13 +286,13 @@ p:last-child {
 }
 .tm-main {
     height: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     padding: 0;
 }
 
 .tm-main-row {
     height: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     position: relative;
 }
 
@@ -304,7 +304,7 @@ p:last-child {
 }
 
 #tmSideBar span i {
-    font-size: 3.5vh;
+    font-size: 3.5dvh;
 }
 /* #xfilter{
     display: none;
@@ -355,7 +355,7 @@ p:last-child {
     border: solid #5BAB31 calc(0.03vw + 0.03vh);
     border-radius: calc(1vw + 1vh);
     right: 7vw;
-    top: 1vh;
+    top: 1dvh;
     position: fixed;
     padding: 1% 1%;
     text-align: justify;
@@ -363,7 +363,7 @@ p:last-child {
     z-index: 2000;
 }
 .pqrs-mobile img{
-    height: 6vh;
+    height: 6dvh;
 }
 #imgFlag {
     height: 10%;
@@ -406,7 +406,7 @@ p:last-child {
 }
 
 #imgFlag img {
-    height: 3.9vh;
+    height: 3.9dvh;
 }
 
 #imglogo img {
@@ -435,7 +435,7 @@ p:last-child {
 }
 .slider {
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     border-radius: 10px;
     position: relative;
@@ -500,11 +500,11 @@ p:last-child {
 
 .imagenProducto{
     margin: 0px 0.5vw;
-    height: 18vh;
+    height: 18dvh;
 }
 
 .productCarrusel{
-    margin-top: -15vh;
+    margin-top: -15dvh;
     right: -72%;
     width: 10vw;
 }
@@ -665,7 +665,7 @@ p:last-child {
 
 .tm-section {
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     bottom: 0%;
 }
 #tm-section-1 {
@@ -778,7 +778,7 @@ p:last-child {
 
 #tm-section-1 {
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
 }
 
 
@@ -843,7 +843,7 @@ address {
     /* Distribuirá los elementos a lo largo del contenedor */
     align-items: center;
     /* Centra verticalmente los elementos en el contenedor */
-    height: 13vh;
+    height: 13dvh;
 
 
 }
@@ -917,7 +917,7 @@ footer a {
 
 .catalogo {
     width: 100%;
-    height: 86vh;
+    height: 86dvh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -928,7 +928,7 @@ footer a {
 
 .catalogo1 {
     width: 33.333333333333336%;
-    height: 100vh;
+    height: 100dvh;
     background-color: transparent !important;
     z-index: 1;
     background-image: url(../img/Imagen\ categoria-06.png);
@@ -950,7 +950,7 @@ footer a {
 
 .catalogo2 {
     width: 33.5%;
-    height: 100vh;
+    height: 100dvh;
     background-color: transparent;
     background-image: url(../img/Imagen\ categoria-07.png);
     background-position: center;
@@ -963,7 +963,7 @@ footer a {
 .catalogo3 {
     display: none;
     width: 33.333333333333333%;
-    height: 100vh;
+    height: 100dvh;
     background-color: transparent !important;
     background-image: url(../img/Imagen\ categoria-08.png);
     background-position: center;
@@ -975,7 +975,7 @@ footer a {
 }
 .catalogo4 {
     width: 33.333333333333333%;
-    height: 100vh;
+    height: 100dvh;
     background-color: transparent;
     background-image: url(../img/Imagen\ categoria-09.png);
     background-position: center;
@@ -1118,7 +1118,7 @@ footer a {
     z-index: 9 !important;
     bottom: 0px;
     background-color: #31aa47;
-    height: 7vh;
+    height: 7dvh;
     width: 100%;
 }
 .policy{
@@ -1141,7 +1141,7 @@ footer a {
     /* display: flex; */
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    height: 100dvh;
     margin-left: 12.5%;
     bottom: 0px;
 }
@@ -1208,7 +1208,7 @@ footer a {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 30vh;
+    height: 30dvh;
     position: relative;
     /* bottom: -15%; */
     /* background-color: #31aa47; */
@@ -1282,7 +1282,7 @@ footer a {
     /* display: flex; */
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    height: 100dvh;
     margin-left: 5%;
     bottom: 0px;
 }
@@ -1519,7 +1519,7 @@ footer a {
     padding: 20px;
     border-radius: 5px;
     max-width: 80%;
-    max-height: 80vh;
+    max-height: 80dvh;
     padding-left: 3%;
     padding-right: 3%;
     padding-top: 2%;
@@ -1747,7 +1747,7 @@ footer a {
     bottom: 27%;
     left: 0%;
     width: 35%;
-    top: 2vh;
+    top: 2dvh;
 }
 
 .popup-content1 p {
@@ -1859,13 +1859,13 @@ footer a {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5vh;
+    margin-top: 5dvh;
     overflow: auto;
 }
 
 .imgDivProduct{
     width: 80%;
-    height: 50vh;
+    height: 50dvh;
     margin: auto;
 }
 
@@ -1880,7 +1880,7 @@ footer a {
 
 #modalLogoNotice ,#modalLogoImgProd{
     position: relative;
-    margin-top: 8vh;
+    margin-top: 8dvh;
     margin-left: auto;
     margin-right: auto;
     width: 10%;
@@ -1957,14 +1957,14 @@ footer a {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5vh;
+    margin-top: 5dvh;
     background-color: rgba(255, 255, 255, 1);
     overflow: auto;
 }
 
 #modalLogo {
     position: relative;
-    margin-top: 8vh;
+    margin-top: 8dvh;
     margin-left: auto;
     margin-right: auto;
     width: 10%;
@@ -1987,7 +1987,7 @@ footer a {
 }
 
 #fatherProductModal .amount {
-    height: 10vh;
+    height: 10dvh;
     display: inline-flex;
     float: right;
     margin-right: 0.5vw;
@@ -2144,7 +2144,7 @@ button {
 
 .checkAdmin input{
     width: 5%;
-    height: 2vh;
+    height: 2dvh;
 }
 
 #miFormulario button:hover {
@@ -2186,7 +2186,7 @@ button {
 .contenedor-popup {
     position: absolute;
     width: 250%;
-    height: 80vh;
+    height: 80dvh;
     left: -330%;
     top: -1400%;
 
@@ -2228,7 +2228,7 @@ button {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 30vh;
+    height: 30dvh;
     position: relative;*/
 /* bottom: -15%; */
 /* background-color: #31aa47; */
@@ -2277,7 +2277,7 @@ button {
 
 /* #tm-section-13 {
     overflow: auto;
-    padding-top: 32vh;
+    padding-top: 32dvh;
     width: 100%;
     background-color: white;
     background-image: url(../img/fondo-7.png);
@@ -2298,7 +2298,7 @@ button {
     position: relative;
     margin-top: 2%;
     margin-left: 3.5%;
-    height: 10vh;
+    height: 10dvh;
 }
 
 .news {
@@ -2390,7 +2390,7 @@ button {
 
 .divNew {
     display: inline-flex;
-    height: 30vh;
+    height: 30dvh;
     width: 100%;
     margin: 2vh 0vw;
 }
@@ -2412,23 +2412,23 @@ button {
 }
 
 #fatherNewModal #myCarouselNew {
-    height: 30vh;
+    height: 30dvh;
 }
 
 #fatherNewModal #myCarouselNew .carousel-inner {
-    height: 30vh;
+    height: 30dvh;
     text-align: center;
     align-items: center;
 }
 
 #fatherNewModal #myCarouselNew .carousel-inner div img {
-    max-height: 30vh;
+    max-height: 30dvh;
     margin-left: auto;
     margin-right: auto;
 }
 
 #CarruselDirection {
-    height: 5vh;
+    height: 5dvh;
     display: inline-flex;
     align-items: center;
     margin-left: 45%;
@@ -2436,7 +2436,7 @@ button {
 
 #CarruselDirection a {
     color: white;
-    font-size: 4vh;
+    font-size: 4dvh;
     cursor: pointer;
 }
 
@@ -2491,7 +2491,7 @@ button {
 }
 
 #newsFather {
-    margin-bottom: 2vh;
+    margin-bottom: 2dvh;
 }
 
 
@@ -2500,7 +2500,7 @@ button {
 #tm-section-14,
 #tm-section-15 {
     overflow: auto;
-    padding-top: 32vh;
+    padding-top: 32dvh;
     width: 100%;
     background-color: white;
     background-image: url(../img/fondo-7.png);
@@ -2511,7 +2511,7 @@ button {
 .products1 {
     z-index: 100;
     width: 100%;
-    height: 32vh;
+    height: 32dvh;
     position: fixed;
     top: 0%;
     background-image: url(../img/camion.png);
@@ -2523,7 +2523,7 @@ button {
 .products12 {
     z-index: 100;
     width: 100%;
-    height: 32vh;
+    height: 32dvh;
     position: fixed;
     top: 0%;
     background-image: url(../img/nutricion.png);
@@ -2535,7 +2535,7 @@ button {
 .products13 {
     z-index: 100;
     width: 100%;
-    height: 32vh;
+    height: 32dvh;
     position: fixed;
     top: 0%;
     background-image: url(../img/pastos.png);
@@ -2547,7 +2547,7 @@ button {
 .products14 {
     z-index: 100;
     width: 100%;
-    height: 32vh;
+    height: 32dvh;
     position: fixed;
     top: 0%;
     background-image: url(../img/maquinas.png);
@@ -2597,7 +2597,7 @@ button {
     justify-content: space-around; */
     align-items: center;
     background-color: transparent;
-    height: 20vh;
+    height: 20dvh;
     width: 80%;
     left: 10%;
     top: 32%;
@@ -2614,7 +2614,7 @@ button {
     justify-content: space-around; */
     align-items: center;
     background-color: transparent;
-    height: 10vh;
+    height: 10dvh;
     width: 80%;
     left: 10%;
     top: 31%;
@@ -2631,7 +2631,7 @@ button {
     justify-content: space-around; */
     align-items: center;
     background-color: transparent;
-    height: 10vh;
+    height: 10dvh;
     width: 80%;
     left: 10%;
     top: 31%;
@@ -2674,7 +2674,7 @@ button {
 .filter-product form .filters h4 {
     font-size: 15px;
     cursor: pointer;
-    margin-bottom: 0.4vh;
+    margin-bottom: 0.4dvh;
     text-decoration: underline;
 }
 
@@ -2694,10 +2694,10 @@ button {
     cursor: pointer;
     /* Cambia el cursor al pasar sobre el checkbox */
     width: 11%;
-    height: 2.3vh;
+    height: 2.3dvh;
     margin-right: 5%;
     margin-left: 0.2vw;
-    margin-top: 0.4vh;
+    margin-top: 0.4dvh;
 }
 
 .filter-product form .filters input:checked {
@@ -2718,7 +2718,7 @@ button {
     right: 10%;
     top: 10%;
     margin-top: 2%;
-    padding-bottom: 10vh;
+    padding-bottom: 10dvh;
 }
 
 .divProduct {
@@ -2733,7 +2733,7 @@ button {
 }
 
 .divProduct div {
-    height: 6vh;
+    height: 6dvh;
     width: 100%;
     text-align: left;
     background-color: white;
@@ -2763,20 +2763,20 @@ button {
 }
 
 .ProveedorImg {
-        height: 4vh;
+        height: 4dvh;
 }
 
 .proveedor{
     width: 40%;
     position: relative;
     height: auto;
-    margin-bottom: 1.5vh;
+    margin-bottom: 1.5dvh;
 }
 
 .textProduct {
     font-size: calc(0.5vh + 0.6vw);
     overflow: hidden;
-    height: 12vh;
+    height: 12dvh;
 }
 
 
@@ -2792,7 +2792,7 @@ button {
 .productsmmaq {
     overflow: auto;
     position: fixed;
-    height: 40vh;
+    height: 40dvh;
     padding: 1% 14%;
     width: 100%;
     left: 0%;
@@ -2827,7 +2827,7 @@ button {
     float: right;
     position: relative;
     height: auto;
-    top: -8vh;
+    top: -8dvh;
 }
 
 .carousel-control-next,
@@ -2972,12 +2972,12 @@ button {
     width: 100%;
     border-top: 0.3vh solid rgba(166, 202, 86, 1);
     width: 80% !important;
-    margin-top: 2vh;
+    margin-top: 2dvh;
     margin-left: 10% !important;
     border-top-width: 2px;
     border-top-color: rgb(28, 34, 14);
     font-weight: bold;
-    padding-top: 1vh;
+    padding-top: 1dvh;
     color: black;
     text-align: center;
     font-size: 15px;
@@ -3011,12 +3011,12 @@ button {
 
 .filters{
     border: 0.3vh solid rgb(0, 142, 91);
-    border-radius: 2vh;
-    padding: 0.2vh;
+    border-radius: 2dvh;
+    padding: 0.2dvh;
     margin-top: 2%;
     border-width: 2px;
     border-color: rgb(0, 142, 91);
-    max-height: 30vh;
+    max-height: 30dvh;
     overflow: auto;
 }
 
@@ -3208,7 +3208,7 @@ height: 24%;
         left: 0%;
         /* bottom: 10%; */
         width: 100%;
-        height: 100vh;
+        height: 100dvh;
     }
 }
 
@@ -3299,7 +3299,7 @@ height: 24%;
     #map-container {
         width: 100%;
         margin: 0 auto;
-        height: 100vh;
+        height: 100dvh;
         position: fixed;
         left: 0%;
         top: -10%;
@@ -3344,7 +3344,7 @@ height: 24%;
         /* display: flex; */
         justify-content: space-between;
         align-items: center;
-        height: 100vh;
+        height: 100dvh;
         margin-left: 12.5%;
         bottom: 0px;
     }
@@ -3381,7 +3381,7 @@ height: 24%;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        height: 30vh;
+        height: 30dvh;
         position: relative;
         /* bottom: -15%; */
         /* background-color: #31aa47; */
@@ -3579,7 +3579,7 @@ height: 24%;
         justify-content: flex-start;
         align-items: center;
         width: 100%;
-        height: 30vh;
+        height: 30dvh;
         position: relative;
         /* bottom: -15%; */
         /* background-color: #31aa47; */
@@ -3710,7 +3710,7 @@ height: 24%;
         border: solid #5BAB31 calc(0.03vw + 0.03vh);
         border-radius: calc(1vw + 1vh);
         right: 7vw;
-        top: 1vh;
+        top: 1dvh;
         position: fixed;
         padding: 1% 1%;
         text-align: justify;
@@ -3718,7 +3718,7 @@ height: 24%;
         z-index: 2000;
     }
     .pqrs-mobile img{
-        height: 6vh;
+        height: 6dvh;
     }
     .slide img{
         height: 100%;
@@ -3761,7 +3761,7 @@ height: 24%;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        height: 50vh;
+        height: 50dvh;
         z-index: 9;
         position: fixed;
         top: 0%;
@@ -3848,7 +3848,7 @@ height: 24%;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        height: 50vh;
+        height: 50dvh;
 
       }
     .popup-content {
@@ -4222,7 +4222,7 @@ height: 24%;
 
     #imgFlag img {
         display: none;
-        height: 3vh;
+        height: 3dvh;
     }
 
     #imgFlagMob {
@@ -4239,7 +4239,7 @@ height: 24%;
 
     #imgFlagMob img {
 
-        height: 1.3vh;
+        height: 1.3dvh;
         top: -900%;
         position: fixed;
         width: 100%;
@@ -4282,7 +4282,7 @@ height: 24%;
 
     #country {
         width: 100%;
-        height: 62vh;
+        height: 62dvh;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -4464,7 +4464,7 @@ height: 24%;
         display: flow;
         left: 0%;
         margin-top: 4%;
-        height: 90vh;
+        height: 90dvh;
 
     }
 
@@ -4951,7 +4951,7 @@ height: 24%;
     }
 
     .searchCellDiv {
-        padding-top: 2vh;
+        padding-top: 2dvh;
         display: inherit !important;
     }
 
@@ -4969,7 +4969,7 @@ height: 24%;
 
 
     .searchCellDivStr {
-        padding-top: 2vh;
+        padding-top: 2dvh;
         display: inline !important;
     }
 
@@ -4987,7 +4987,7 @@ height: 24%;
     .productsmmaq {
         overflow: auto;
         position: fixed;
-        height: 66vh;
+        height: 66dvh;
         padding: 2% 2%;
         width: 100%;
         left: 0%;
@@ -4998,7 +4998,7 @@ height: 24%;
     .products1,
     .products12,
     .products13 {
-        height: 23vh;
+        height: 23dvh;
     }
 
     .filter-product {
@@ -5018,7 +5018,7 @@ height: 24%;
     }
 
     .closeCell {
-        padding-top: 1vh;
+        padding-top: 1dvh;
         display: inherit !important;
         margin: auto;
         width: 10vw;
@@ -5033,12 +5033,12 @@ height: 24%;
         width: 100%;
         border-top: 0.3vh solid rgba(166, 202, 86, 1);
         width: 80% !important;
-        margin-top: 2vh;
+        margin-top: 2dvh;
         margin-left: 10% !important;
         border-top-width: 2px;
         border-top-color: rgba(166, 202, 86, 1);
         font-weight: bold;
-        padding-top: 1vh;
+        padding-top: 1dvh;
         color: white;
     }
 
@@ -5086,7 +5086,7 @@ height: 24%;
         /* Borde del checkbox */
         cursor: pointer;
         /* Cambia el cursor al pasar sobre el checkbox */
-        height: 2.3vh;
+        height: 2.3dvh;
         margin-right: 5%;
         color: white;
 
@@ -5113,8 +5113,8 @@ height: 24%;
 
     .filter-product form .filters {
         border: 0.3vh solid rgba(166, 202, 86, 1);
-        border-radius: 2vh;
-        padding: 1vh;
+        border-radius: 2dvh;
+        padding: 1dvh;
         width: 80% !important;
         margin-top: 2%;
         border-width: 2px;
@@ -5137,8 +5137,8 @@ height: 24%;
 
     .filter-product img {
         display: inline;
-        height: 8vh;
-        padding-top: 1vh;
+        height: 8dvh;
+        padding-top: 1dvh;
     }
 
     .closeCellDiv {
@@ -5199,7 +5199,7 @@ height: 24%;
         display: block;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 2vh;
+        margin-top: 2dvh;
         backdrop-filter: blur(10px) !important;
         background-color: rgba(0, 0, 0, 0.6);
         overflow: auto;
@@ -5242,23 +5242,23 @@ height: 24%;
         width: 100%;
         /* float: left; */
         position: relative;
-        /* max-height: 40vh; */
+        /* max-height: 40dvh; */
         /* left: 10%; */
         backdrop-filter: 0px;
         background: white;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
-        margin-top: 1vh;
-        padding-top: 1vh;
+        margin-top: 1dvh;
+        padding-top: 1dvh;
         border-bottom: 0px;
-        top: 0vh;
-        margin-bottom: 2vh;
+        top: 0dvh;
+        margin-bottom: 2dvh;
         margin-top: 0px;
     }
 
     .divLogo{
-        padding-top: 1vh;
-        height: 10vh;
+        padding-top: 1dvh;
+        height: 10dvh;
         width: auto;
     }
 
@@ -5267,7 +5267,7 @@ height: 24%;
         margin-bottom: 0px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
-        margin-top: 7vh;
+        margin-top: 7dvh;
     }
 
     .carousel-inner {
@@ -5291,7 +5291,7 @@ height: 24%;
     #infoProduct {
         border-radius: 20px;
         background: white;
-        /* margin-top: 5vh; */
+        /* margin-top: 5dvh; */
         width: 100%;
         /* padding: 2% 2%; */
         /* float: right; */
@@ -5301,7 +5301,7 @@ height: 24%;
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
         padding: 2vh 4vw;
-        padding-top: 1vh;
+        padding-top: 1dvh;
         margin-top: 0px;
     }
 
@@ -5353,7 +5353,7 @@ height: 24%;
     }
 
     .divNew {
-        height: 40vh;
+        height: 40dvh;
     }
     .news{
         margin-bottom: 20%;
@@ -5396,8 +5396,8 @@ height: 24%;
     #modalNotice ,#modalImgProd{
         width: 100%;
         height: 90%;
-        margin-top: 0vh;
-        padding-top: 5vh;
+        margin-top: 0dvh;
+        padding-top: 5dvh;
     }
     #closeModalNotice ,#closeModalImgProd{
         position: absolute;
@@ -5407,7 +5407,7 @@ height: 24%;
     }
 
     #closeModalNotice i,#closeModalImgProd i{
-        font-size: 3.1vh;
+        font-size: 3.1dvh;
     }
 
     #fatherNewModal {
@@ -5441,7 +5441,7 @@ height: 24%;
     
 
     .searchCellNewDiv  {
-        padding-top: 3vh;
+        padding-top: 3dvh;
         display: inline-flex !important;
         margin-left: 13vw;
     }
@@ -5591,7 +5591,7 @@ height: 24%;
 
 .search-container {
     width: 100%;
-    height: 10vh;
+    height: 10dvh;
 }
 
 .search-input {
