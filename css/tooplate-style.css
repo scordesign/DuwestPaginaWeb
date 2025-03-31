@@ -3655,7 +3655,7 @@ height: 24%;
         margin: 0;
         padding: 0;
         margin: 1% 1%;
-        margin-bottom: 47%;
+        margin-bottom: 60%;
     }
     .vision-general {
             /* position: fixed; */
@@ -3729,7 +3729,7 @@ height: 24%;
         color: white;
         font-size: 200%;
         display: block;
-        bottom: 10%;
+        bottom: 16%;
     }
     
     .mision{
@@ -3869,7 +3869,7 @@ height: 24%;
         display: block;
         left: 34%;
         position: fixed;
-        bottom: 17%;
+        bottom: 22%;
     }
     .parrafo-mision p {
         font-size: 1rem;
@@ -4585,11 +4585,12 @@ height: 24%;
         color: white;
         padding: 7px;
         font-weight: bolder;
+        text-align: center;
 
     }
 
     .tm-main-nav li {
-        padding: 2%;
+        padding: 1.4%;
     }
 
     nav a i {
