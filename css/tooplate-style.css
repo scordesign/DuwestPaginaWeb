@@ -1613,7 +1613,7 @@ footer a {
     border-radius: 10px;
     width: 90%;
     backdrop-filter: blur(6px);
-    height: 70%;
+    height: 75%;
     background-size: cover;
     color: white;
 
@@ -3211,6 +3211,21 @@ height: 24%;
         height: 100vh;
     }
 }
+
+@media screen and (max-width: 400px) {
+    .policy {
+       
+        margin-top: 112%;
+        
+    }
+}
+/* @media (max-height: 600px) {
+    .policy {
+       
+        margin-top: 112%;
+        
+    }
+} */
 
 @media (max-width: 1724px) {
     .tm-nav-fa-icon {
