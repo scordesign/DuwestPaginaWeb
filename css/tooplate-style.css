@@ -3651,6 +3651,11 @@ height: 24%;
 
 @media (max-width: 600px) {
 
+    ul {
+        margin: 0;
+        padding: 0;
+        margin: 15% 1%;
+    }
     .vision-general {
             /* position: fixed; */
     display: flex
@@ -3719,10 +3724,11 @@ height: 24%;
         position: absolute;
         /* margin-bottom: 22%; */
         left: 47%;
-        top: 89%;
+        /* top: 89%; */
         color: white;
         font-size: 200%;
         display: block;
+        bottom: 0%;
     }
     
     .mision{
