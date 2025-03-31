@@ -3654,7 +3654,8 @@ height: 24%;
     ul {
         margin: 0;
         padding: 0;
-        margin: 25% 1%;
+        margin: 1% 1%;
+        margin-bottom: 40%;
     }
     .vision-general {
             /* position: fixed; */
@@ -3728,7 +3729,7 @@ height: 24%;
         color: white;
         font-size: 200%;
         display: block;
-        bottom: 0%;
+        bottom: 7%;
     }
     
     .mision{
@@ -3868,7 +3869,7 @@ height: 24%;
         display: block;
         left: 34%;
         position: fixed;
-        bottom: 8%;
+        bottom: 15%;
     }
     .parrafo-mision p {
         font-size: 1rem;
