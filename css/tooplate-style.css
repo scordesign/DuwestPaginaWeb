@@ -3655,7 +3655,7 @@ height: 24%;
         margin: 0;
         padding: 0;
         margin: 1% 1%;
-        margin-bottom: 40%;
+        margin-bottom: 43%;
     }
     .vision-general {
             /* position: fixed; */
@@ -3729,7 +3729,7 @@ height: 24%;
         color: white;
         font-size: 200%;
         display: block;
-        bottom: 7%;
+        bottom: 10%;
     }
     
     .mision{
@@ -3869,7 +3869,7 @@ height: 24%;
         display: block;
         left: 34%;
         position: fixed;
-        bottom: 15%;
+        bottom: 17%;
     }
     .parrafo-mision p {
         font-size: 1rem;
@@ -4371,7 +4371,7 @@ height: 24%;
             justify-content: center;
             width: 100%;
             margin-left: 0%;
-            padding: 10px;
+            /* padding: 10px; */
             
         }
         
