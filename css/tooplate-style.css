@@ -1602,8 +1602,8 @@ footer a {
     padding: 20px;
     border-radius: 5px;
     /* max-width: 100%; */
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
     padding-top: 2%;
     padding-bottom: 2%;
     border-radius: 10px;
@@ -1750,9 +1750,9 @@ footer a {
     margin: 0;
     text-align: justify;
     color: #6F6D60;
-    font-size: 18px;
+    font-size: 17px;
     /* text-transform: uppercase; */
-    line-height: 24px;
+    line-height: 20px;
     font-family: 'Centuri Gothic', sans-serif;
     color: white !important;
     text-align: center;
@@ -1766,7 +1766,7 @@ footer a {
     margin: 0;
     text-align: left;
     color: #6F6D60;
-    font-size: 18px;
+    font-size: 17px;
     padding-top: 10px;
     padding-bottom: 10px;
     color: white !important;
@@ -1779,12 +1779,12 @@ footer a {
     margin: 0;
     text-align: left;
     color: #006838;
-    font-size: 24px;
+    font-size: 20px;
     text-transform: uppercase;
     color: white !important;
     font-family: 'Century Gothic Bold';
     text-align: center;
-    padding-top: 33%;
+    padding-top: 23%;
 
 }
 
@@ -1807,7 +1807,7 @@ footer a {
     width: 25%;
     position: fixed;
     left: 36%;
-    top: 3%;
+    top: 0%;
 }
 
 #modalNotice,#modalImgProd {
@@ -4227,6 +4227,7 @@ height: 24%;
         justify-content: space-between;
         align-items: center;
         top: 7%;
+        gap: 3px;
         position: fixed;
         flex-direction: column;
         font-family: 'Century Gothic Bold', sans-serif;
@@ -4858,7 +4859,7 @@ height: 24%;
 
     .title-product {
         position: relative;
-        top: 70%;
+        top: 45%;
         background-color: rgba(0, 139, 58, 0.6);
         color: white;
         text-transform: uppercase;
@@ -4869,7 +4870,7 @@ height: 24%;
         font-weight: 600;
         font-size: 25px;
         width: fit-content;
-        left: 7%;
+        left: 0%;
         font-family: 'Lemon Milk';
 
     }
