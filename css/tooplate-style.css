@@ -4315,7 +4315,7 @@ height: 24%;
    
         .social-iconsm {
             position: absolute;
-            top: 0%;
+            top: 4%;
             display: flex;
             gap: 10px;
             list-style: none;
@@ -4392,7 +4392,7 @@ height: 24%;
 
     #tmMainNav {
         position: fixed;
-        bottom: 24%;
+        bottom: 18%;
         width: 100%;
         left: 0%;
         padding: 0px;
