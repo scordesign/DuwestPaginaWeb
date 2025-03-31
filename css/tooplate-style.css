@@ -4315,23 +4315,27 @@ height: 24%;
    
         .social-iconsm {
             display: flex;
-            gap: 10px; 
-            list-style: none; 
+            gap: 10px;
+            list-style: none;
             padding: 0;
             margin: 0;
-            align-items: center; 
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            margin-left: 19%;
+            margin-left: 0%;
+            margin-top: -200%;
         }
         
         .social-iconsm span {
             display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .social-iconsm a {
             text-decoration: none; 
             color: inherit; 
-            font-size: 20px; 
+            font-size: 35px; 
         }
 
     
