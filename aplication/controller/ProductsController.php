@@ -736,10 +736,13 @@ class Products
 
             $count = $resultadoCount[0]["count"];
 
-
+            $Ssql .= "ORDER BY CASE WHEN filters like :DuOrder THEN 0 ELSE 1 END , name asc ";
             // data
-            $statement = $pdo->prepare($Ssql . " LIMIT 10 OFFSET " . ($page * 10) - 10);
+            $statement = $pdo->prepare(query: $Ssql . " LIMIT 10 OFFSET " . ($page * 10) - 10);
             $statement->bindParam(":section", $section, PDO::PARAM_STR);
+
+            $statement->bindValue(':DuOrder', "%{21}%", PDO::PARAM_STR);
+
             if ($search !== "") {
                 $statement->bindParam(':name', $search, PDO::PARAM_STR);
             }

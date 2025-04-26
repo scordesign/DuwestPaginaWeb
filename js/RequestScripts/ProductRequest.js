@@ -956,7 +956,7 @@ function filterAddProducts(id, section) {
 
     if ($(this).prop("checked") &&  $(this).attr("id") != "CheckboxFilter" + section + "-" + id ) {
       $(this).prop('checked',false);
-      var idInner = $(this).attr("id").split("_")[1];
+       var idInner = $(this).attr("id").split("_")[1];
       $("#filtersInput-" + section).val("");
     }
   });
