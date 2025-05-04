@@ -118,7 +118,7 @@ text.big-text{
     margin-right: 10%;
     top: 0%;
     height: 48%;
-   
+    overflow: auto;
 }
 .department-info {
   float: left;
