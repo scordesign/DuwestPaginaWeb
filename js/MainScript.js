@@ -207,7 +207,7 @@ $(function () {
             var posicionBar = $("#bars-menu").offset();
 
             $("#tmSideBar").css({
-                "width": ((posicionBar.left + ($("#bars-menu").width() * 3.7)) - posicionImglogo.left) + "px"
+                "width": ((posicionBar.left + ($("#bars-menu").width() * 4)) - posicionImglogo.left) + "px"
             });
 
             var posicionSideBar = $("#tmSideBar").offset();
