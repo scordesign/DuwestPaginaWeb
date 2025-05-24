@@ -122,7 +122,9 @@ function searchCell(param, event) {
 
 function addProduct() {
   $("#modalBackground").toggleClass("hide");
-
+  var section_18 = sessionStorage.getItem("currentPageID") == "#tm-section-18";
+  console.log(section_18);
+  console.log(section_18 ? "hide" : "");
   getSession()
     .then(function (session) {
       $("#formModal").html("");
@@ -130,6 +132,7 @@ function addProduct() {
         session = JSON.parse(session);
 
         var form = $("<form>").attr("id", "miFormulario");
+
 
         form.append(
           $("<i>")
@@ -293,10 +296,10 @@ function addProduct() {
                     .attr(
                       "style",
                       "display:inline-flex;width:50%;float:left;background-color:" +
-                        element.color +
-                        ";color:" +
-                        element.text +
-                        ";font-size:16px;font-weight:bold;border-radius:20px;margin:0.5vh 0vw;"
+                      element.color +
+                      ";color:" +
+                      element.text +
+                      ";font-size:16px;font-weight:bold;border-radius:20px;margin:0.5vh 0vw;"
                     );
 
                   var checkBox = $("<input>")
@@ -304,22 +307,22 @@ function addProduct() {
                     .attr(
                       "onclick",
                       "filterAdd(" +
-                        element.id +
-                        ", '" +
-                        element.name +
-                        "', '" +
-                        element.type +
-                        "')"
+                      element.id +
+                      ", '" +
+                      element.name +
+                      "', '" +
+                      element.type +
+                      "')"
                     )
                     .attr("name", element.name)
                     .attr("id", "checkBox-" + element.id)
                     .attr(
                       "style",
                       "width:20%;background-color:" +
-                        element.color +
-                        ";color:" +
-                        element.text +
-                        ";font-size:16px;font-weight:bold;border-radius:20px;margin:0.5vh 0vw;"
+                      element.color +
+                      ";color:" +
+                      element.text +
+                      ";font-size:16px;font-weight:bold;border-radius:20px;margin:0.5vh 0vw;"
                     );
 
                   divData.append(checkBox);
@@ -408,7 +411,7 @@ function addProduct() {
 
       var form = $("<form>").attr("id", "miFormulario");
 
-      form.append($("<label>").text("Nombre del producto: "));
+      form.append($("<label>").text("Nombre del " + (section_18 ? "plan" : "producto") + ": "));
       form.append(
         $("<input>")
           .attr("type", "text")
@@ -423,7 +426,7 @@ function addProduct() {
           .attr("id", "amountInput")
       );
 
-      var div1 = $("<div>")
+      var div1 = $("<div>").addClass(section_18 ? "hide" : "")
         .attr("id", "amount")
         .attr("style", "margin-top:2%;");
 
@@ -475,36 +478,36 @@ function addProduct() {
 
       form.append(div1);
       form.append(
-        $("<input>")
+        $("<input>").addClass(section_18 ? "hide" : "")
           .attr("type", "text")
           .attr("name", "amountOther")
           .attr("placeholder", "Otra cantidad")
       );
 
-      form.append($("<label>").text("Descripción del producto: "));
+      form.append($("<label>").text("Descripción del producto: ").addClass(section_18 ? "hide" : ""));
       form.append(
-        $("<textarea>")
+        $("<textarea>").addClass(section_18 ? "hide" : "")
           .attr("name", "description")
           .attr("style", "width: calc(100% - 20px);")
       );
 
-      form.append($("<label>").text("Logo del producto: "));
+      form.append($("<label>").text("Logo del producto: ").addClass(section_18 ? "hide" : ""));
       form.append(
-        $("<input>")
+        $("<input>").addClass(section_18 ? "hide" : "")
           .attr("type", "file")
           .attr("name", "logo")
           .attr("style", "color:black;")
       );
 
-      form.append($("<label>").text("Logo del proveedor del producto: "));
+      form.append($("<label>").text("Logo del proveedor del producto: ").addClass(section_18 ? "hide" : ""));
       form.append(
-        $("<input>")
+        $("<input>").addClass(section_18 ? "hide" : "")
           .attr("type", "file")
           .attr("name", "proveedor")
           .attr("style", "color:black;")
       );
 
-      form.append($("<label>").text("Imagenes del producto: "));
+      form.append($("<label>").text(section_18 ? "Imagen del plan" : "Imagenes del producto: "));
       form.append(
         $("<input>")
           .attr("type", "file")
@@ -513,7 +516,7 @@ function addProduct() {
           .attr("style", "color:black;")
       );
 
-      form.append($("<label>").text("Archivos asociados al producto: "));
+      form.append($("<label>").text(section_18 ? "Archivo asociado al plan" : "Archivos asociados al producto: "));
       form.append(
         $("<input>")
           .attr("type", "file")
@@ -522,7 +525,7 @@ function addProduct() {
           .attr("style", "color:black;")
       );
 
-      var div = $("<div>")
+      var div = $("<div>").addClass(section_18 ? "hide" : "")
         .attr("id", "filters")
         .attr("style", "margin-top:2%;");
 
@@ -550,10 +553,10 @@ function addProduct() {
                   .attr(
                     "style",
                     "display:inline-flex;width:50%;float: left;background-color:" +
-                      element.color +
-                      ";color:" +
-                      element.text +
-                      ";font-size: 16px;font-weight:bold;border-radius:20px;argin: 0.5vh 0vw;"
+                    element.color +
+                    ";color:" +
+                    element.text +
+                    ";font-size: 16px;font-weight:bold;border-radius:20px;argin: 0.5vh 0vw;"
                   );
 
                 divData.append(
@@ -565,10 +568,10 @@ function addProduct() {
                     .attr(
                       "style",
                       "width:20%; background-color:" +
-                        element.color +
-                        ";color:" +
-                        element.text +
-                        ";font-size: 16px;font-weight:bold;border-radius:20px;argin: 0.5vh 0vw;"
+                      element.color +
+                      ";color:" +
+                      element.text +
+                      ";font-size: 16px;font-weight:bold;border-radius:20px;argin: 0.5vh 0vw;"
                     )
                 );
                 divData.append(
@@ -603,7 +606,7 @@ function addProduct() {
       }
 
       form.append(
-        $("<input>")
+        $("<input>").addClass(section_18 ? "hide" : "")
           .attr("type", "text")
           .attr("name", "filters")
           .attr("id", "filtersInput")
@@ -629,7 +632,7 @@ function addProduct() {
       form.append(
         $("<button>")
           .attr("type", "submit")
-          .text("Registar nuevo Producto")
+          .text("Registar nuevo " + (section_18 ? "plan" : "producto"))
           .attr("id", "addProduct")
       );
 
@@ -757,6 +760,8 @@ function pagination() {
 //  }
 
 function pagination14() {
+  
+
   var pageCurrent = localStorage.getItem("PageRegs");
   var total = localStorage.getItem("TotalRegs");
   var pageId = sessionStorage
@@ -784,6 +789,7 @@ function pagination14() {
 }
 
 function chargeProductsNoF(pageId) {
+  
   $("#products2-" + pageId + " .divProduct").remove();
   // $("#filter-product-" + pageId).html('<input type="hidden" name="filtersInput-'+pageId+'" id="filtersInput-'+pageId+'" value="">');
   getProducts(pageId);
@@ -793,10 +799,10 @@ function chargeProducts(pageId) {
   $("#products2-" + pageId + " .divProduct").remove();
   $("#filter-product-" + pageId).html(
     '<input type="hidden" name="filtersInput-' +
-      pageId +
-      '" id="filtersInput-' +
-      pageId +
-      '" value="">'
+    pageId +
+    '" id="filtersInput-' +
+    pageId +
+    '" value="">'
   );
   getProducts(pageId);
   getfilters(pageId);
@@ -812,16 +818,16 @@ function getfilters(pageId) {
 
       var sectionId = sessionStorage.getItem("currentPageID");
       // var sectionNumber = pageId.substring(pageId.length - 2, pageId.length);
-      
+
       // Solo agregar la "x" si es un dispositivo móvil
       if (isMobileDevice()) {
-          $("#filter-product-" + sectionNumber).append(
-              $("<span>")
-                  .html("x")
-                  .attr("class", "closeModal")
-                  .attr("onclick", "closeCell()")
-                  .attr("style", "font-size: 4vh;")
-          );
+        $("#filter-product-" + sectionNumber).append(
+          $("<span>")
+            .html("x")
+            .attr("class", "closeModal")
+            .attr("onclick", "closeCell()")
+            .attr("style", "font-size: 4vh;")
+        );
       }
 
       $("#filter-product-" + sectionNumber).append(
@@ -841,7 +847,7 @@ function getfilters(pageId) {
           var h4 = $("<h4>")
             .html(
               '<img src="./img/flechaabajo.png" style="position:absolute;left:12%;width:20px; height:20px; right:100px;">' +
-                key
+              key
             )
             .attr("class", "bold");
 
@@ -861,10 +867,10 @@ function getfilters(pageId) {
               .attr(
                 "style",
                 "display:inline-flex;width:100%;background-color:" +
-                  element.color +
-                  ";color:" +
-                  element.text +
-                  ";font-size: 16px;font-weight:bold;border-radius:20px;margin: 0.5vh 0vw;"
+                element.color +
+                ";color:" +
+                element.text +
+                ";font-size: 16px;font-weight:bold;border-radius:20px;margin: 0.5vh 0vw;"
               )
               .attr("data-key", key);
 
@@ -952,16 +958,16 @@ function filterAddProducts(id, section) {
 
   var filterSelect = $("#CheckboxFilter" + section + "-" + id);
 
-  $('#father'+filterSelect.attr("data")).find('[data-key="'+filterSelect.attr("data")+'"] input').each(function() {
+  $('#father' + filterSelect.attr("data")).find('[data-key="' + filterSelect.attr("data") + '"] input').each(function () {
 
-    if ($(this).prop("checked") &&  $(this).attr("id") != "CheckboxFilter" + section + "-" + id ) {
-      $(this).prop('checked',false);
-       var idInner = $(this).attr("id").split("_")[1];
+    if ($(this).prop("checked") && $(this).attr("id") != "CheckboxFilter" + section + "-" + id) {
+      $(this).prop('checked', false);
+      var idInner = $(this).attr("id").split("_")[1];
       $("#filtersInput-" + section).val("");
     }
   });
 
-  
+
   if (filterSelect.prop("checked")) {
     $("#filtersInput-" + section).val(
       $("#filtersInput-" + section).val() + "{" + id + "},"
@@ -1041,7 +1047,39 @@ function getProducts(section, search, filters, page) {
       $("#productsclas-" + section).html(classificationTitle);
       //  $("#products2-" + section).html(classificationTitle);
 
-      response.data.forEach((element) => {
+      for (const element of response.data) {
+
+        if (section == 18) {
+          var divFather = $("<div>")
+            .attr("class", "divProduct")
+            .attr("style", "background-image: url('" + element.listImg[0] + "');")
+            .attr("onclick", "window.open('" + element.listDocs[0] + "','_blank');");
+
+          var divSon = $("<div>");
+          divSon.append(
+            $("<h2>").html(element.name)
+          );
+
+          divFather.append(divSon);
+
+
+          if (localStorage.getItem("session") == 1) {
+
+            divFather.append(
+              $("<button>")
+                .attr("type", "button")
+                .attr("class", "btn btn-danger ")
+                .html("Eliminar")
+                .attr("style", "margin-top:2%;")
+                .attr("onclick", "getProductForDelete(" + element.id + ")")
+            );
+          }
+
+          $("#products2-" + section).append(divFather);
+
+          continue;
+        }
+
         var divFather = $("<div>")
           .attr("class", "divProduct")
           .attr("onclick", "getProduct(" + element.id + ")");
@@ -1066,7 +1104,7 @@ function getProducts(section, search, filters, page) {
         divFather.append($("<a>").html("Ver más información"));
 
         $("#products2-" + section).append(divFather);
-      });
+      }
     },
     error: function (xhr, status, error) {
       // Manejar errores
@@ -1272,9 +1310,9 @@ function getProduct(id) {
           response.data.proveedor == "" || response.data.proveedor == null
             ? ""
             : response.data.proveedor.substring(
-                1,
-                response.data.proveedor.length
-              )
+              1,
+              response.data.proveedor.length
+            )
         )
         .addClass("noClose");
       divlogoProveedor.append(divLogoProveedorinnerItem);
@@ -1305,16 +1343,16 @@ function getProduct(id) {
                   filtersProduct.substring(
                     0,
                     filtersProduct.indexOf(filtersProductElement.attr("data")) +
-                      filtersProductElement.attr("data").length +
-                      1
+                    filtersProductElement.attr("data").length +
+                    1
                   ) +
                   " " +
                   filtersProductElement.attr("name") +
                   "," +
                   filtersProduct.substring(
                     filtersProduct.indexOf(filtersProductElement.attr("data")) +
-                      filtersProductElement.attr("data").length +
-                      1 /*+ filtersProductElement.attr("name").length + 2*/,
+                    filtersProductElement.attr("data").length +
+                    1 /*+ filtersProductElement.attr("name").length + 2*/,
                     filtersProduct.length
                   ) +
                   ", ";
@@ -1335,8 +1373,8 @@ function getProduct(id) {
           : filtersProduct;
         filtersProduct = filtersProduct.startsWith("0")
           ? filtersProduct
-              .substring(1, filtersProduct.length)
-              .replaceAll("0", " ")
+            .substring(1, filtersProduct.length)
+            .replaceAll("0", " ")
           : filtersProduct.replaceAll("0", " ");
 
         console.log(filtersProduct);
@@ -1569,10 +1607,10 @@ function getProductForUpdate(id) {
                 .addClass("ContentFile")
                 .html(
                   '<a href="' +
-                    element +
-                    '" target="_blank" class="noClose">' +
-                    element.split("/")[element.split("/").length - 1] +
-                    "</a>"
+                  element +
+                  '" target="_blank" class="noClose">' +
+                  element.split("/")[element.split("/").length - 1] +
+                  "</a>"
                 )
                 .addClass("noClose");
               var divContentActions = $("<div>")
@@ -1585,12 +1623,12 @@ function getProductForUpdate(id) {
                   .attr(
                     "onclick",
                     'deleteDocsPro("' +
-                      element +
-                      '",' +
-                      responseProduct.data.id +
-                      "," +
-                      1 +
-                      ")"
+                    element +
+                    '",' +
+                    responseProduct.data.id +
+                    "," +
+                    1 +
+                    ")"
                   )
                   .html('<i class="far fa-trash-alt"></i>')
                   .addClass("noClose")
@@ -1628,10 +1666,10 @@ function getProductForUpdate(id) {
                 .addClass("ContentFileDoc")
                 .html(
                   '<a href="' +
-                    element +
-                    '" target="_blank" class="noClose">' +
-                    element.split("/")[element.split("/").length - 1] +
-                    "</a>"
+                  element +
+                  '" target="_blank" class="noClose">' +
+                  element.split("/")[element.split("/").length - 1] +
+                  "</a>"
                 )
                 .addClass("noClose");
               var divContentActions = $("<div>")
@@ -1644,12 +1682,12 @@ function getProductForUpdate(id) {
                   .attr(
                     "onclick",
                     'deleteDocsPro("' +
-                      element +
-                      '",' +
-                      responseProduct.data.id +
-                      "," +
-                      0 +
-                      ")"
+                    element +
+                    '",' +
+                    responseProduct.data.id +
+                    "," +
+                    0 +
+                    ")"
                   )
                   .html('<i class="far fa-trash-alt"></i>')
                   .addClass("noClose")
@@ -1661,10 +1699,10 @@ function getProductForUpdate(id) {
                 .attr(
                   "onchange",
                   'updateFicha("' +
-                    element +
-                    '",' +
-                    responseProduct.data.id +
-                    ", event )"
+                  element +
+                  '",' +
+                  responseProduct.data.id +
+                  ", event )"
                 )
                 .addClass("form-select")
                 .addClass("noClose");

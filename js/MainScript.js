@@ -19,8 +19,8 @@ sessionStorage.setItem("currentPageID", url.hash === "" ? "#tm-section-1" : url.
 function duplicateItems() {
     const track = document.querySelector('.carouselProduct-track');
     const items = Array.from(document.querySelectorAll('.carouselProduct-item'));
-    
-        let currentIndex = 0;
+
+    let currentIndex = 0;
 
     function moveCarousel() {
         // Mover el track hacia la izquierda
@@ -36,7 +36,7 @@ function duplicateItems() {
                 currentIndex = 0;
 
                 // Forzar el reflow y restaurar la transición
-                void track.offsetWidth; 
+                void track.offsetWidth;
                 track.style.transition = 'transform 0.5s linear';
             } else {
                 currentIndex++;
@@ -50,26 +50,28 @@ function duplicateItems() {
 
 $(function () {
     function throttle(func, delay) {
-    let lastCall = 0;
-    return function(...args) {
-        const now = new Date().getTime();
-        if (now - lastCall < delay) {
-            return;
-        }
-        lastCall = now;
-        return func(...args);
-    };
-}
+        let lastCall = 0;
+        return function (...args) {
+            const now = new Date().getTime();
+            if (now - lastCall < delay) {
+                return;
+            }
+            lastCall = now;
+            return func(...args);
+        };
+    }
 
 
-  
-//   $("#tm-section-13").on("scroll", debounce(pagination, 300)); // 300ms de espera
-//   $("#tm-section-14").on("scroll", debounce(pagination, 300)); // 300ms de espera
+
+    //   $("#tm-section-13").on("scroll", debounce(pagination, 300)); // 300ms de espera
+    //   $("#tm-section-14").on("scroll", debounce(pagination, 300)); // 300ms de espera
+
 
 
     $("#tm-section-12").on('scroll', throttle(pagination, 200));
     $("#tm-section-13").on('scroll', throttle(pagination, 400));
     $("#products2-14").on('scroll', enqueueRequest(() => pagination14));
+    $("#products2-18").on('scroll', enqueueRequest(() => pagination14));
     $("#products2-15").on('scroll', throttle(pagination14, 200));
     $("#tm-section-16").on('scroll', throttle(paginationNews, 200));
 
@@ -87,7 +89,6 @@ $(function () {
     // Intercepta el evento de retroceso
     window.onpopstate = function (event) {
         history.go(0);
-
     };
 
     // 		// Cache sections for performance
@@ -318,6 +319,9 @@ function SetInfoSection(section) {
         case "#tm-section-14":
             chargeProductsNoF(14);
             break;
+        case "#tm-section-18":
+            chargeProductsNoF(18);
+            break;
         case "#tm-section-16":
             chargeNews();
             break;
@@ -332,6 +336,9 @@ function SetInfoSection(section) {
 
     $("footer").removeClass("hide");
     switch (section) {
+        case '#tm-section-18':
+            $("footer-link").hide();
+            break;
         case '#tm-section-8':
         case '#tm-section-2':
         case '#tm-section-10':
@@ -342,6 +349,7 @@ function SetInfoSection(section) {
         case '#tm-section-14':
         case '#tm-section-15':
         case '#tm-section-16':
+
         case '#popup-container':
             $("footer").hide();
             break;
