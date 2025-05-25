@@ -721,6 +721,10 @@ p:last-child {
     animation: moveInRight 1s ease-out;
 
 }
+#tm-section-19 {
+    animation: moveInRight 1s ease-out;
+
+}
 #tm-section-14 {
     animation: moveInRight 1s ease-out;
 
@@ -2501,6 +2505,7 @@ button {
 
 #tm-section-12,
 #tm-section-13,
+#tm-section-19,
 #tm-section-14,
 #tm-section-18,
 #tm-section-15 {
@@ -2532,6 +2537,17 @@ button {
     position: fixed;
     top: 0%;
     background-image: url(../img/nutricion.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 10%;
+}
+.products19{
+    z-index: 100;
+    width: 100%;
+    height: 32dvh;
+    position: fixed;
+    top: 0%;
+    background-image: url(../img/Imagen_Portafolio_BIO.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 10%;
@@ -2765,7 +2781,8 @@ button {
 
 #products2-18 .divProduct div {
     cursor: pointer;
-    width: 70%;
+    max-width: 90%;
+    min-width: 70%;
     margin: auto;
     height: auto;
     border-radius: 5%;
@@ -2835,7 +2852,10 @@ button {
     font-weight: bold;
 }
 
+#products2-18 {
+    height: 60dvh;
 
+}
 
 .productsmmaq {
     overflow: auto;
@@ -4650,6 +4670,7 @@ height: 24%;
     #tmNavLink2,
     #tmNavLink3,
     #tmNavLink4,
+    #tmNavLink13,
     #tmNavLink5,
     #tmNavLink6,
     #tmNavLink7,
@@ -5233,6 +5254,7 @@ height: 24%;
 
     #tm-section-12,
     #tm-section-13,
+    #tm-section-19,
     #tm-section-14,
     #tm-section-18,
     #tm-section-15 {

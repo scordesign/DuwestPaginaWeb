@@ -70,6 +70,7 @@ $(function () {
 
     $("#tm-section-12").on('scroll', throttle(pagination, 200));
     $("#tm-section-13").on('scroll', throttle(pagination, 400));
+    $("#tm-section-19").on('scroll', throttle(pagination, 400));
     $("#products2-14").on('scroll', enqueueRequest(() => pagination14));
     $("#products2-18").on('scroll', enqueueRequest(() => pagination14));
     $("#products2-15").on('scroll', throttle(pagination14, 200));
@@ -310,6 +311,9 @@ function SetInfoSection(section) {
 
 
     switch (section) {
+        case "#tm-section-19":
+            chargeProducts(19);
+            break;
         case "#tm-section-12":
             chargeProducts(12);
             break;
@@ -336,9 +340,9 @@ function SetInfoSection(section) {
 
     $("footer").removeClass("hide");
     switch (section) {
+        case '#tm-section-19':
         case '#tm-section-18':
             $("footer-link").hide();
-            break;
         case '#tm-section-8':
         case '#tm-section-2':
         case '#tm-section-10':
@@ -349,7 +353,6 @@ function SetInfoSection(section) {
         case '#tm-section-14':
         case '#tm-section-15':
         case '#tm-section-16':
-
         case '#popup-container':
             $("footer").hide();
             break;
