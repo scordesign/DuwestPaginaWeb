@@ -1013,21 +1013,19 @@ footer a {
 
 .box1 {
     margin: 0 auto;
-    width: 50%;
+    width: 80%;
     backdrop-filter: blur(10px);
-    height: fit-content;
-    background-color: rgba(0, 131, 84, 1);
+    height: 45%;
+    background-color: rgba(0, 0, 0, 0.4);
     position: relative;
     /* float: right; */
     z-index: 999;
     /* left: 4%; */
-    top: 57%;
+    top: 20%;
     /* margin-left: 0%; */
     /* padding: 2% 2%; */
     border-radius: 20px;
     /* padding-right: 5%;*/
-
-
 }
 
 .box1 h3 {
@@ -1038,12 +1036,31 @@ footer a {
     text-align: center;
     font-size: calc(1vh + 1.4vw);
     font-family: 'Lemon Milk';
-
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
  .box1 a:hover {
     color: #5BAB31;
 } 
+.boximg {
+        position: absolute;
+    bottom: -0%;
+    width: 100%;
+    /* background-color: transparent; */
+    height: 100%;
+
+}
+
+.boximg img{
+         width: 70%;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -280%;
+    left: 14.5%;
+}
+
 
 .box2 {
     margin: 0 auto;
