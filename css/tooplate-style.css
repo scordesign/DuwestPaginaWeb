@@ -1054,10 +1054,8 @@ footer a {
 } 
 .boximg {
     position: relative;
-    top: -9%;
-    width: 65%;
+    top: 0%;
     /* background-color: transparent; */
-    height: 0%;
     z-index: 1000;
     margin-left: 28%;
 
@@ -1065,6 +1063,7 @@ footer a {
 
 .boximg img{
          width: 70%;
+         height: 100%;
     border-radius: 50%;
  
 }
