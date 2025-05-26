@@ -5895,10 +5895,7 @@ height: 24%;
     /* transition: all 0.3s 1s ease-out; */
 }
 
-.visHidden  {
-    visibility: hidden;
 
-}
 
 /* JavaScript Turned Off */
 .no-js #loader-wrapper {

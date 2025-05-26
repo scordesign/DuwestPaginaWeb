@@ -346,8 +346,8 @@ function SetInfoSection(section) {
       break;
   }
 
-  $("#busqueda").toggleClass("visHidden");
-  $("#searchMenu").toggleClass("visHidden");
+  $("#busqueda").hide();
+  $("#searchMenu").hide();
   $("footer").removeClass("hide");
   switch (section) {
     case "#tm-section-19":
@@ -357,8 +357,8 @@ function SetInfoSection(section) {
     case "#tm-section-13":
     case "#tm-section-14":
     case "#tm-section-16":
-      $("#busqueda").toggleClass("visHidden");
-      $("#searchMenu").toggleClass("visHidden");
+      $("#busqueda").show();
+      $("#searchMenu").show();
     case "#tm-section-8":
     case "#tm-section-2":
     case "#tm-section-10":
