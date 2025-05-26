@@ -1057,13 +1057,13 @@ footer a {
     top: 0%;
     /* background-color: transparent; */
     z-index: 1000;
-    margin-left: 28%;
+    margin-left: 30%;
 
 }
 
 .boximg img{
-         width: 70%;
-         height: 100%;
+         width: 150px;
+         height: 150px;
     border-radius: 50%;
  
 }
@@ -1998,8 +1998,8 @@ footer a {
 
 
 #modal {
-    height: auto;
-    max-height: 70%;
+    height: fit-content;
+    max-height: 75%;
     border-radius: 2%;
     position: relative;
     width: 50%;
@@ -2855,6 +2855,7 @@ button {
 
 .divProduct p {
     margin: 0px;
+    margin-top: 5%;
     /* font-size: 15px; */
     color: rgba(107, 107, 106, 1);
     line-height: calc(0 + 1);
@@ -2883,7 +2884,7 @@ button {
 .textProduct {
     font-size: calc(0.5vh + 0.6vw);
     overflow: hidden;
-    height: 12dvh;
+    height: 7dvh;
 }
 
 
@@ -3320,6 +3321,11 @@ height: 24%;
         width: 100%;
         height: 100dvh;
     }
+     .boximg {
+    top: 0%;
+    margin-left: 30%;
+
+}
 }
 
 @media screen and (max-width: 400px) {
@@ -3395,6 +3401,11 @@ height: 24%;
         
     
     }
+    .boximg {
+ 
+    top: -7%;
+    margin-left: 21%;
+}
 }
 @media (max-width: 1400px) {
     .box1 h3{
@@ -3621,6 +3632,18 @@ height: 24%;
         font-size: 88%;
 
     }
+    .boximg {
+    top: -7%;
+    margin-left: 21%;
+
+}
+
+.boximg img{
+         width: 150px;
+         height: 150px;
+    border-radius: 50%;
+ 
+}
 
 }
 
