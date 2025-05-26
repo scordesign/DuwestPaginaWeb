@@ -935,6 +935,8 @@ footer a {
 }
 
 .catalogo1 {
+    display: flex;
+    flex-direction: column;
     width: 20%;
     height: 100dvh;
     background-color: transparent !important;
