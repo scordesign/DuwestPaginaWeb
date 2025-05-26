@@ -941,7 +941,7 @@ footer a {
     height: 100dvh;
     background-color: transparent !important;
     z-index: 1;
-    background-image: url(../img/Imagen\ categoria-06.png);
+    background-image: url(../img/imagencat1.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -962,7 +962,7 @@ footer a {
     width: 20%;
     height: 100dvh;
     background-color: transparent;
-    background-image: url(../img/Imagen\ categoria-07.png);
+    background-image: url(../img/imagencat2.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -975,7 +975,7 @@ footer a {
     width: 20%;
     height: 100dvh;
     background-color: transparent !important;
-    background-image: url(../img/Imagen\ categoria-08.png);
+    background-image: url(../img/imagencat4.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
