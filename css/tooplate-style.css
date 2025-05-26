@@ -3831,8 +3831,7 @@ height: 24%;
     }
     .vision-general {
             /* position: fixed; */
-    display: flex
-;
+    display: flex;
     color: white;
     flex-direction: column;
     align-items: center;
@@ -4738,7 +4737,7 @@ height: 24%;
     }
 
    
-    }
+    
 
     .box2 h3 {
         text-align: center;
@@ -5691,7 +5690,7 @@ height: 24%;
         max-width: 100vw;
     }
 
-
+}
 
 @media (max-width: 500px),
 (max-width: 809px) and (min-width: 767px) {
