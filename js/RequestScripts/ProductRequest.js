@@ -846,7 +846,7 @@ function getfilters(pageId) {
         if (response.data.hasOwnProperty(key)) {
           var h4 = $("<h4>")
             .html(
-              '<img src="./img/flechaabajo.png" style="position:absolute;left:12%;width:20px; height:20px; right:100px;">' +
+              '<img src="./img/flechaabajo.png" style="left:12%;width:20px; height:20px; right:100px;">' +
               key
             )
             .attr("class", "bold");

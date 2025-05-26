@@ -2751,6 +2751,7 @@ button {
     cursor: pointer;
     margin-bottom: 0.4dvh;
     text-decoration: underline;
+    display: flex;
 }
 
 .filter-product form .filters input {
