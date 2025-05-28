@@ -296,14 +296,15 @@
 									onclick="//chargeProducts(12)">
 
 									<h3>portafolio protección de cultivos</h3>
-									
+
 								</a>
 							</nav>
 						</div>
 						<div class="boximg">
-									<img src="img/imagencat1.png"></div>
+							<img src="img/imagencat1.png">
+						</div>
 
-								</a>
+						</a>
 					</div>
 
 					<div class="catalogo2">
@@ -314,15 +315,16 @@
 									data-page="#tm-section-13" data-page-type="carousel"
 									onclick=" // chargeProductsNoF(13)">
 									<h3>portafolio nutrición especializada</h3>
-									
+
 
 								</a>
 							</nav>
 						</div>
-                             <div class="boximg">
-									<img src="img/imagencat2.png"></div>
+						<div class="boximg">
+							<img src="img/imagencat2.png">
+						</div>
 					</div>
-	<div class="catalogo5">
+					<div class="catalogo5">
 						<img src="img/semillas.png" id="imgporta">
 						<div class="box1">
 							<nav id="tmMainNav1" class="tm-main-nav" style="background-image:none !important;">
@@ -330,14 +332,15 @@
 									data-page="#tm-section-19" data-page-type="carousel"
 									onclick="// chargeProductsNoF(14)">
 									<h3>Portafolio BIO</h3>
-									
+
 
 								</a>
 							</nav>
 						</div>
 						<div class="boximg">
-									<img src="img/BIO.jpg"></div>
-							</div>
+							<img src="img/BIO.jpg">
+						</div>
+					</div>
 					<div class="catalogo4">
 						<img src="img/semillas.png" id="imgporta">
 						<div class="box1">
@@ -346,15 +349,17 @@
 									data-page="#tm-section-14" data-page-type="carousel"
 									onclick="// chargeProductsNoF(14)">
 									<h3>semillas</h3>
-									
+
 								</a>
 							</nav>
-						</div><div class="boximg">
-									<img src="img/semilla.png"></div>
+						</div>
+						<div class="boximg">
+							<img src="img/semilla.png">
+						</div>
 
 					</div>
-						
-							<div class="catalogo6">
+
+					<div class="catalogo6">
 						<img src="img/semillas.png" id="imgporta">
 						<div class="box1">
 							<nav id="tmMainNav1" class="tm-main-nav" style="background-image:none !important;">
@@ -362,16 +367,18 @@
 									data-page="#tm-section-18" data-page-type="carousel"
 									onclick="// chargeProductsNoF(14)">
 									<h3>Portafolio planes de uso</h3>
-									
+
 								</a>
 							</nav>
-						</div><div class="boximg">
-									<img src="img/Imagen_planes_de_uso.jpg"></div>
-							</div>
-
-
+						</div>
+						<div class="boximg">
+							<img src="img/Imagen_planes_de_uso.jpg">
+						</div>
 					</div>
-					<!-- <div class="catalogo3">
+
+
+				</div>
+				<!-- <div class="catalogo3">
 							<a href="#"></a>
 							<div class="box3">
 								<a href="#">
@@ -382,7 +389,7 @@
 							</div>
 
 						</div> -->
-					<!--<div class="tm-img-slider">
+				<!--<div class="tm-img-slider">
 									<a href="img/gallery-img-01.jpg" class="tm-slider-img"><img src="img/gallery-img-01-tn.jpg" alt="Image" class="img-fluid"></a>
 									<a href="img/gallery-img-02.jpg" class="tm-slider-img"><img src="img/gallery-img-02-tn.jpg" alt="Image" class="img-fluid"></a>
 									<a href="img/gallery-img-03.jpg" class="tm-slider-img"><img src="img/gallery-img-03-tn.jpg" alt="Image" class="img-fluid"></a>
@@ -391,7 +398,7 @@
 									<a href="img/gallery-img-06.jpg" class="tm-slider-img"><img src="img/gallery-img-06-tn.jpg" alt="Image" class="img-fluid"></a>
 								</div> -->
 
-				</div>
+				<!-- </div> -->
 
 
 				<div class="footer2" id="footercat">
@@ -741,43 +748,6 @@
 			</section>
 
 
-			<!-- <script>
-var map = L.map('map-container').setView([4.5709, -74.2973], 6); // Coordenadas de Colombia y nivel de zoom inicial
-
-// Añadir capa de OpenStreetMap al mapa con estilos personalizados
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-  maxZoom: 18,
-}).addTo(map);
-
-// Añadir controles de navegación al mapa
-L.control.zoom({position: 'bottomright'}).addTo(map);
-
-// Definir los límites de las regiones
-var cundinamarcaBounds = [[3.3253, -75.6707], [5.4564, -73.2027]]; // Coordenadas para delimitar Cundinamarca
-var antioquiaBounds = [[5.052, -76.7984], [8.8606, -75.0587]]; // Coordenadas para delimitar Antioquia
-
-// Añadir capa de Cundinamarca con estilos personalizados
-var cundinamarcaLayer = L.rectangle(cundinamarcaBounds, {
-  color: "#00FF00", // Color del borde
-  weight: 2, // Ancho del borde
-  fillColor: "#00FF00", // Color del relleno
-  fillOpacity: 0.3 // Opacidad del relleno
-}).addTo(map);
-cundinamarcaLayer.bindTooltip("Cundinamarca"); // Mensaje al pasar el mouse
-
-// Añadir capa de Antioquia con estilos personalizados
-var antioquiaLayer = L.rectangle(antioquiaBounds, {
-  color: "#00FF00", // Color del borde
-  weight: 2, // Ancho del borde
-  fillColor: "#00FF00", // Color del relleno
-  fillOpacity: 0.3 // Opacidad del relleno
-}).addTo(map);
-antioquiaLayer.bindTooltip("Antioquia"); // Mensaje al pasar el mouse
-
-// Ajustar el tamaño del mapa
-map.invalidateSize();
-  </script>-->
 
 			<!-- section 12 onscroll="pagination()"  -->
 			<section id="tm-section-12" class="tm-section">
@@ -834,7 +804,8 @@ map.invalidateSize();
 								<i class="fa fa-search search-icon icon-Search"></i>
 							</div> -->
 							<button id="addProduct" onclick="addProduct()"
-								class="btn btn-primary adminSession hide">Agregar producto</button>
+								class="btn btn-primary adminSession hide">Agregar
+								producto</button>
 							<br>
 							<div class="searchCellDivStr cell" onclick="seeFilters(event)">
 								<u> Buscar producto por </u>
@@ -897,7 +868,8 @@ map.invalidateSize();
 								<i class="fa fa-search search-icon icon-Search"></i>
 							</div> -->
 							<button id="addProduct" onclick="addProduct()"
-								class="btn btn-primary adminSession hide">Agregar producto</button>
+								class="btn btn-primary adminSession hide">Agregar
+								producto</button>
 							<br>
 							<div class="searchCellDivStr cell" onclick="seeFilters(event)">
 								<u> Buscar producto por </u>
@@ -909,18 +881,18 @@ map.invalidateSize();
 				</div>
 			</section>
 
-						<!-- section 19 onscroll="pagination()" -->
-						<section id="tm-section-19" class="tm-section">
-							<img id="imgFlagMob" src="img/bandera-colombia-dispositivos.png">
-							<a href="https://wa.link/ppe5fm" target="_blank"><img src="img/Whatsappgif.gif" id="whatsmobile"
-									class="outWhats"></a>
-							<div class="products">
-								<div class="products19">
-									<div class="title-product">
-										&nbsp;Portafolio bio&nbsp;
-									</div>
-								</div>
-								<!-- <div class="logo-supliers">
+			<!-- section 19 onscroll="pagination()" -->
+			<section id="tm-section-19" class="tm-section">
+				<img id="imgFlagMob" src="img/bandera-colombia-dispositivos.png">
+				<a href="https://wa.link/ppe5fm" target="_blank"><img src="img/Whatsappgif.gif" id="whatsmobile"
+						class="outWhats"></a>
+				<div class="products">
+					<div class="products19">
+						<div class="title-product">
+							&nbsp;Portafolio bio&nbsp;
+						</div>
+					</div>
+					<!-- <div class="logo-supliers">
 									<img src="img/corteva.png">
 									<img src="img/valagro.png">
 									<img src="img/fmc.png">
@@ -936,41 +908,42 @@ map.invalidateSize();
 			
 			
 								</div> -->
-								<div class="filter-product hideCell">
-			
-									<i id="closeCell" onclick="closeCell()" class="closeCell far close-btn2 cell"></i>
-									<img src="img/Logo-R-Andina---Fondo-oscuro.png" class="cell" alt="">
-									<div class="searchCellDiv cell">
-										<input type="search" placeholder="Buscar producto por" name="search" class="searchcell cell"
-											id="searchMenuCell1" onkeyup="searchCell(1,event)">
-										<img class="cell" src="img/d350a6bb3db5bf2376d56729ed79e70c.gif" alt="">
-									</div>
-									<form action="" id="filter-product-19">
-			
-									</form>
-									<div class="closeCellDiv"></div>
-								</div>
-								<div id="productsclas-19">Clasi</div>
-								<div class="products2" id="products2-19">
-									<div class="functionPrducts">
-			
-			
-										<!-- <div class="search-container"><input type="search" class="search-input" id="search-13"
+					<div class="filter-product hideCell">
+
+						<i id="closeCell" onclick="closeCell()" class="closeCell far close-btn2 cell"></i>
+						<img src="img/Logo-R-Andina---Fondo-oscuro.png" class="cell" alt="">
+						<div class="searchCellDiv cell">
+							<input type="search" placeholder="Buscar producto por" name="search" class="searchcell cell"
+								id="searchMenuCell1" onkeyup="searchCell(1,event)">
+							<img class="cell" src="img/d350a6bb3db5bf2376d56729ed79e70c.gif" alt="">
+						</div>
+						<form action="" id="filter-product-19">
+
+						</form>
+						<div class="closeCellDiv"></div>
+					</div>
+					<div id="productsclas-19">Clasi</div>
+					<div class="products2" id="products2-19">
+						<div class="functionPrducts">
+
+
+							<!-- <div class="search-container"><input type="search" class="search-input" id="search-13"
 												placeho lder="Buscar...">
 											<i class="fa fa-search search-icon icon-Search"></i>
 										</div> -->
-										<button id="addProduct" onclick="addProduct()"
-											class="btn btn-primary adminSession hide">Agregar producto</button>
-										<br>
-										<div class="searchCellDivStr cell" onclick="seeFilters(event)">
-											<u> Buscar producto por </u>
-											<img class="cell" src="img/88bb5508e311d266d972863382f725c6.gif" alt="">
-										</div>
-									</div>
-			
-								</div>
+							<button id="addProduct" onclick="addProduct()"
+								class="btn btn-primary adminSession hide">Agregar
+								producto</button>
+							<br>
+							<div class="searchCellDivStr cell" onclick="seeFilters(event)">
+								<u> Buscar producto por </u>
+								<img class="cell" src="img/88bb5508e311d266d972863382f725c6.gif" alt="">
 							</div>
-						</section>
+						</div>
+
+					</div>
+				</div>
+			</section>
 
 			<!-- section 14 -->
 			<section id="tm-section-14" class="tm-section">
@@ -1001,7 +974,8 @@ map.invalidateSize();
 								<i class="fa fa-search search-icon icon-Search"></i>
 							</div> -->
 							<button id="addProduct" onclick="addProduct()"
-								class="btn btn-primary adminSession hide">Agregar producto</button>
+								class="btn btn-primary adminSession hide">Agregar
+								producto</button>
 						</div>
 
 					</div>
@@ -1036,7 +1010,8 @@ map.invalidateSize();
 														<i class="fa fa-search search-icon icon-Search"></i>
 													</div> -->
 							<button id="addProduct" onclick="addProduct()"
-								class="btn btn-primary adminSession hide">Agregar plan de uso</button>
+								class="btn btn-primary adminSession hide">Agregar
+								plan de uso</button>
 						</div>
 
 					</div>
@@ -1073,7 +1048,8 @@ map.invalidateSize();
 								<i class="fa fa-search search-icon icon-Search"></i>
 							</div> -->
 							<button id="addProduct" onclick="addProduct()"
-								class="btn btn-primary adminSession hide">Agregar producto</button>
+								class="btn btn-primary adminSession hide">Agregar
+								producto</button>
 						</div>
 
 					</div>
