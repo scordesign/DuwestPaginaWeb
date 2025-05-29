@@ -236,6 +236,9 @@ function ProcessFilter(id, action) {
         select.append(
           $("<option>").attr("value", "tm-section-14").html("Semillas")
         );
+         select.append(
+          $("<option>").attr("value", "tm-section-19").html("Portafolio BIO")
+        );
         form.append(select);
 
         form.append(
