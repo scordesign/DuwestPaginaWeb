@@ -210,8 +210,7 @@ $(function () {
       navigator.userAgent
     );
   }
-
-  function ajustarNav() {
+    function ajustarNav() {
     if (!esMovil()) {
       var posicionTmMainNav = $("#TmMainNav").offset();
       var posicionImgFlag = $("#imgFlag").offset();
@@ -243,6 +242,7 @@ $(function () {
     }
   }
 
+
   // Ejecutar la función al cargar la página
   ajustarNav();
 
@@ -251,6 +251,12 @@ $(function () {
     ajustarNav();
   });
 });
+
+  function esMovil() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+  }
 
 // Setup Carousel
 function setupCarousel() {
@@ -383,7 +389,41 @@ function SetInfoSection(section) {
       //     $("footer").show();
       // }
       $("footer").show();
+      
   }
+
+      if (!esMovil()) {
+      var posicionTmMainNav = $("#TmMainNav").offset();
+      var posicionImgFlag = $("#imgFlag").offset();
+      var posicionMenuBars = $("#TmMainNav").offset();
+      var posicionImglogo = $("#imglogo").offset();
+
+      var posicionBar = $("#bars-menu").offset();
+
+      $("#tmSideBar").css({
+        width:
+          posicionBar.left +
+          $("#bars-menu").width() * 4 -
+          posicionImglogo.left +
+          "px",
+      });
+
+      var posicionSideBar = $("#tmSideBar").offset();
+
+      posicionTmMainNav = $("#TmMainNav").offset();
+      posicionImgFlag = $("#imgFlag").offset();
+      posicionMenuBars = $("#TmMainNav").offset();
+      posicionImglogo = $("#imglogo").offset();
+
+      $("#dropDownBar").css({
+        top: posicionSideBar.top + $("#tmSideBar").height() + "px",
+        left: posicionImgFlag.left + "px",
+        width: posicionMenuBars.left - posicionImgFlag.left + "px",
+      });
+    }
+
+
+  
 }
 
 $("#tmNavLink1").click(function (e) {
