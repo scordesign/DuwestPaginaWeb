@@ -116,6 +116,7 @@ class Products
             $id = $_POST["id"];
             $docName = $_POST["docName"];
             $type = $_POST["type"];
+            $typeCounter = $_POST["type"] === 'ficha' ?'hoja':'ficha';
 
 
 
@@ -136,8 +137,11 @@ class Products
             $sSql = "";
 
 
-            $sSql = "update products set `" . $type . "` = :docName where `id` = :id ";
-
+            $sSql = "update products set `" . $type . "` = :docName ";
+            if ($resultado[$type] === $resultado[$typeCounter]) {
+                $sSql .=  ", `" . $typeCounter . "` = null ";
+            }
+            $sSql .=  "where `id` = :id ";
 
             $stmt = $pdo->prepare($sSql);
 

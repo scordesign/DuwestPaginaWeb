@@ -760,7 +760,7 @@ function pagination() {
 //  }
 
 function pagination14() {
-  
+
 
   var pageCurrent = localStorage.getItem("PageRegs");
   var total = localStorage.getItem("TotalRegs");
@@ -789,7 +789,7 @@ function pagination14() {
 }
 
 function chargeProductsNoF(pageId) {
-  
+
   $("#products2-" + pageId + " .divProduct").remove();
   // $("#filter-product-" + pageId).html('<input type="hidden" name="filtersInput-'+pageId+'" id="filtersInput-'+pageId+'" value="">');
   getProducts(pageId);
@@ -1329,43 +1329,49 @@ function getProduct(id) {
       if (response.data.filters != null && response.data.filters != "") {
         var filtersProduct = "";
         i = 0;
-        response.data.filters
+        var filters = response.data.filters
           .replaceAll("{", "")
           .replaceAll("}", "")
-          .split(",")
-          .forEach((element) => {
-            var filtersProductElement = $(
-              "#CheckboxFilter" + section + "-" + element
-            );
-            if (filtersProductElement.attr("data") != "Casa comercial") {
-              if (filtersProduct.includes(filtersProductElement.attr("data"))) {
-                filtersProduct =
-                  filtersProduct.substring(
-                    0,
-                    filtersProduct.indexOf(filtersProductElement.attr("data")) +
-                    filtersProductElement.attr("data").length +
-                    1
-                  ) +
-                  " " +
-                  filtersProductElement.attr("name") +
-                  "," +
-                  filtersProduct.substring(
-                    filtersProduct.indexOf(filtersProductElement.attr("data")) +
-                    filtersProductElement.attr("data").length +
-                    1 /*+ filtersProductElement.attr("name").length + 2*/,
-                    filtersProduct.length
-                  ) +
-                  ", ";
-              } else {
-                filtersProduct +=
-                  "  " +
-                  filtersProductElement.attr("data") +
-                  ": " +
-                  filtersProductElement.attr("name") +
-                  ", ";
-              }
-            }
-          });
+          .split(",");
+
+        for (var element in filters) {
+          var filtersProductElement = $(
+            "#CheckboxFilter" + section + "-" + element
+          );
+          if (typeof filtersProductElement === 'undefined') {
+            continue;
+          }
+          if (filtersProductElement.attr("data") != "Casa comercial") {
+            continue;
+          }
+          if (filtersProduct.includes(filtersProductElement.attr("data"))) {
+            filtersProduct =
+              filtersProduct.substring(
+                0,
+                filtersProduct.indexOf(filtersProductElement.attr("data")) +
+                filtersProductElement.attr("data").length +
+                1
+              ) +
+              " " +
+              filtersProductElement.attr("name") +
+              "," +
+              filtersProduct.substring(
+                filtersProduct.indexOf(filtersProductElement.attr("data")) +
+                filtersProductElement.attr("data").length +
+                1 /*+ filtersProductElement.attr("name").length + 2*/,
+                filtersProduct.length
+              ) +
+              ", ";
+          } else {
+            filtersProduct +=
+              "  " +
+              filtersProductElement.attr("data") +
+              ": " +
+              filtersProductElement.attr("name") +
+              ", ";
+          }
+
+        }
 
         filtersProduct = filtersProduct.replaceAll(", 0", " ");
         filtersProduct = filtersProduct.endsWith(", ")
