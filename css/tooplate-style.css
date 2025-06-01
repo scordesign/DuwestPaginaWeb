@@ -3649,7 +3649,13 @@ height: 24%;
 }
 
 }
+@media (max-width: 1440px) and (min-height: 788px){
+     .boximg {
+    top: 19%;
+    margin-left: 24%;
 
+}
+}
 @media (max-width: 1340px) {
     .tm-content {
         padding: 50px;
@@ -5749,39 +5755,9 @@ height: 24%;
 
 }
 
-#loader:before {
-    /* content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: greenyellow; */
 
-    /* -webkit-animation: spin 3s linear infinite; */
-    /* Chrome, Opera 15+, Safari 5+ */
-    /* animation: spin 3s linear infinite; */
-    /* Chrome, Firefox 16+, IE 10+, Opera */
-}
 
-#loader:after {
-    /* content: "";
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border-radius: 50%; */
-    /* border: 3px solid transparent;
-    border-top-color: green;
 
-    -webkit-animation: spin 1.5s linear infinite; */
-    /* Chrome, Opera 15+, Safari 5+ */
-    /* animation: spin 1.5s linear infinite; */
-    /* Chrome, Firefox 16+, IE 10+, Opera */
-}
 
 .search-container {
     width: 100%;
@@ -5866,29 +5842,7 @@ height: 24%;
 } */
 
 /* Loaded */
-.loaded #loader-wrapper .loader-section.section-left {
-    /* -webkit-transform: translateX(-100%); */
-    /* Chrome, Opera 15+, Safari 3.1+ */
-    /* -ms-transform: translateX(-100%); */
-    /* IE 9 */
-    /* transform: translateX(-100%); */
-    /* Firefox 16+, IE 10+, Opera */
-/* 
-    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000); */
-}
 
-.loaded #loader-wrapper .loader-section.section-right {
-    /* -webkit-transform: translateX(100%); */
-    /* Chrome, Opera 15+, Safari 3.1+ */
-    /* -ms-transform: translateX(100%); */
-    /* IE 9 */
-    /* transform: translateX(100%); */
-    /* Firefox 16+, IE 10+, Opera */
-
-    /* -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000); */
-    /* transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000); */
-}
 
 .loaded #loader {
     opacity: 0;
