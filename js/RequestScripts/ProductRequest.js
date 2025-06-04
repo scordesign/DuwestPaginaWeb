@@ -1835,6 +1835,7 @@ function getProductForUpdate(id) {
               .attr("type", "text")
               .attr("name", "amountOther")
               .attr("placeholder", "Otra cantidad")
+             .attr("style", "color: " + element.color + ";")
               .val(responseProduct.data.amountOther)
           );
 
@@ -1927,6 +1928,8 @@ function getProductForUpdate(id) {
               .attr("name", "id")
               .attr("hidden", "hidden")
               .attr("value", responseProduct.data.id)
+              .attr("style", "color: " + element.color + ";")
+
           );
 
           form.append(
