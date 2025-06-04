@@ -1804,6 +1804,7 @@ function getProductForUpdate(id) {
                     .attr("onclick", "AmountAdd(" + element.id + ")")
                     .attr("name", element.name)
                     .attr("id", "checkBox-amount-" + element.id)
+                    .attr("style", "color: " + element.color + ";")
                     .attr("style", "width:20%;");
                   if (
                     responseProduct.data.amount.includes("{" + element.id + "}")
