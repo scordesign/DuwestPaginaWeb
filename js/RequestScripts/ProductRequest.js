@@ -1875,6 +1875,7 @@ function getProductForUpdate(id) {
                         .attr("onclick", "filterAdd(" + element.id + ")")
                         .attr("name", element.name)
                         .attr("id", "checkBox-" + element.id)
+                        .attr("style", "color: " + element.color + ";")
                         .attr("style", "width:20%;");
                       if (
                         responseProduct.data.filters.includes(
