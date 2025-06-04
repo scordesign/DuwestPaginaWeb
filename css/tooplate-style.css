@@ -3663,6 +3663,13 @@ height: 24%;
 
 }
 }
+@media (max-width: 1585px) and (min-height: 833px){
+     .boximg {
+    top: 20%;
+    margin-left: 26%;
+
+}
+}
 @media (max-width: 1340px) {
     .tm-content {
         padding: 50px;
