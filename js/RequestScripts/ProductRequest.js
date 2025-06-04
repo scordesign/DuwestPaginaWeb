@@ -450,7 +450,15 @@ function addProduct() {
             var divData = $("<div>")
               .attr("class", "AmountsEach")
               .addClass("noClose")
-              .attr("style", "display:inline-flex;width:50%;float: left;");
+              .attr("style", "display:inline-flex;width:50%;float: left;")
+              .attr(
+                "style",
+                "display:inline-flex;width:100%;background-color:" +
+                element.color +
+                ";color:" +
+                element.text +
+                ";font-size: 16px;font-weight:bold;border-radius:20px;margin: 0.5vh 0vw;"
+              );
 
             divData.append(
               $("<input>")
