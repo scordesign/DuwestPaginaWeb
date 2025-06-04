@@ -3314,13 +3314,7 @@ height: 24%;
 #closemenu{
     display: none;
 }
-@media (max-width: 1585px) and (min-height: 833px){
-     .boximg {
-    top: 21%;
-    margin-left: 27%;
 
-}
-}
 @media (max-width: 1800px) {
     .tm-section {
         margin-right: auto;
@@ -3336,7 +3330,13 @@ height: 24%;
 
 }
 }
+@media (max-width: 1585px) and (min-height: 833px){
+     .boximg {
+    top: 21%;
+    margin-left: 27%;
 
+}
+}
 @media screen and (max-width: 400px) {
     .policy {
        
