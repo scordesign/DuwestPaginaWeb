@@ -1796,8 +1796,8 @@ function getProductForUpdate(id) {
                   var divData = $("<div>")
                     .attr("class", "AmountsEach")
                     .addClass("noClose")
-                    .attr("style", "display:inline-flex;width:50%;")
-                .attr("style", "color: " + element.color + ";");
+                    .attr("style", "display:inline-flex;width:50%;");
+                
 
                   var input = $("<input>")
                     .attr("type", "checkbox")
