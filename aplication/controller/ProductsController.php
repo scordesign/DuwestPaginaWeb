@@ -116,7 +116,7 @@ class Products
             $id = $_POST["id"];
             $docName = $_POST["docName"];
             $type = $_POST["type"];
-            $typeCounter = $_POST["type"] === 'ficha' ?'hoja':'ficha';
+            $typeCounter = $_POST["type"] === 'ficha' ? 'hoja' : 'ficha';
 
 
 
@@ -139,9 +139,9 @@ class Products
 
             $sSql = "update products set `" . $type . "` = :docName ";
             if ($resultado[$type] === $resultado[$typeCounter]) {
-                $sSql .=  ", `" . $typeCounter . "` = null ";
+                $sSql .= ", `" . $typeCounter . "` = null ";
             }
-            $sSql .=  "where `id` = :id ";
+            $sSql .= "where `id` = :id ";
 
             $stmt = $pdo->prepare($sSql);
 
@@ -518,7 +518,34 @@ class Products
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
 
-            $files = $_FILES["files"];
+            $files = isset($_FILES["files"]) ? $_FILES["files"] : [
+                'name' => [],
+                'type' => [],
+                'tmp_name' => [],
+                'error' => [],
+                'size' => []
+            ];
+
+            $Sheetfile = ($_FILES["Sheetfile"]) ?? null ;
+            $datasheetFile = ($_FILES["datasheetFile"]) ?? null ;
+
+            if ($Sheetfile != null ) {
+                $files['name'][] = $Sheetfile["name"];
+                $files['type'][] = $Sheetfile["type"];
+                $files['tmp_name'][] = $Sheetfile["tmp_name"];
+                $files['error'][] = $Sheetfile["error"];
+                $files['size'][] = $Sheetfile["size"];
+            }
+
+            // Paso 3: Agregar datasheetFile si está definido
+            if ($datasheetFile != null) {
+                $files['name'][] = $datasheetFile["name"];
+                $files['type'][] = $datasheetFile["type"];
+                $files['tmp_name'][] = $datasheetFile["tmp_name"];
+                $files['error'][] = $datasheetFile["error"];
+                $files['size'][] = $datasheetFile["size"];
+            }
+
             $images = $_FILES["images"];
 
             $proveedor = $_FILES["proveedor"];
@@ -646,7 +673,7 @@ class Products
             }
 
 
-            $stmt = $pdo->prepare("INSERT INTO products (`name`,`description`,`listImg`,`listDocs`,`filters`,`section`,`amount`,`logo`,`amountOther`,`proveedor`) VALUES (:name,:description,:listImg,:listDocs,:filters,:section,:amount,:logo,:amountOther,:proveedor)");
+            $stmt = $pdo->prepare("INSERT INTO products (`name`,`description`,`listImg`,`listDocs`,`filters`,`section`,`amount`,`logo`,`amountOther`,`proveedor`,`ficha`,`hoja`) VALUES (:name,:description,:listImg,:listDocs,:filters,:section,:amount,:logo,:amountOther,:proveedor,:ficha,:hoja)");
 
 
             $stmt->bindParam(':name', $name);
@@ -659,6 +686,9 @@ class Products
             $stmt->bindParam(':logo', $logopatch);
             $stmt->bindParam(':proveedor', $proveedorpatch);
             $stmt->bindParam(':amountOther', $amountOther);
+            
+            $stmt->bindValue(':ficha', $datasheetFile != null ? "img/prueba/" . $name . "/files/" . basename($Sheetfile["name"]) : "");
+            $stmt->bindValue(':hoja', $Sheetfile != null ? "img/prueba/" . $name . "/files/" . basename($datasheetFile["name"]) : "" );
             // Ejecutar la sentencia SQL con los valores correspondientes
             $stmt->execute();
 

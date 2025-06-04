@@ -515,15 +515,40 @@ function addProduct() {
           .attr("multiple", "multiple")
           .attr("style", "color:black;")
       );
-
-      form.append($("<label>").text(section_18 ? "Archivo asociado al plan" : "Archivos asociados al producto: "));
-      form.append(
+      var multiFilesLabel = $("<label>").text(section_18 ? "Archivo asociado al plan" : "Archivos asociados al producto: ");
+      var multifiles = 
         $("<input>")
           .attr("type", "file")
           .attr("name", "files[]")
           .attr("multiple", "multiple")
-          .attr("style", "color:black;")
-      );
+          .attr("style", "color:black;");
+
+      if (section_18) {
+        form.append(multiFilesLabel);
+        form.append(multifiles);
+      }
+      
+      var datasheetFileLabel = $("<label>").text("Ficha tecnica del producto: ");
+      var datasheetFile = 
+        $("<input>")
+          .attr("type", "file")
+          .attr("name", "datasheetFile")
+          .attr("style", "color:black;");
+
+      var SheetFileLabel = $("<label>").text("Hoja de seguridad del producto: ");
+      var SheetFile = 
+        $("<input>")
+          .attr("type", "file")
+          .attr("name", "Sheetfile")
+          .attr("style", "color:black;");
+
+      if (!section_18) {
+        form.append(datasheetFileLabel);
+        form.append(datasheetFile);
+
+        form.append(SheetFileLabel);
+        form.append(SheetFile);
+      }
 
       var div = $("<div>").addClass(section_18 ? "hide" : "")
         .attr("id", "filters")
