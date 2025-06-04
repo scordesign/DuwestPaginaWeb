@@ -1822,7 +1822,8 @@ function getProductForUpdate(id) {
                   divData.append(input);
 
                   divData.append(
-                    $("<label>").text(element.name).attr("styles", "width:80%;")
+                    $("<label>").text(element.name)  .attr("style", "color: " + element.color + "; width:80%;")
+
                   );
 
                   divFirst.append(divData);
