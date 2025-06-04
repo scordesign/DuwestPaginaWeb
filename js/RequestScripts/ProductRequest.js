@@ -1897,7 +1897,7 @@ function getProductForUpdate(id) {
                       divData.append(
                         $("<label>")
                           .text(element.name)
-                           .attr("style", "color: " + element.color + "; width:80%;")
+                           .attr("style", "background-color: " + element.color + "; width:80%;") //Color en editar
 
                       );
 
