@@ -1104,7 +1104,7 @@ function getProducts(section, search, filters, page) {
                 .attr("class", "btn btn-danger ")
                 .html("Eliminar")
                 .attr("style", "margin-top:2%;")
-                .attr("onclick", "getProductForDelete(" + element.id + ")")
+                .attr("onclick", "event.stopPropagation(); getProductForDelete(" + element.id + ")")
             );
           }
 
@@ -2024,6 +2024,19 @@ function getProductForUpdate(id) {
 }
 
 function getProductForDelete(id) {
+
+    var section = sessionStorage
+    .getItem("currentPageID")
+    .substring(
+      sessionStorage.getItem("currentPageID").length - 2,
+      sessionStorage.getItem("currentPageID").length
+    );
+    
+    $("#formModal").html("");
+      if ($("#modalBackground").hasClass("hide") && section == 18) {
+        $("#modalBackground").toggleClass("hide");
+      }
+
   $.ajax({
     url: "aplication/RequestController.php?action=getProduct&id=" + id, // Archivo PHP que contiene la función
     type: "GET", // Método de solicitud
