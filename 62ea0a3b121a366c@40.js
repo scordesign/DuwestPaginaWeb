@@ -332,7 +332,7 @@ function _map(d3,colombiaGeoJSON)
 
 
 function _colombiaGeoJSON(d3){return(
-d3.json("https://raw.githubusercontent.com/scordesign/PageDuwest/main/colombia.geo.json")
+d3.json("https://raw.githubusercontent.com/scordesign/DuwestPaginaWeb/refs/heads/main/colombia.geo.json")
 )}
 
 function _4(html){return(
