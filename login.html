@@ -108,7 +108,7 @@
 
 			<span id="imglogo">
 
-				<a href="#intro" id="tmNavLink1" class="tm-main-nav" data-bg-img="Fondo-8.png"
+				<a href="#intro" id="tmNavLink1"style="background-image:none" class="tm-main-nav" data-bg-img="Fondo-8.png"
 					data-page="#tm-section-1">
 					<img src="img/Logo-R-Andina---Fondo-oscuro.png"></a>
 
@@ -128,8 +128,8 @@
 						id="youtube"></i></a></span>
 			<span> <a href="https://www.linkedin.com/company/duwest-región-andina-colombia/" target="_blank"><i
 						class="fab fa-linkedin-in" id="linkedin"></i></a></span>
-			 <span id="user-add"><i class="far fa-user"></i></span>
-			<span id="pqrs"> <a href="https://www.facebook.com/duwestcolombia" target="_blank">
+			 <span id="user-add"><i class="far fa-user"></i></span> 
+			<span id="pqrs"> <a href="https://kawak.com.co/duwestcom/pqrs/pqrs_form.php" target="_blank">
 					<h4 id="h4pqr">PQR</h4><img src="img/icno-Pqr-3.png">
 				</a></span>
 			<span id="bars-menu"><i id="TmMainNav" class="fas fa-bars"></i></span>
@@ -263,7 +263,8 @@
 				<!-- <img id="imgFlagMob" src="img/bandera-colombia-dispositivos.png"> -->
 				<div class="backgroundmobile"></div>
 				<div class="pqrs-mobile">
-					PQR <img src="img/icno-Pqr-3.png">
+					<a href="https://kawak.com.co/duwestcom/pqrs/pqrs_form.php">
+					PQR <img src="img/icno-Pqr-3.png"></a>
 				</div>
 				<div class="slider">
 					<div class="slides" id="slides"></div>
@@ -301,7 +302,10 @@
 							</nav>
 						</div>
 						<div class="boximg">
+								<a href="#tm-section-12" id="tmNavLink1" data-bg-img="Fondo-8.png" data-page="#tm-section-12"
+									onclick="//chargeProducts(12)">
 							<img src="img/cat1.png">
+								</a>
 						</div>
 
 						</a>
@@ -321,7 +325,11 @@
 							</nav>
 						</div>
 						<div class="boximg">
+							<a href="#tm-section-13" class="scrolly" data-bg-img="Fondo-8.png"
+									data-page="#tm-section-13" data-page-type="carousel"
+									onclick=" // chargeProductsNoF(13)">
 							<img src="img/cat2.png">
+							</a>
 						</div>
 					</div>
 					<div class="catalogo5">
@@ -338,7 +346,11 @@
 							</nav>
 						</div>
 						<div class="boximg">
+							<a href="#tm-section-19" class="scrolly" data-bg-img="Fondo-8.png"
+									data-page="#tm-section-19" data-page-type="carousel"
+									onclick="// chargeProductsNoF(14)">
 							<img src="img/BIO.jpg">
+							</a>
 						</div>
 					</div>
 					<div class="catalogo4">
@@ -354,7 +366,11 @@
 							</nav>
 						</div>
 						<div class="boximg">
-							<img src="img/semilla.png">
+								<a href="#tm-section-14" class="scrolly" data-bg-img="Fondo-8.png"
+									data-page="#tm-section-14" data-page-type="carousel"
+									onclick="// chargeProductsNoF(14)">
+									<img src="img/semilla.png">
+								</a>
 						</div>
 
 					</div>
@@ -372,7 +388,11 @@
 							</nav>
 						</div>
 						<div class="boximg">
+							<a href="#tm-section-18" class="scrolly" data-bg-img="Fondo-8.png"
+									data-page="#tm-section-18" data-page-type="carousel"
+									onclick="// chargeProductsNoF(14)">
 							<img src="img/Imagen_planes_de_uso.jpg">
+							</a>
 						</div>
 					</div>
 
@@ -1317,6 +1337,8 @@
 	<script src="js/script3.js"></script>
 	<script src="js/slide.js"></script>
 	<script src="js/MainScript.js"></script>
+	<script>console.log(window.innerWidth + " x " + window.innerHeight);</script>
+
 
 
 
