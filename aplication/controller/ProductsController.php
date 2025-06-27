@@ -687,8 +687,8 @@ class Products
             $stmt->bindParam(':proveedor', $proveedorpatch);
             $stmt->bindParam(':amountOther', $amountOther);
             
-            $stmt->bindValue(':ficha', $datasheetFile != null ? "img/prueba/" . $name . "/files/" . basename($Sheetfile["name"]) : "");
-            $stmt->bindValue(':hoja', $Sheetfile != null ? "img/prueba/" . $name . "/files/" . basename($datasheetFile["name"]) : "" );
+            $stmt->bindValue(':ficha', $datasheetFile != null ? "img/prueba/" . $name . "/files/" . basename($datasheetFile["name"]) : "");
+            $stmt->bindValue(':hoja', $Sheetfile != null ? "img/prueba/" . $name . "/files/" . basename($Sheetfile["name"]) : "" );
             // Ejecutar la sentencia SQL con los valores correspondientes
             $stmt->execute();
 
