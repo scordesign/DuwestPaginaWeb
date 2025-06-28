@@ -123,8 +123,6 @@ function searchCell(param, event) {
 function addProduct() {
   $("#modalBackground").toggleClass("hide");
   var section_18 = sessionStorage.getItem("currentPageID") == "#tm-section-18";
-  console.log(section_18);
-  console.log(section_18 ? "hide" : "");
   getSession()
     .then(function (session) {
       $("#formModal").html("");
@@ -1366,15 +1364,18 @@ function getProduct(id) {
           .replaceAll("{", "")
           .replaceAll("}", "")
           .split(",");
-
+        
         for (var element in filters) {
           var filtersProductElement = $(
             "#CheckboxFilter" + section + "-" + element
           );
-          if (typeof filtersProductElement === 'undefined') {
+
+          
+          
+          if (typeof filtersProductElement.attr("data") === 'undefined') {
             continue;
           }
-          if (filtersProductElement.attr("data") != "Casa comercial") {
+          if (filtersProductElement.attr("data") == "Casa comercial") {
             continue;
           }
           if (filtersProduct.includes(filtersProductElement.attr("data"))) {
@@ -1395,6 +1396,7 @@ function getProduct(id) {
                 filtersProduct.length
               ) +
               ", ";
+              
           } else {
             filtersProduct +=
               "  " +
@@ -1402,10 +1404,11 @@ function getProduct(id) {
               ": " +
               filtersProductElement.attr("name") +
               ", ";
+              
           }
 
         }
-
+        
         filtersProduct = filtersProduct.replaceAll(", 0", " ");
         filtersProduct = filtersProduct.endsWith(", ")
           ? filtersProduct.substring(0, filtersProduct.length - 2)
@@ -1416,7 +1419,6 @@ function getProduct(id) {
             .replaceAll("0", " ")
           : filtersProduct.replaceAll("0", " ");
 
-        console.log(filtersProduct);
 
         filtersProduct = filtersProduct.replaceAll(",  ", "<br>");
         filtersProduct = filtersProduct.replaceAll(", ,", "");
@@ -1425,7 +1427,6 @@ function getProduct(id) {
           ? filtersProduct.substring(0, filtersProduct.length - 2)
           : filtersProduct;
 
-        console.log(filtersProduct);
 
         divInfo.append(
           $("<p>")
