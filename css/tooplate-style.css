@@ -3929,7 +3929,7 @@ height: 24%;
         color: white;
         font-size: 200%;
         display: block;
-        bottom: 16%;
+        bottom: 10%;
     }
     
     .mision{
@@ -4086,7 +4086,7 @@ height: 24%;
         display: block;
         left: 34%;
         position: fixed;
-        bottom: 19%;
+        bottom: 15%;
     }
     .parrafo-mision p {
         font-size: 1rem;
@@ -4641,9 +4641,9 @@ height: 24%;
     }
 
     #imglogo1 img {
-        display: block;
-        width: 350%;
-        margin-left: -200%;
+       display: block;
+        width: 20%;
+        margin-left: 0%;
         padding-left: 1%;
     }
    #imglogo img {
