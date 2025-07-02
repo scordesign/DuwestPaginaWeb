@@ -4643,7 +4643,8 @@ height: 24%;
     #imglogo1 img {
         display: block;
         width: 350%;
-        margin-left: -220%;
+        margin-left: -200%;
+        padding-left: 1%;
     }
    #imglogo img {
         display: none;
