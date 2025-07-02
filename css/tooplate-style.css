@@ -60,7 +60,9 @@ http://www.tooplate.com/view/2102-constructive
 #loaderpage{
     overflow: hidden;
 }
-
+   #imglogo1 img {
+        display: none;
+    }
 .collapse{
     color: black;
 }
@@ -2838,7 +2840,7 @@ button {
     text-align: center;
     color: white;
     font-family: 'Centuri Gothic', sans-serif;
-    font-size: calc(1.6vh + 1.6vw) ;
+    font-size: calc(1.2vh + 1.2vw) ;
 }
 
 .divProduct div {
@@ -4062,7 +4064,7 @@ height: 24%;
         font-weight: lighter;
     }
         .boximg {
-        top: 10%;
+        top: -13%;
         margin-left: 70%;
     }
         .boximg img {
@@ -4084,7 +4086,7 @@ height: 24%;
         display: block;
         left: 34%;
         position: fixed;
-        bottom: 22%;
+        bottom: 19%;
     }
     .parrafo-mision p {
         font-size: 1rem;
@@ -4638,11 +4640,14 @@ height: 24%;
         top: 40%;
     }
 
-    #imglogo img {
-        width: 65%;
-        margin-left: 8%;
+    #imglogo1 img {
+        display: block;
+        width: 350%;
+        margin-left: -220%;
     }
-
+   #imglogo img {
+        display: none;
+    }
     /* #dropDownBar {
                position: fixed;
         bottom: 24%;
@@ -4657,6 +4662,7 @@ height: 24%;
         width: 100%;
         left: 0%;
         padding: 0px;
+        top:10%;
         /* height: 100%; */
     }
 
@@ -4756,7 +4762,7 @@ height: 24%;
         width: 75%;
         position: relative;
         float: center;
-        top: 53%;
+        top: 25%;
         /* right: 12.5%; */
         border-radius: 10px;
         text-align: center;
