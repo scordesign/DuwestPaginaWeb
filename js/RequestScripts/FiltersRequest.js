@@ -217,7 +217,6 @@ function ProcessFilter(id, action) {
           $("<input>")
             .attr("type", "text")
             .attr("name", "color")
-            .attr("required", "required")
         ); // Nuevo campo color
 
         form.append($("<label>").text("Módulo usado: "));
