@@ -302,7 +302,7 @@ p:last-child {
 
 #tmSideBar span {
 
-    margin: 1% 1.2%;
+    margin: 1% 0.7%;
 }
 
 #tmSideBar span i {
@@ -4641,13 +4641,13 @@ height: 24%;
     }
 
     #imglogo1 img {
-      display: block;
-        width: 17%;
+        display: block;
+        width: 12.5%;
         margin-left: 0%;
         padding-left: 0%;
         position: fixed;
-        left: 2%;
-        bottom: 8%;
+        left: 1.5%;
+        bottom: 19%;
     }
    #imglogo img {
         display: none;
