@@ -4641,10 +4641,13 @@ height: 24%;
     }
 
     #imglogo1 img {
-       display: block;
-        width: 20%;
+      display: block;
+        width: 17%;
         margin-left: 0%;
-        padding-left: 1%;
+        padding-left: 0%;
+        position: fixed;
+        left: 2%;
+        bottom: 8%;
     }
    #imglogo img {
         display: none;
