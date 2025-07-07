@@ -60,9 +60,9 @@ http://www.tooplate.com/view/2102-constructive
 #loaderpage{
     overflow: hidden;
 }
-   #imglogo1 img {
+    /* #imglogo1 img {
         display: none;
-    }
+    }  */
 .collapse{
     color: black;
 }
@@ -412,8 +412,13 @@ p:last-child {
 }
 
 #imglogo img {
+    display: inline-block;
     width: 8vw;
 }
+/* #imglogo1 {
+  display: none;
+} */
+
 #closemenu{
     display: none;
 }
@@ -3316,7 +3321,14 @@ height: 24%;
 #closemenu{
     display: none;
 }
-
+@media (min-width: 768px) {
+  #imglogo {
+    display: inline-block;
+  }
+  #imglogo1 {
+    display: none;
+  }
+}
 @media (max-width: 1800px) {
     .tm-section {
         margin-right: auto;
@@ -3838,6 +3850,10 @@ height: 24%;
 
 @media (max-width: 600px) {
 
+
+    #imglogo img {
+    width: 25vw;
+}
     #products2-18 .divProduct {
         cursor: pointer;
         width: 80%;
@@ -4641,17 +4657,17 @@ height: 24%;
     }
 
     #imglogo1 img {
-        display: block;
-        width: 12.5%;
+        display: inline-block;
+        width: 11%;
         margin-left: 0%;
         padding-left: 0%;
         position: fixed;
         left: 1.5%;
         bottom: 19%;
     }
-   #imglogo img {
+   /* #imglogo img {
         display: none;
-    }
+    } */
     /* #dropDownBar {
                position: fixed;
         bottom: 24%;

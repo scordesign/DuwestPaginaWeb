@@ -465,6 +465,9 @@ function changePage(currentNavItem) {
   // Change background image
   var bgImg = currentNavItem.data("bgImg");
   $.backstretch("img/" + bgImg);
+
+  updateLogoBasedOnSection(); 
+
 }
 
 // Setup Nav Toggle Button
@@ -526,6 +529,7 @@ $(window).on("load", function () {
     $(sessionStorage.getItem("currentPageID")).fadeIn();
 
     SetInfoSection(sessionStorage.getItem("currentPageID"));
+    updateLogoBasedOnSection(); 
 
     // Set up background first page
     var bgImg = $("#tmNavLink1").data("bgImg");
@@ -544,4 +548,26 @@ $(window).on("load", function () {
       setupFooter();
     });
   }
+ 
+
 });
+
+ function updateLogoBasedOnSection() {
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const currentSectionID = sessionStorage.getItem("currentPageID");
+  console.log("updateLogoBasedOnSection: isMobile=", isMobile, "currentSectionID=", currentSectionID);
+
+  // IDs de secciones especiales donde quieres mostrar imglogo1
+  const specialSections = ["#tm-section-12", "#tm-section-13", "#tm-section-14", "#tm-section-16", "#tm-section-18", "#tm-section-19"];
+
+  if (isMobile && specialSections.includes(currentSectionID)) {
+        console.log("Mostrando imglogo1");
+    document.getElementById('imglogo').style.display = 'none';
+    document.getElementById('imglogo1').style.display = 'inline-block';
+  } else if (isMobile) {
+        console.log("Mostrando imglogo");
+    document.getElementById('imglogo').style.display = 'inline-block';
+    document.getElementById('imglogo1').style.display = 'none';
+  }
+}
+
