@@ -326,7 +326,7 @@ function ProcessUser(id, action) {
         session = JSON.parse(session);
 
         if (!session.adminUser) {
-            alert("No tiene permisos par realizar esta acción");
+            alert("No tiene permisos para realizar esta acción");
             return;
         }
 
