@@ -1,5 +1,5 @@
 <?php
-require_once str_replace("controller", "service", __DIR__).'\ProductsService.php';
+var_dump(require_once str_replace("controller", "service", __DIR__).'\ProductsService.php');
 
 
 class ProductsController
