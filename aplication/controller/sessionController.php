@@ -1,30 +1,24 @@
 <?php
-class session
+require_once str_replace("controller", "service", __DIR__).'\sessionService.php';
+
+class sessionController
 {
+    private $session;
+
 
     public function __construct()
     {
+         $this->session = new session();
     }
 
     function getSession(): string
     {
-        
-        if (session_status() != PHP_SESSION_NONE) {
-            $return = json_encode($_SESSION);
-            echo $return;
-            return $return;
-        }
-        return "";
+        return $this->session->getSession();
     }
     
     function destroySession(): String
     {
-        if (session_status() != PHP_SESSION_NONE) {
-            reset($_SESSION);
-            session_destroy();
-            return "true";
-        }
-        return "false";
+        return $this->session->destroySession();
     }
     
 

@@ -9,12 +9,12 @@ require_once ('controller/NewsController.php');
 require_once ('controller/AmountsController.php');
 require_once ('connection/Connection.php');
 
-$users = new users();
-$Products = new Products();
-$news = new News();
-$Filters = new Filters();
-$session = new session();
-$Amounts = new Amounts();
+$users = new usersController();
+$Products = new ProductsController();
+$news = new NewsController();
+$Filters = new FiltersController();
+$session = new sessionController();
+$Amounts = new AmountsController();
 
 switch (strtolower($_SERVER["REQUEST_METHOD"])) {
     case "post":
