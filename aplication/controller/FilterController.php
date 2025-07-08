@@ -1,5 +1,5 @@
 <?php
-require_once str_replace("controller", "service", __DIR__).'\FilterService.php';
+require_once str_replace("controller", "service", str_replace("/", "\\", __DIR__)).'\FilterService.php';
 class FiltersController
 {
     private $Filters ;
@@ -7,7 +7,7 @@ class FiltersController
     
     public function __construct()
     {
-        $this->Filters = new Filters();
+        $this->Filters = new FiltersService();
     }
  
 

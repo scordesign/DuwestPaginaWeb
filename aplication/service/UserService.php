@@ -1,6 +1,6 @@
 <?php
-require_once str_replace("service", "helpers", __DIR__).'\Helpers.php';
-class users
+require_once str_replace("service", "helpers", str_replace("/", "\\", __DIR__)).'\Helpers.php';
+class usersService
 {
     private $Helpers ;
 

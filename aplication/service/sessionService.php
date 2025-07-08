@@ -1,5 +1,5 @@
 <?php
-class session
+class sessionService
 {
 
     public function __construct()
