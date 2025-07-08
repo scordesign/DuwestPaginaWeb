@@ -1,5 +1,5 @@
 <?php
-require_once str_replace("controller", "service", __DIR__).'\UserService.php';
+require_once str_replace("controller", "service", str_replace("/", "\\", __DIR__)).'\UserService.php';
 
 class usersController
 {
@@ -8,7 +8,7 @@ class usersController
 
     public function __construct()
     {
-        $this->users = new users();
+        $this->users = new usersService();
     }
 
     public function LogUser(): string

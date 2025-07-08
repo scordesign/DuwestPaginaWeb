@@ -1,5 +1,5 @@
 <?php
-class Amounts
+class AmountsService
 {
 
 

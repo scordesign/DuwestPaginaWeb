@@ -1,5 +1,5 @@
 <?php
-require_once str_replace("controller", "service", __DIR__).'\sessionService.php';
+require_once str_replace("controller", "service", str_replace("/", "\\", __DIR__)).'\sessionService.php';
 
 class sessionController
 {
@@ -8,7 +8,7 @@ class sessionController
 
     public function __construct()
     {
-         $this->session = new session();
+         $this->session = new sessionService();
     }
 
     function getSession(): string

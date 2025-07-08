@@ -1,5 +1,5 @@
 <?php
-require_once str_replace("controller", "service", __DIR__).'\AmountsService.php';
+require_once str_replace("controller", "service", str_replace("/", "\\", __DIR__)).'\AmountsService.php';
 
 class AmountsController
 {
@@ -8,7 +8,7 @@ class AmountsController
       
     public function __construct()
     {
-        $this->Amounts = new Amounts();
+        $this->Amounts = new AmountsService();
     }
 
     public function getAmounts(): string

@@ -1,5 +1,5 @@
 <?php
-require_once str_replace("controller", "service", __DIR__).'\NewsService.php';
+require_once str_replace("controller", "service", str_replace("/", "\\", __DIR__)).'\NewsService.php';
 class NewsController
 {
     private $News;
@@ -7,7 +7,7 @@ class NewsController
 
     public function __construct()
     {
-        $this->News = new News();
+        $this->News = new NewsService();
     }
 
     public function deleteImg(): string
