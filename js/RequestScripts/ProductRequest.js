@@ -1,3 +1,11 @@
+function debounce(func, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
 $(function () {
   $("#searchMenu").keyup(function (event) {
     pageId = sessionStorage
@@ -2274,3 +2282,18 @@ function seeFilters(event) {
   $(".filter-product").toggleClass("hideCell");
   searchCell(0, event);
 }
+document.addEventListener("DOMContentLoaded", function () {
+  const inputs = document.querySelectorAll("input[id^='searchMenuCell']");
+
+  inputs.forEach(input => {
+    const id = input.id;
+    const match = id.match(/searchMenuCell(\d+)/);
+    if (match) {
+      const param = parseInt(match[1]);
+
+      input.addEventListener("keyup", debounce(function (event) {
+        searchCell(param, event);
+      }, 300));
+    }
+  });
+});
