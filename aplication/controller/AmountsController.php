@@ -46,6 +46,7 @@ class Amounts
 
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
+echo "<pre>Usando host: " . $_ENV['DB_HOST'] . "</pre>";
 
 
             if ($_POST["name"] === null) {

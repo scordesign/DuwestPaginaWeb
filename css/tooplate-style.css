@@ -3351,6 +3351,13 @@ height: 24%;
 
 }
 }
+@media (max-width: 1422px) and (min-height: 650px){
+     .boximg {
+    top: 18%;
+    margin-left: 24%;
+
+}
+}
 @media screen and (max-width: 400px) {
     .policy {
        

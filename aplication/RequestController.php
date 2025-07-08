@@ -7,7 +7,9 @@ require_once ('controller/FilterController.php');
 require_once ('controller/sessionController.php');
 require_once ('controller/NewsController.php');
 require_once ('controller/AmountsController.php');
-require_once ('connection/Connection.php');
+require_once 'aplication/connection/connection.php';
+require_once 'aplication/env.php';
+
 
 $users = new users();
 $Products = new Products();
