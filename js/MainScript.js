@@ -447,7 +447,7 @@ function changePage(currentNavItem) {
   // Update Nav items
   $(".tm-main-nav a").removeClass("active");
   currentNavItem.addClass("active");
-  console.log("llego aca");
+  // console.log("llego aca");
 
   SetInfoSection(currentNavItem.data().page);
   if (currentNavItem.data("page") != "#popup-container") {
@@ -555,17 +555,17 @@ $(window).on("load", function () {
  function updateLogoBasedOnSection() {
   const isMobile = window.matchMedia("(max-width: 767px)").matches;
   const currentSectionID = sessionStorage.getItem("currentPageID");
-  console.log("updateLogoBasedOnSection: isMobile=", isMobile, "currentSectionID=", currentSectionID);
+  // console.log("updateLogoBasedOnSection: isMobile=", isMobile, "currentSectionID=", currentSectionID);
 
   // IDs de secciones especiales donde quieres mostrar imglogo1
   const specialSections = ["#tm-section-12", "#tm-section-13", "#tm-section-14", "#tm-section-16", "#tm-section-18", "#tm-section-19"];
 
   if (isMobile && specialSections.includes(currentSectionID)) {
-        console.log("Mostrando imglogo1");
+        // console.log("Mostrando imglogo1");
     document.getElementById('imglogo').style.display = 'none';
     document.getElementById('imglogo1').style.display = 'inline-block';
   } else if (isMobile) {
-        console.log("Mostrando imglogo");
+        // console.log("Mostrando imglogo");
     document.getElementById('imglogo').style.display = 'inline-block';
     document.getElementById('imglogo1').style.display = 'none';
   }
