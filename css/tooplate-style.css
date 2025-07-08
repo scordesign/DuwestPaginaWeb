@@ -159,7 +159,7 @@ body {
     z-index: 9999;
 }
 
-#preload-01 {
+/* #preload-01 {
     background: url(../img/Fondo-1.png) no-repeat -9999px -9999px;
 }
 
@@ -173,7 +173,7 @@ body {
 
 #preload-04 {
     background: url(../img/constructive_bg_04.jpg) no-repeat -9999px -9999px;
-}
+} */
 
 ul {
     margin: 0;
