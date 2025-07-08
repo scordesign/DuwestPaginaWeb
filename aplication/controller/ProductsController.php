@@ -1,5 +1,5 @@
 <?php
-require_once str_replace("controller", "service", str_replace("/", "\\", __DIR__)).'\ProductsService.php';
+require_once str_replace("controller", "service", str_replace("\\", "/", __DIR__)).'/ProductsService.php';
 
 
 class ProductsController
