@@ -1,13 +1,13 @@
 <?php
 session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once ('controller/ProductsController.php');
-require_once ('controller/UserController.php');
-require_once ('controller/FilterController.php');
-require_once ('controller/sessionController.php');
-require_once ('controller/NewsController.php');
-require_once ('controller/AmountsController.php');
-require_once ('connection/Connection.php');
+require_once 'controller/ProductsController.php';
+require_once 'controller/UserController.php';
+require_once 'controller/FilterController.php';
+require_once 'controller/sessionController.php';
+require_once 'controller/NewsController.php';
+require_once 'controller/AmountsController.php';
+require_once 'connection/Connection.php';
 
 $users = new usersController();
 $Products = new ProductsController();
@@ -82,7 +82,7 @@ switch (strtolower($_SERVER["REQUEST_METHOD"])) {
     case "get":
         switch ($_GET["action"]) {
             case "getSession":
-                $session->getSession();
+                echo $session->getSession();
                 break;
             case "destroySession":
                 echo $session->destroySession();

@@ -11,6 +11,7 @@ class AmountsService
     {
         $resultado = array();
         try {
+
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
 
@@ -42,7 +43,13 @@ class AmountsService
     {
         $returnFields = array();
         try {
-
+            if (!isset($_SESSION['user'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
 
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
@@ -142,7 +149,13 @@ class AmountsService
         $returnFields = array();
         try {
 
-
+            if (!isset($_SESSION['user'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
 
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
@@ -210,7 +223,13 @@ class AmountsService
     {
         $returnFields = array();
         try {
-
+            if (!isset($_SESSION['user'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
 
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();

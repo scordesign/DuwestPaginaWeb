@@ -11,12 +11,12 @@ class sessionController
          $this->session = new sessionService();
     }
 
-    function getSession(): string
+    public function getSession(): string
     {
         return $this->session->getSession();
     }
     
-    function destroySession(): String
+    public function destroySession(): String
     {
         return $this->session->destroySession();
     }

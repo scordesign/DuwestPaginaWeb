@@ -6,7 +6,8 @@ $(function () {
 
 
         getSession().then(function (session) {
-            if (session !== "[]" && session !== "") {
+            
+            if (session.trim() !== "[]") {
                 session = JSON.parse(session);
 
                 var form = $("<form>").attr("id", "miFormulario");
@@ -251,7 +252,7 @@ function closeUser() {
             $("#alerta").removeClass("bg-danger");
             $("#alerta").removeClass("bg-warning");
 
-            if (response == "true") {
+            if (response.trim() === "true") {
                 $("#alerta").html("sesión cerrada");
                 $("#alerta").addClass("bg-success");
             } else {

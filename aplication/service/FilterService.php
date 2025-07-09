@@ -1,5 +1,4 @@
 <?php
-
 require_once str_replace("service", "helpers", str_replace("\\", "/", __DIR__)).'/Helpers.php';
 
 class FiltersService
@@ -15,6 +14,7 @@ class FiltersService
 
     public function getFilters(): String
     {
+
         $returnFields = array();
         try {
             $conexion = new Conexion();
@@ -61,6 +61,13 @@ class FiltersService
     {
         $returnFields = array();
         try {
+            if (!isset($_SESSION['users'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
 
 
             $conexion = new Conexion();
@@ -141,7 +148,13 @@ class FiltersService
     {
         $returnFields = array();
         try {
-
+            if (!isset($_SESSION['users'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
 
 
             $conexion = new Conexion();
@@ -207,7 +220,13 @@ class FiltersService
         $returnFields = array();
         $sSql="";
         try {
-
+            if (!isset($_SESSION['users'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
 
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();

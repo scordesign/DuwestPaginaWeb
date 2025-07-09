@@ -12,7 +12,13 @@ class NewsService
         $returnFields = array();
         try {
 
-
+            if (!isset($_SESSION['user'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
 
@@ -88,8 +94,16 @@ class NewsService
 
     public function editNew(): string
     {
+        
         $returnFields = array();
         try {
+            if (!isset($_SESSION['user'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
             $filesNames = array();
             $imagesNames = array();
 

@@ -64,16 +64,13 @@ class usersService
             }
 
 
-            $passwordEncrypt = hash('sha256', $resultado['key'] . $password);
-
-            if ($passwordEncrypt !== $resultado['password']) {
+            if (!password_verify($password, $resultado['password'])) {
                 $returnFields["status"] = 406;
                 $returnFields["message"] = "Contraseña incorrecta";
 
                 $returnUsuario = json_encode($returnFields);
                 return $returnUsuario;
             }
-
 
 
             $returnFields["status"] = 200;
@@ -104,6 +101,14 @@ class usersService
         $returnFields = array();
 
         try {
+
+            if (!isset($_SESSION['user'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
 
             $mail = ($_POST["mail"] === null) ? "" : $_POST["mail"];
             $user = ($_POST["user"] === null) ? "" : $_POST["user"];
@@ -165,19 +170,17 @@ class usersService
 
 
             // Preparar la sentencia SQL de inserción
-            $stmt = $pdo->prepare("INSERT INTO users (`mail`, `user`,`name`,`password`,`key`) VALUES (:mail , :user , :name , :password , :sal )");
+            $stmt = $pdo->prepare("INSERT INTO users (`mail`, `user`,`name`,`password`) VALUES (:mail , :user , :name , :password )");
 
 
 
-            $sal = bin2hex(random_bytes(16));
 
-            $passwordEncrypt = hash('sha256', $sal . $password);
+            $passwordEncrypt = password_hash($password, PASSWORD_DEFAULT);
 
             $stmt->bindParam(':mail', $mail);
             $stmt->bindParam(':user', $user);
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':password', $passwordEncrypt);
-            $stmt->bindParam(':sal', $sal);
             // Ejecutar la sentencia SQL con los valores correspondientes
             $stmt->execute();
 
@@ -202,6 +205,13 @@ class usersService
     {
         $returnFields = array();
         try {
+            if (!isset($_SESSION['user'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
 
@@ -236,6 +246,14 @@ class usersService
     {
         $returnFields = array();
         try {
+
+            if (!isset($_SESSION['user'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
 
 
             $conexion = new Conexion();
@@ -332,6 +350,14 @@ class usersService
     {
         $returnFields = array();
         try {
+
+            if (!isset($_SESSION['user'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
 
 
 

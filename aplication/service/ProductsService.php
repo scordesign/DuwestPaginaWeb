@@ -1,11 +1,10 @@
 <?php
-
-require_once str_replace("service", "helpers", str_replace("\\", "/", __DIR__)).'/Helpers.php';
+require_once str_replace("service", "helpers", str_replace("\\", "/", __DIR__)) . '/Helpers.php';
 
 class ProductsService
 {
 
-    private $Helpers ;
+    private $Helpers;
 
     public function __construct()
     {
@@ -18,7 +17,13 @@ class ProductsService
     {
         $returnFields = array();
         try {
+            if (!isset($_SESSION['users'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
 
+                return json_encode($returnProduct);
+            }
 
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
@@ -102,7 +107,13 @@ class ProductsService
     {
         $returnFields = array();
         try {
+            if (!isset($_SESSION['users'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
 
+                return json_encode($returnProduct);
+            }
 
             $conexion = new Conexion();
             $pdo = $conexion->obtenerConexion();
@@ -174,6 +185,13 @@ class ProductsService
     {
         $returnFields = array();
         try {
+            if (!isset($_SESSION['users'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
             $filesNames = array();
             $imagesNames = array();
 
@@ -401,6 +419,13 @@ class ProductsService
         $imgList = array();
         $fileList = array();
         try {
+            if (!isset($_SESSION['users'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
 
 
 
@@ -506,6 +531,13 @@ class ProductsService
     {
         $returnFields = array();
         try {
+            if (!isset($_SESSION['users'])) {
+                $returnFields["status"] = 403;
+                $returnFields["message"] = "Acceso denegado";
+                $returnProduct = ($returnFields);
+                
+                return json_encode($returnProduct);
+            }
             $filesNames = array();
             $imagesNames = array();
 
@@ -521,10 +553,10 @@ class ProductsService
                 'size' => []
             ];
 
-            $Sheetfile = ($_FILES["Sheetfile"]) ?? null ;
-            $datasheetFile = ($_FILES["datasheetFile"]) ?? null ;
+            $Sheetfile = ($_FILES["Sheetfile"]) ?? null;
+            $datasheetFile = ($_FILES["datasheetFile"]) ?? null;
 
-            if ($Sheetfile != null ) {
+            if ($Sheetfile != null) {
                 $files['name'][] = $Sheetfile["name"];
                 $files['type'][] = $Sheetfile["type"];
                 $files['tmp_name'][] = $Sheetfile["tmp_name"];
@@ -681,9 +713,9 @@ class ProductsService
             $stmt->bindParam(':logo', $logopatch);
             $stmt->bindParam(':proveedor', $proveedorpatch);
             $stmt->bindParam(':amountOther', $amountOther);
-            
+
             $stmt->bindValue(':ficha', $datasheetFile != null ? "img/prueba/" . $name . "/files/" . basename($datasheetFile["name"]) : "");
-            $stmt->bindValue(':hoja', $Sheetfile != null ? "img/prueba/" . $name . "/files/" . basename($Sheetfile["name"]) : "" );
+            $stmt->bindValue(':hoja', $Sheetfile != null ? "img/prueba/" . $name . "/files/" . basename($Sheetfile["name"]) : "");
             // Ejecutar la sentencia SQL con los valores correspondientes
             $stmt->execute();
 
@@ -713,6 +745,8 @@ class ProductsService
         $returnFields = array();
         $Ssql = "";
         try {
+
+
             $page = !isset($_GET["page"]) ? 1 : $_GET["page"];
             $section = !isset($_GET["section"]) ? "" : "#" . $_GET["section"];
             $filters = !isset($_GET["filters"]) ? "" : substr($_GET["filters"], 0, strlen($_GET["filters"]) - 1);

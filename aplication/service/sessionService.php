@@ -6,20 +6,19 @@ class sessionService
     {
     }
 
-    function getSession(): string
+    public function getSession(): string
     {
         
-        if (session_status() != PHP_SESSION_NONE) {
+        if (isset($_SESSION['user'])) {
             $return = json_encode($_SESSION);
-            echo $return;
             return $return;
         }
-        return "";
+        return "[]";
     }
     
-    function destroySession(): String
+    public function destroySession(): String
     {
-        if (session_status() != PHP_SESSION_NONE) {
+        if (isset($_SESSION['user'])) {
             reset($_SESSION);
             session_destroy();
             return "true";
