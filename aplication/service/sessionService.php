@@ -8,7 +8,6 @@ class sessionService
 
     public function getSession(): string
     {
-        
         if (isset($_SESSION['user'])) {
             $return = json_encode($_SESSION);
             return $return;

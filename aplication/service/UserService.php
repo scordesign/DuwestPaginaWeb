@@ -82,7 +82,6 @@ class usersService
             $_SESSION['adminUser'] = boolval($resultado['adminUser']);
             $_SESSION['started'] = true;
 
-
             $returnUsuario = json_encode($returnFields);
             return $returnUsuario;
 
