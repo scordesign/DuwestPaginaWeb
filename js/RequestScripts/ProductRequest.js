@@ -683,6 +683,19 @@ function addProduct() {
         $("body").toggleClass("loaded");
 
         event.preventDefault(); // Prevenir el envío del formulario normal
+        // 🚨 Validación de archivos
+  const allowedExtensions = ["jpg", "jpeg", "png", "pdf"];
+  const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
+
+  for (let input of this.querySelectorAll('input[type="file"]')) {
+    for (let file of input.files) {
+      const fileExt = file.name.split('.').pop().toLowerCase();
+      if (!allowedExtensions.includes(fileExt) || !allowedTypes.includes(file.type)) {
+        alert(`El archivo ${file.name} no es válido.`);
+        return;
+      }
+    }
+  }
         formData = new FormData(this);
         // Hacer una llamada AJAX al archivo PHP
         $.ajax({
@@ -1972,6 +1985,49 @@ function getProductForUpdate(id) {
           $("#miFormulario").submit(function (event) {
             $("body").toggleClass("loaded");
             event.preventDefault(); // Prevenir el envío del formulario normal
+
+            // VALIDACIÓN DE ARCHIVOS
+const allowedImageTypes = ["image/jpeg", "image/png", "image/webp"];
+const allowedFileTypes = [
+  "application/pdf", "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+];
+const maxSizeMB = 5;
+
+function validarArchivos(input, tiposPermitidos, nombreCampo) {
+  const files = input.files;
+  for (let i = 0; i < files.length; i++) {
+    if (!tiposPermitidos.includes(files[i].type)) {
+      alert(`Archivo no válido en ${nombreCampo}: ${files[i].name}`);
+      return false;
+    }
+    if (files[i].size > maxSizeMB * 1024 * 1024) {
+      alert(`Archivo demasiado grande en ${nombreCampo}: ${files[i].name} (${(files[i].size / 1024 / 1024).toFixed(2)}MB)`);
+      return false;
+    }
+  }
+  return true;
+}
+
+// Validar imágenes
+if (!validarArchivos(document.querySelector('input[name="images[]"]'), allowedImageTypes, "Imágenes del producto")) return;
+
+// Validar logo
+if (!validarArchivos(document.querySelector('input[name="logo"]'), allowedImageTypes, "Logo del producto")) return;
+
+// Validar proveedor
+if (!validarArchivos(document.querySelector('input[name="proveedor"]'), allowedImageTypes, "Logo del proveedor")) return;
+
+// Validar hoja de seguridad
+if (!validarArchivos(document.querySelector('input[name="Sheetfile"]'), allowedFileTypes, "Hoja de seguridad")) return;
+
+// Validar ficha técnica
+if (!validarArchivos(document.querySelector('input[name="datasheetFile"]'), allowedFileTypes, "Ficha técnica")) return;
+
+// Validar archivos generales
+if (!validarArchivos(document.querySelector('input[name="files[]"]'), allowedFileTypes, "Archivos asociados")) return;
+
+
             formData = new FormData(this);
             // Hacer una llamada AJAX al archivo PHP
             $.ajax({
