@@ -17,3 +17,6 @@ img/prueba
 img/amounts
 .DS_Store
 .env
+.php.ii
+.htaccess
+dataBase/
