@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /login/
+Disallow: /aplication/
 Sitemap: https://localhost/sitemap.xml
